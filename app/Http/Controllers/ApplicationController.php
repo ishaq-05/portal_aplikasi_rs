@@ -9,18 +9,18 @@ class ApplicationController extends Controller
 {
     public function index(Request $request)
     {
-        $search = $request->input('search');
+        $query = Application::query();
 
-        $applications = Application::where('is_active', true)
-            ->when($search, function ($query) use ($search) {
-                $query->where('name', 'like', '%' . $search . '%');
-            })
-            ->orderBy('name')
-            ->get();
+        if ($request->has('search') && $request->search != '') {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
 
-        return view('applications.index', compact(
-            'applications',
-            'search'
-        ));
+        // Ambil semua aplikasi
+        $applications = $query->get();
+
+        // Ambil 3 aplikasi terbaru untuk section Aplikasi Populer
+        $popularApplications = Application::latest()->take(3)->get();
+
+        return view('welcome', compact('applications', 'popularApplications'));
     }
 }
