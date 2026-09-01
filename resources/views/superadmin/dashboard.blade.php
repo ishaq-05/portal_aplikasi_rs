@@ -832,7 +832,7 @@
             <div class="usage-box">
 
                 <div class="usage-box-title">
-                    Aplikasi yang Pernah Digunakan
+                    Aplikasi Yang Pernah Digunakan
                 </div>
 
                 <div class="usage-number">
@@ -859,7 +859,7 @@
         <div class="chart-container">
 
             <div class="chart-title">
-                Tren Penggunaan 6 Bulan Terakhir
+                Trend Penggunaan 6 Bulan Terakhir
             </div>
 
 
