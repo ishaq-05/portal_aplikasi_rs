@@ -56,31 +56,6 @@
         }
 
 
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-
-        .dashboard-button {
-            display: inline-block;
-            padding: 11px 18px;
-            border: 1px solid #d1d5db;
-            border-radius: 9px;
-            color: #17365d;
-            text-decoration: none;
-            font-weight: bold;
-            background: #ffffff;
-            transition: 0.2s;
-        }
-
-
-        .dashboard-button:hover {
-            background: #f3f4f6;
-        }
-
-
         /* =========================================================
            CONTAINER
         ========================================================= */
@@ -585,18 +560,6 @@
 
         </div>
 
-
-        <div class="header-right">
-
-            <a
-                href="{{ route('applications.index') }}"
-                class="dashboard-button"
-            >
-                🌐 Lihat Portal
-            </a>
-
-        </div>
-
     </div>
 
 </header>
@@ -832,7 +795,7 @@
             <div class="usage-box">
 
                 <div class="usage-box-title">
-                    Aplikasi Yang Pernah Digunakan
+                    Aplikasi yang Pernah Digunakan
                 </div>
 
                 <div class="usage-number">
@@ -859,7 +822,7 @@
         <div class="chart-container">
 
             <div class="chart-title">
-                Trend Penggunaan 6 Bulan Terakhir
+                Tren Penggunaan 6 Bulan Terakhir
             </div>
 
 
