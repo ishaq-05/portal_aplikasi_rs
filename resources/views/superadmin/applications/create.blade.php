@@ -12,6 +12,7 @@
 
     <title>Tambah Aplikasi</title>
 
+
     <style>
 
         * {
@@ -20,41 +21,56 @@
             padding: 0;
         }
 
+
         body {
             font-family: Arial, sans-serif;
             background: #f5f7fb;
             color: #172033;
         }
 
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
         .navbar {
             height: 70px;
 
-            background: white;
+            background: #ffffff;
 
             border-bottom: 1px solid #e5e7eb;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             padding: 0 40px;
         }
 
+
         .brand {
             display: flex;
+
             align-items: center;
+
             gap: 12px;
         }
+
 
         .brand-icon {
             width: 42px;
             height: 42px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             background: #0f766e;
+
             color: white;
 
             border-radius: 10px;
@@ -62,16 +78,24 @@
             font-size: 20px;
         }
 
+
         .brand h2 {
             font-size: 18px;
         }
 
+
         .brand p {
             font-size: 12px;
+
             color: #6b7280;
 
             margin-top: 3px;
         }
+
+
+        /* =========================================================
+           CONTAINER
+        ========================================================= */
 
         .container {
             max-width: 850px;
@@ -81,9 +105,15 @@
             padding: 0 25px;
         }
 
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
         .header {
             margin-bottom: 25px;
         }
+
 
         .header h1 {
             font-size: 30px;
@@ -91,9 +121,17 @@
             margin-bottom: 8px;
         }
 
+
         .header p {
             color: #6b7280;
+
+            line-height: 1.6;
         }
+
+
+        /* =========================================================
+           CARD
+        ========================================================= */
 
         .card {
             background: white;
@@ -108,9 +146,15 @@
                 0 5px 20px rgba(0, 0, 0, 0.04);
         }
 
+
+        /* =========================================================
+           FORM
+        ========================================================= */
+
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 24px;
         }
+
 
         label {
             display: block;
@@ -122,13 +166,16 @@
             margin-bottom: 8px;
         }
 
+
         .required {
             color: #dc2626;
         }
 
+
         input[type="text"],
         input[type="url"],
-        input[type="file"] {
+        input[type="file"],
+        textarea {
 
             width: 100%;
 
@@ -143,14 +190,54 @@
             outline: none;
 
             background: white;
+
+            font-family: Arial, sans-serif;
         }
 
-        input:focus {
+
+        input[type="text"]:focus,
+        input[type="url"]:focus,
+        input[type="file"]:focus,
+        textarea:focus {
+
             border-color: #0f766e;
 
             box-shadow:
                 0 0 0 3px rgba(15, 118, 110, 0.08);
         }
+
+
+        /* =========================================================
+           DESKRIPSI
+        ========================================================= */
+
+        textarea {
+
+            min-height: 120px;
+
+            resize: vertical;
+
+            line-height: 1.6;
+        }
+
+
+        .description-counter {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-top: 6px;
+
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+
+        /* =========================================================
+           HELP TEXT
+        ========================================================= */
 
         .help {
             margin-top: 7px;
@@ -158,7 +245,14 @@
             color: #6b7280;
 
             font-size: 12px;
+
+            line-height: 1.5;
         }
+
+
+        /* =========================================================
+           ERROR
+        ========================================================= */
 
         .error {
             margin-top: 7px;
@@ -168,7 +262,13 @@
             font-size: 13px;
         }
 
+
+        /* =========================================================
+           PREVIEW
+        ========================================================= */
+
         .preview-container {
+
             margin-top: 15px;
 
             display: none;
@@ -178,13 +278,17 @@
             gap: 15px;
         }
 
+
         .preview-container.show {
             display: flex;
         }
 
+
         .preview {
-            width: 70px;
-            height: 70px;
+
+            width: 80px;
+
+            height: 80px;
 
             object-fit: contain;
 
@@ -192,12 +296,26 @@
 
             border: 1px solid #e5e7eb;
 
-            padding: 5px;
+            padding: 6px;
 
             background: #f9fafb;
         }
 
+
+        .preview-text {
+
+            color: #6b7280;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           STATUS
+        ========================================================= */
+
         .status-box {
+
             display: flex;
 
             align-items: center;
@@ -213,12 +331,19 @@
             border: 1px solid #e5e7eb;
         }
 
+
         .status-box input {
+
             width: 18px;
+
             height: 18px;
+
+            flex-shrink: 0;
         }
 
+
         .status-text strong {
+
             display: block;
 
             font-size: 14px;
@@ -226,13 +351,23 @@
             margin-bottom: 3px;
         }
 
+
         .status-text span {
+
             font-size: 12px;
 
             color: #6b7280;
+
+            line-height: 1.5;
         }
 
+
+        /* =========================================================
+           ACTIONS
+        ========================================================= */
+
         .actions {
+
             display: flex;
 
             justify-content: flex-end;
@@ -246,7 +381,9 @@
             border-top: 1px solid #e5e7eb;
         }
 
+
         .btn {
+
             display: inline-block;
 
             padding: 12px 18px;
@@ -262,7 +399,9 @@
             cursor: pointer;
         }
 
+
         .btn-secondary {
+
             background: white;
 
             color: #374151;
@@ -270,7 +409,15 @@
             border: 1px solid #d1d5db;
         }
 
+
+        .btn-secondary:hover {
+
+            background: #f9fafb;
+        }
+
+
         .btn-primary {
+
             border: none;
 
             background: #0f766e;
@@ -278,37 +425,71 @@
             color: white;
         }
 
+
         .btn-primary:hover {
+
             background: #115e59;
         }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
 
         @media (max-width: 600px) {
 
             .navbar {
+
                 padding: 0 20px;
             }
 
+
+            .container {
+
+                margin-top: 30px;
+
+                padding: 0 15px;
+            }
+
+
             .card {
+
                 padding: 20px;
             }
 
+
+            .header h1 {
+
+                font-size: 26px;
+            }
+
+
             .actions {
+
                 flex-direction: column-reverse;
             }
 
+
             .actions .btn {
+
                 width: 100%;
 
                 text-align: center;
             }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
 
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
 
 <nav class="navbar">
 
@@ -317,6 +498,7 @@
         <div class="brand-icon">
             🏥
         </div>
+
 
         <div>
 
@@ -343,6 +525,11 @@
 </nav>
 
 
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
 <main class="container">
 
 
@@ -359,6 +546,7 @@
     </div>
 
 
+
     <div class="card">
 
 
@@ -371,7 +559,10 @@
             @csrf
 
 
-            {{-- Nama Aplikasi --}}
+
+            <!-- =================================================
+                 NAMA APLIKASI
+            ================================================== -->
 
             <div class="form-group">
 
@@ -379,18 +570,22 @@
 
                     Nama Aplikasi
 
-                    <span class="required">*</span>
+                    <span class="required">
+                        *
+                    </span>
 
                 </label>
+
 
                 <input
                     type="text"
                     id="name"
                     name="name"
                     value="{{ old('name') }}"
-                    placeholder="Contoh: E-Office"
+                    placeholder="Contoh: SIMRS"
                     required
                 >
+
 
                 @error('name')
 
@@ -403,7 +598,10 @@
             </div>
 
 
-            {{-- URL --}}
+
+            <!-- =================================================
+                 URL APLIKASI
+            ================================================== -->
 
             <div class="form-group">
 
@@ -411,9 +609,12 @@
 
                     URL Aplikasi
 
-                    <span class="required">*</span>
+                    <span class="required">
+                        *
+                    </span>
 
                 </label>
+
 
                 <input
                     type="url"
@@ -424,9 +625,14 @@
                     required
                 >
 
+
                 <div class="help">
-                    Masukkan alamat lengkap aplikasi, termasuk http:// atau https://.
+
+                    Masukkan alamat lengkap aplikasi,
+                    termasuk http:// atau https://.
+
                 </div>
+
 
                 @error('url')
 
@@ -439,13 +645,65 @@
             </div>
 
 
-            {{-- Logo --}}
+
+            <!-- =================================================
+                 DESKRIPSI APLIKASI
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label for="description">
+
+                    Deskripsi Aplikasi
+
+                </label>
+
+
+                <textarea
+                    id="description"
+                    name="description"
+                    maxlength="1000"
+                    placeholder="Contoh: Aplikasi untuk mengelola data dan pelayanan rumah sakit."
+                >{{ old('description') }}</textarea>
+
+
+                <div class="description-counter">
+
+                    <span>
+                        Jelaskan secara singkat fungsi aplikasi.
+                    </span>
+
+                    <span id="descriptionCount">
+                        0 / 1000
+                    </span>
+
+                </div>
+
+
+                @error('description')
+
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+
+                @enderror
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LOGO
+            ================================================== -->
 
             <div class="form-group">
 
                 <label for="icon">
+
                     Logo Aplikasi
+
                 </label>
+
 
                 <input
                     type="file"
@@ -454,9 +712,15 @@
                     accept=".jpg,.jpeg,.png,.webp,.svg"
                 >
 
+
                 <div class="help">
-                    Format: JPG, JPEG, PNG, WEBP, atau SVG. Maksimal 2 MB.
+
+                    Format:
+                    JPG, JPEG, PNG, WEBP, atau SVG.
+                    Maksimal 2 MB.
+
                 </div>
+
 
                 @error('icon')
 
@@ -466,6 +730,9 @@
 
                 @enderror
 
+
+
+                <!-- PREVIEW -->
 
                 <div
                     class="preview-container"
@@ -478,8 +745,9 @@
                         alt="Preview logo"
                     >
 
-                    <span>
-                        Preview logo
+
+                    <span class="preview-text">
+                        Preview logo aplikasi
                     </span>
 
                 </div>
@@ -487,7 +755,10 @@
             </div>
 
 
-            {{-- Status --}}
+
+            <!-- =================================================
+                 STATUS
+            ================================================== -->
 
             <div class="form-group">
 
@@ -495,13 +766,16 @@
                     Status Aplikasi
                 </label>
 
+
                 <div class="status-box">
+
 
                     <input
                         type="hidden"
                         name="is_active"
                         value="0"
                     >
+
 
                     <input
                         type="checkbox"
@@ -510,6 +784,7 @@
                         value="1"
                         checked
                     >
+
 
                     <div class="status-text">
 
@@ -523,14 +798,19 @@
 
                     </div>
 
+
                 </div>
 
             </div>
 
 
-            {{-- Actions --}}
+
+            <!-- =================================================
+                 ACTIONS
+            ================================================== -->
 
             <div class="actions">
+
 
                 <a
                     href="{{ route('superadmin.applications.index') }}"
@@ -547,6 +827,7 @@
                     Simpan Aplikasi
                 </button>
 
+
             </div>
 
 
@@ -559,46 +840,101 @@
 </main>
 
 
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
+
+    /*
+    |--------------------------------------------------------------------------
+    | Preview Logo
+    |--------------------------------------------------------------------------
+    */
 
     const iconInput =
         document.getElementById('icon');
 
+
     const preview =
         document.getElementById('preview');
+
 
     const previewContainer =
         document.getElementById('previewContainer');
 
 
-    iconInput.addEventListener('change', function () {
+    iconInput.addEventListener(
+        'change',
+        function () {
 
-        const file = this.files[0];
+            const file = this.files[0];
 
-        if (!file) {
 
-            previewContainer.classList.remove('show');
+            if (!file) {
 
-            return;
+                previewContainer.classList.remove('show');
+
+                return;
+            }
+
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function (event) {
+
+                    preview.src =
+                        event.target.result;
+
+                    previewContainer.classList.add('show');
+
+                };
+
+
+            reader.readAsDataURL(file);
+
         }
+    );
 
 
-        const reader = new FileReader();
+
+    /*
+    |--------------------------------------------------------------------------
+    | Counter Deskripsi
+    |--------------------------------------------------------------------------
+    */
+
+    const description =
+        document.getElementById('description');
 
 
-        reader.onload = function (event) {
-
-            preview.src =
-                event.target.result;
-
-            previewContainer.classList.add('show');
-
-        };
+    const descriptionCount =
+        document.getElementById('descriptionCount');
 
 
-        reader.readAsDataURL(file);
+    function updateDescriptionCount() {
 
-    });
+        const length =
+            description.value.length;
+
+
+        descriptionCount.textContent =
+            length + ' / 1000';
+
+    }
+
+
+    description.addEventListener(
+        'input',
+        updateDescriptionCount
+    );
+
+
+    updateDescriptionCount();
 
 </script>
 

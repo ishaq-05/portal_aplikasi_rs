@@ -2,17 +2,22 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Portal Aplikasi Rumah Sakit</title>
 
+
     <style>
 
-        /* =====================================================
+        /* =========================================================
            RESET
-        ===================================================== */
+        ========================================================= */
 
         * {
             box-sizing: border-box;
@@ -29,31 +34,33 @@
 
         body {
             font-family:
-                "Inter",
                 "Segoe UI",
                 Arial,
                 Helvetica,
                 sans-serif;
 
             background: #f5f7fb;
+
             color: #1f2937;
 
             line-height: 1.5;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            HEADER
-        ===================================================== */
+        ========================================================= */
 
         .header {
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
 
             width: 100%;
 
-            background: rgba(255, 255, 255, 0.97);
+            background: rgba(255, 255, 255, 0.98);
 
             border-bottom: 1px solid #e5e7eb;
 
@@ -66,22 +73,26 @@
 
         .header-content {
             width: 100%;
+
             min-height: 58px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 30px;
         }
 
 
-        /* =====================================================
-           BRAND / LOGO SYIFA
-        ===================================================== */
+        /* =========================================================
+           LOGO
+        ========================================================= */
 
         .brand {
             display: flex;
+
             align-items: center;
 
             flex-shrink: 0;
@@ -90,6 +101,7 @@
 
         .portal-logo {
             display: flex;
+
             align-items: center;
         }
 
@@ -98,22 +110,27 @@
             display: block;
 
             width: 180px;
+
             height: auto;
 
             max-height: 55px;
 
             object-fit: contain;
+
             object-position: center;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            NAVBAR
-        ===================================================== */
+        ========================================================= */
 
         .navbar {
             display: flex;
+
             align-items: center;
+
+            justify-content: flex-end;
 
             gap: 8px;
         }
@@ -121,7 +138,9 @@
 
         .nav-link {
             display: inline-flex;
+
             align-items: center;
+
             justify-content: center;
 
             gap: 7px;
@@ -133,6 +152,7 @@
             text-decoration: none;
 
             font-size: 14px;
+
             font-weight: 600;
 
             border-radius: 9px;
@@ -146,6 +166,7 @@
 
         .nav-link:hover {
             background: #f0fdfa;
+
             color: #0f766e;
 
             transform: translateY(-1px);
@@ -154,34 +175,36 @@
 
         .nav-link.active {
             background: #f0fdfa;
+
             color: #0f766e;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            MAIN CONTAINER
-        ===================================================== */
+        ========================================================= */
 
         .container {
             width: 100%;
+
             max-width: 1200px;
 
             margin: 0 auto;
 
             padding:
                 55px 25px
-                70px;
+                80px;
         }
 
 
-        /* =====================================================
-           HERO
-        ===================================================== */
+        /* =========================================================
+           HERO / BERANDA
+        ========================================================= */
 
         .hero {
             text-align: center;
 
-            margin-bottom: 55px;
+            margin-bottom: 70px;
         }
 
 
@@ -189,6 +212,7 @@
             color: #173f6b;
 
             font-size: 36px;
+
             font-weight: 700;
 
             letter-spacing: -0.5px;
@@ -201,16 +225,18 @@
             color: #64748b;
 
             font-size: 16px;
+
             font-weight: 400;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            SEARCH
-        ===================================================== */
+        ========================================================= */
 
         .search-area {
             width: 100%;
+
             max-width: 720px;
 
             margin: 30px auto 0;
@@ -242,6 +268,7 @@
             color: #1f2937;
 
             font-family: inherit;
+
             font-size: 15px;
 
             outline: none;
@@ -271,13 +298,17 @@
             padding: 15px 25px;
 
             border: none;
+
             border-radius: 11px;
 
             background: #0f766e;
+
             color: #ffffff;
 
             font-family: inherit;
+
             font-size: 14px;
+
             font-weight: 700;
 
             cursor: pointer;
@@ -299,76 +330,368 @@
         }
 
 
-        /* =====================================================
-           SEARCH RESULT HEADER
-        ===================================================== */
+        /* =========================================================
+           SECTION HEADER
+        ========================================================= */
 
-        .search-result-header {
-            margin-bottom: 30px;
+        .section-header {
+            text-align: center;
 
-            padding: 24px 26px;
+            margin-bottom: 32px;
+        }
+
+
+        .section-header h2 {
+            color: #173f6b;
+
+            font-size: 32px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+
+        .section-header p {
+            color: #64748b;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================================
+           PEMISAH SECTION
+        ========================================================= */
+
+        .section-divider {
+            width: 100%;
+
+            height: 1px;
+
+            background: #e2e8f0;
+
+            margin:
+                0 auto
+                60px;
+        }
+
+
+        /* =========================================================
+           APLIKASI POPULER
+        ========================================================= */
+
+        .popular-section {
+            margin-bottom: 85px;
+        }
+
+
+        .popular-list {
+            width: 100%;
+
+            max-width: 960px;
+
+            margin: 0 auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 16px;
+        }
+
+
+        /* =========================================================
+           POPULAR CARD
+        ========================================================= */
+
+        .popular-card {
+            width: 100%;
+
+            min-height: 108px;
+
+            display: grid;
+
+            grid-template-columns:
+                55px
+                72px
+                minmax(0, 1fr)
+                90px
+                145px;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 18px 22px;
 
             background: #ffffff;
 
-            border: 1px solid #e5e7eb;
+            border: 1px solid #e2e8f0;
 
             border-radius: 16px;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
         }
 
 
-        .search-result-header h2 {
+        .popular-card:hover {
+            transform: translateY(-2px);
+
+            border-color: #cbd5e1;
+
+            box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.07);
+        }
+
+
+        /* =========================================================
+           RANKING
+        ========================================================= */
+
+        .popular-rank {
+            width: 52px;
+
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #f1f5f9;
+
+            color: #64748b;
+
+            font-size: 17px;
+
+            font-weight: 700;
+        }
+
+
+        .popular-card:first-child .popular-rank {
+            background: #fff5cc;
+
+            color: #a16207;
+        }
+
+
+        .popular-card:nth-child(3) .popular-rank {
+            background: #fff0e5;
+
+            color: #c2410c;
+        }
+
+
+        /* =========================================================
+           POPULAR LOGO
+        ========================================================= */
+
+        .popular-icon {
+            width: 72px;
+
+            height: 72px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 8px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 13px;
+
+            overflow: hidden;
+        }
+
+
+        .popular-icon img {
+            display: block;
+
+            width: auto;
+
+            height: auto;
+
+            max-width: 100%;
+
+            max-height: 100%;
+
+            object-fit: contain;
+
+            object-position: center;
+
+            margin: auto;
+        }
+
+
+        .popular-fallback {
+            font-size: 27px;
+        }
+
+
+        /* =========================================================
+           POPULAR INFO
+        ========================================================= */
+
+        .popular-info {
+            min-width: 0;
+        }
+
+
+        .popular-info h3 {
             color: #173f6b;
 
-            font-size: 25px;
+            font-size: 18px;
+
             font-weight: 700;
 
-            margin-bottom: 6px;
+            margin-bottom: 3px;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
         }
 
 
-        .search-result-header p {
+        .popular-info p {
             color: #64748b;
 
             font-size: 14px;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
         }
 
 
-        .search-result-header strong {
-            color: #334155;
+        /* =========================================================
+           JUMLAH KUNJUNGAN
+        ========================================================= */
+
+        .popular-count {
+            text-align: right;
         }
 
 
-        .clear-search {
-            display: inline-flex;
+        .popular-count strong {
+            display: block;
+
+            color: #111827;
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+            line-height: 1.2;
+        }
+
+
+        .popular-count span {
+            color: #64748b;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================================
+           BUTTON POPULAR
+        ========================================================= */
+
+        .popular-button {
+            display: flex;
+
             align-items: center;
 
-            margin-top: 14px;
+            justify-content: center;
 
-            padding: 8px 13px;
+            min-height: 40px;
 
-            background: #f0fdfa;
+            padding: 10px 15px;
 
-            color: #0f766e;
+            background: #0f766e;
 
-            border-radius: 8px;
+            color: #ffffff;
+
+            border-radius: 9px;
+
+            text-align: center;
 
             text-decoration: none;
 
-            font-size: 13px;
-            font-weight: 600;
+            font-family: inherit;
 
-            transition: background 0.2s ease;
+            font-size: 14px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
 
-        .clear-search:hover {
-            background: #ccfbf1;
+        .popular-button:hover {
+            background: #115e59;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 5px 12px rgba(15, 118, 110, 0.18);
         }
 
 
-        /* =====================================================
+        /* =========================================================
+           SEMUA APLIKASI
+        ========================================================= */
+
+        .all-applications-section {
+            scroll-margin-top: 100px;
+        }
+
+
+        .all-section-header {
+            margin-bottom: 30px;
+        }
+
+
+        .all-section-header h2 {
+            color: #173f6b;
+
+            font-size: 30px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+
+        .all-section-header p {
+            color: #64748b;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================================
            APPLICATION GRID
-        ===================================================== */
+        ========================================================= */
 
         .applications {
             display: grid;
@@ -380,12 +703,13 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            APPLICATION CARD
-        ===================================================== */
+        ========================================================= */
 
         .application-card {
             display: flex;
+
             flex-direction: column;
 
             min-width: 0;
@@ -398,7 +722,7 @@
 
             padding: 20px;
 
-            min-height: 360px;
+            min-height: 370px;
 
             transition:
                 transform 0.2s ease,
@@ -417,16 +741,19 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            APPLICATION LOGO CONTAINER
-        ===================================================== */
+        ========================================================= */
 
         .application-icon {
             width: 100%;
+
             height: 155px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             flex-shrink: 0;
@@ -443,90 +770,89 @@
         }
 
 
-        /* =====================================================
-           APPLICATION LOGO
-
-           Logo TIDAK dipaksa memenuhi container.
-
-           Tujuannya:
-           - tidak terpotong
-           - tidak gepeng
-           - tidak melebar
-           - tidak berubah rasio
-        ===================================================== */
+        /*
+        Logo tidak dipaksa memenuhi kotak.
+        Ini yang membuat logo tidak terpotong.
+        */
 
         .application-icon img {
             display: block;
 
             width: auto;
+
             height: auto;
 
             max-width: 100%;
+
             max-height: 100%;
 
             object-fit: contain;
+
             object-position: center;
 
             margin: auto;
         }
 
 
-        /* =====================================================
-           FALLBACK ICON
-        ===================================================== */
-
         .fallback-icon {
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             width: 100%;
+
             height: 100%;
 
             font-size: 42px;
+
             line-height: 1;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            APPLICATION NAME
-        ===================================================== */
+        ========================================================= */
 
         .application-card h3 {
             color: #172b4d;
 
             font-size: 18px;
+
             font-weight: 700;
 
             line-height: 1.35;
 
             min-height: 25px;
 
-            margin-bottom: 8px;
+            margin-bottom: 7px;
 
             word-break: break-word;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            APPLICATION DESCRIPTION
-        ===================================================== */
+        ========================================================= */
 
         .application-description {
             color: #64748b;
 
             font-size: 14px;
+
             font-weight: 400;
 
-            line-height: 1.6;
+            line-height: 1.55;
 
             margin-bottom: 18px;
 
-            min-height: 67px;
+            min-height: 65px;
 
             display: -webkit-box;
 
             -webkit-line-clamp: 3;
+
             -webkit-box-orient: vertical;
 
             overflow: hidden;
@@ -535,13 +861,15 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            OPEN BUTTON
-        ===================================================== */
+        ========================================================= */
 
         .open-button {
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             width: 100%;
@@ -553,15 +881,19 @@
             padding: 10px 14px;
 
             background: #0f766e;
+
             color: #ffffff;
 
             border-radius: 9px;
 
             text-align: center;
+
             text-decoration: none;
 
             font-family: inherit;
+
             font-size: 14px;
+
             font-weight: 700;
 
             transition:
@@ -581,9 +913,83 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
+           SEARCH RESULT
+        ========================================================= */
+
+        .search-result-section {
+            scroll-margin-top: 100px;
+
+            margin-bottom: 50px;
+        }
+
+
+        .search-result-header {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        .search-result-header h2 {
+            color: #173f6b;
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+
+        .search-result-header p {
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        .search-result-header strong {
+            color: #334155;
+        }
+
+
+        .clear-search {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-top: 13px;
+
+            padding: 8px 13px;
+
+            background: #f0fdfa;
+
+            color: #0f766e;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition:
+                background 0.2s ease;
+        }
+
+
+        .clear-search:hover {
+            background: #ccfbf1;
+        }
+
+
+        /* =========================================================
            EMPTY
-        ===================================================== */
+        ========================================================= */
 
         .empty {
             grid-column: 1 / -1;
@@ -616,9 +1022,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================================================
            TABLET
-        ===================================================== */
+        ========================================================= */
 
         @media (max-width: 1050px) {
 
@@ -627,12 +1033,22 @@
                     repeat(3, minmax(0, 1fr));
             }
 
+
+            .popular-card {
+                grid-template-columns:
+                    55px
+                    72px
+                    minmax(0, 1fr)
+                    80px
+                    135px;
+            }
+
         }
 
 
-        /* =====================================================
-           TABLET / SMALL LAPTOP
-        ===================================================== */
+        /* =========================================================
+           SMALL LAPTOP / TABLET
+        ========================================================= */
 
         @media (max-width: 800px) {
 
@@ -654,6 +1070,8 @@
                 width: 100%;
 
                 justify-content: center;
+
+                flex-wrap: wrap;
             }
 
 
@@ -665,7 +1083,7 @@
 
 
             .hero {
-                margin-bottom: 40px;
+                margin-bottom: 50px;
             }
 
 
@@ -682,21 +1100,33 @@
             }
 
 
-            .application-card {
-                padding: 18px;
+            .popular-card {
+                grid-template-columns:
+                    52px
+                    65px
+                    minmax(0, 1fr);
+
+                gap: 13px;
             }
 
 
-            .application-icon {
-                height: 145px;
+            .popular-count {
+                display: none;
+            }
+
+
+            .popular-button {
+                grid-column: 1 / -1;
+
+                width: 100%;
             }
 
         }
 
 
-        /* =====================================================
+        /* =========================================================
            MOBILE
-        ===================================================== */
+        ========================================================= */
 
         @media (max-width: 600px) {
 
@@ -719,8 +1149,6 @@
 
             .navbar {
                 gap: 4px;
-
-                flex-wrap: wrap;
             }
 
 
@@ -772,15 +1200,70 @@
             }
 
 
-            .search-result-header {
-                padding: 20px;
-
-                margin-bottom: 24px;
+            .section-header h2 {
+                font-size: 27px;
             }
 
 
-            .search-result-header h2 {
-                font-size: 22px;
+            .section-header p {
+                font-size: 14px;
+            }
+
+
+            .popular-section {
+                margin-bottom: 65px;
+            }
+
+
+            .popular-card {
+                grid-template-columns:
+                    48px
+                    60px
+                    minmax(0, 1fr);
+
+                padding: 15px;
+
+                border-radius: 14px;
+            }
+
+
+            .popular-rank {
+                width: 48px;
+
+                height: 48px;
+
+                font-size: 15px;
+            }
+
+
+            .popular-icon {
+                width: 60px;
+
+                height: 60px;
+
+                padding: 7px;
+            }
+
+
+            .popular-info h3 {
+                font-size: 16px;
+            }
+
+
+            .popular-info p {
+                font-size: 13px;
+            }
+
+
+            .popular-button {
+                grid-column: 1 / -1;
+
+                margin-top: 2px;
+            }
+
+
+            .all-section-header h2 {
+                font-size: 27px;
             }
 
 
@@ -813,15 +1296,15 @@
             .application-description {
                 font-size: 14px;
 
-                min-height: 67px;
+                min-height: 65px;
             }
 
         }
 
 
-        /* =====================================================
+        /* =========================================================
            SMALL MOBILE
-        ===================================================== */
+        ========================================================= */
 
         @media (max-width: 380px) {
 
@@ -851,9 +1334,9 @@
 <body>
 
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
+    <!-- =========================================================
+         HEADER / NAVBAR
+    ========================================================= -->
 
     <header class="header">
 
@@ -881,7 +1364,7 @@
             <nav class="navbar">
 
                 <a
-                    href="{{ route('applications.index') }}"
+                    href="#beranda"
                     class="nav-link active"
                 >
                     🏠 Beranda
@@ -889,7 +1372,15 @@
 
 
                 <a
-                    href="{{ route('applications.index') }}#semua-aplikasi"
+                    href="#aplikasi-populer"
+                    class="nav-link"
+                >
+                    ⭐ Aplikasi Populer
+                </a>
+
+
+                <a
+                    href="#semua-aplikasi"
                     class="nav-link"
                 >
                     📱 Semua Aplikasi
@@ -897,23 +1388,22 @@
 
             </nav>
 
-
         </div>
 
     </header>
 
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          MAIN
-    ====================================================== -->
+    ========================================================= -->
 
     <main class="container">
 
 
-        <!-- =================================================
-             HERO / BERANDA
-        ================================================== -->
+        <!-- =====================================================
+             BERANDA
+        ====================================================== -->
 
         <section
             class="hero"
@@ -964,136 +1454,352 @@
 
 
 
-        <!-- =================================================
-             HASIL PENCARIAN
-        ================================================== -->
-
         @if($search)
 
-            <section class="search-result-header">
+            <!-- =================================================
+                 HASIL PENCARIAN
+            ================================================== -->
 
-                <h2>
-                    🔎 Hasil Pencarian
-                </h2>
+            <section
+                class="search-result-section"
+                id="hasil-pencarian"
+            >
+
+                <div class="search-result-header">
+
+                    <h2>
+                        🔎 Hasil Pencarian
+                    </h2>
 
 
-                <p>
-                    Menampilkan aplikasi yang sesuai dengan:
+                    <p>
+                        Menampilkan aplikasi yang sesuai dengan:
+                        <strong>
+                            "{{ $search }}"
+                        </strong>
+                    </p>
 
-                    <strong>
-                        "{{ $search }}"
-                    </strong>
-                </p>
+
+                    <a
+                        href="{{ route('applications.index') }}"
+                        class="clear-search"
+                    >
+                        ✕ Hapus Pencarian
+                    </a>
+
+                </div>
 
 
-                <a
-                    href="{{ route('applications.index') }}"
-                    class="clear-search"
-                >
-                    ✕ Hapus Pencarian
-                </a>
+                <!-- HASIL SEARCH -->
+
+                <section class="applications">
+
+                    @forelse($applications as $application)
+
+                        <div class="application-card">
+
+
+                            <!-- LOGO -->
+
+                            <div class="application-icon">
+
+                                @if($application->icon)
+
+                                    <img
+                                        src="{{ asset('storage/' . $application->icon) }}"
+                                        alt="{{ $application->name }}"
+                                    >
+
+                                @else
+
+                                    <span class="fallback-icon">
+                                        📱
+                                    </span>
+
+                                @endif
+
+                            </div>
+
+
+                            <!-- NAMA -->
+
+                            <h3>
+                                {{ $application->name }}
+                            </h3>
+
+
+                            <!-- DESKRIPSI -->
+
+                            <p class="application-description">
+                                {{ $application->description ?: 'Tidak ada deskripsi aplikasi.' }}
+                            </p>
+
+
+                            <!-- BUTTON -->
+
+                            <a
+                                href="{{ route('applications.open', $application) }}"
+                                class="open-button"
+                            >
+                                Buka Aplikasi →
+                            </a>
+
+                        </div>
+
+
+                    @empty
+
+                        <div class="empty">
+
+                            <h3>
+                                Aplikasi tidak ditemukan
+                            </h3>
+
+                            <p>
+                                Coba gunakan kata kunci pencarian lain.
+                            </p>
+
+                        </div>
+
+                    @endforelse
+
+                </section>
+
+            </section>
+
+
+        @else
+
+
+            <!-- =================================================
+                 APLIKASI POPULER
+            ================================================== -->
+
+            <section
+                class="popular-section"
+                id="aplikasi-populer"
+            >
+
+                <div class="section-divider"></div>
+
+
+                <div class="section-header">
+
+                    <h2>
+                        ⭐ Aplikasi Populer
+                    </h2>
+
+
+                    <p>
+                        5 aplikasi yang paling sering digunakan oleh user.
+                    </p>
+
+                </div>
+
+
+                <div class="popular-list">
+
+
+                    @forelse($popularApplications as $application)
+
+                        <div class="popular-card">
+
+
+                            <!-- RANKING -->
+
+                            <div class="popular-rank">
+                                #{{ $loop->iteration }}
+                            </div>
+
+
+                            <!-- LOGO -->
+
+                            <div class="popular-icon">
+
+                                @if($application->icon)
+
+                                    <img
+                                        src="{{ asset('storage/' . $application->icon) }}"
+                                        alt="{{ $application->name }}"
+                                    >
+
+                                @else
+
+                                    <span class="popular-fallback">
+                                        📱
+                                    </span>
+
+                                @endif
+
+                            </div>
+
+
+                            <!-- INFO -->
+
+                            <div class="popular-info">
+
+                                <h3>
+                                    {{ $application->name }}
+                                </h3>
+
+
+                                <p>
+                                    {{ $application->description ?: 'Aplikasi yang sering digunakan user.' }}
+                                </p>
+
+                            </div>
+
+
+                            <!-- JUMLAH -->
+
+                            <div class="popular-count">
+
+                                <strong>
+                                    {{ $application->visits_count }}
+                                </strong>
+
+                                <span>
+                                    kali digunakan
+                                </span>
+
+                            </div>
+
+
+                            <!-- BUTTON -->
+
+                            <a
+                                href="{{ route('applications.open', $application) }}"
+                                class="popular-button"
+                            >
+                                Buka Aplikasi →
+                            </a>
+
+                        </div>
+
+
+                    @empty
+
+                        <div class="empty">
+
+                            <h3>
+                                Belum ada data aplikasi populer
+                            </h3>
+
+
+                            <p>
+                                Data akan muncul setelah aplikasi digunakan oleh user.
+                            </p>
+
+                        </div>
+
+                    @endforelse
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SEMUA APLIKASI
+            ================================================== -->
+
+            <section
+                class="all-applications-section"
+                id="semua-aplikasi"
+            >
+
+                <div class="all-section-header">
+
+                    <h2>
+                        📱 Semua Aplikasi
+                    </h2>
+
+
+                    <p>
+                        Pilih aplikasi yang ingin kamu gunakan.
+                    </p>
+
+                </div>
+
+
+                <section class="applications">
+
+                    @forelse($applications as $application)
+
+                        <div class="application-card">
+
+
+                            <!-- LOGO -->
+
+                            <div class="application-icon">
+
+                                @if($application->icon)
+
+                                    <img
+                                        src="{{ asset('storage/' . $application->icon) }}"
+                                        alt="{{ $application->name }}"
+                                    >
+
+                                @else
+
+                                    <span class="fallback-icon">
+                                        📱
+                                    </span>
+
+                                @endif
+
+                            </div>
+
+
+                            <!-- NAMA -->
+
+                            <h3>
+                                {{ $application->name }}
+                            </h3>
+
+
+                            <!-- DESKRIPSI -->
+
+                            <p class="application-description">
+                                {{ $application->description ?: 'Tidak ada deskripsi aplikasi.' }}
+                            </p>
+
+
+                            <!-- BUTTON -->
+
+                            <a
+                                href="{{ route('applications.open', $application) }}"
+                                class="open-button"
+                            >
+                                Buka Aplikasi →
+                            </a>
+
+                        </div>
+
+
+                    @empty
+
+                        <div class="empty">
+
+                            <h3>
+                                Belum ada aplikasi
+                            </h3>
+
+
+                            <p>
+                                Belum ada aplikasi aktif yang tersedia.
+                            </p>
+
+                        </div>
+
+                    @endforelse
+
+                </section>
 
             </section>
 
         @endif
-
-
-
-        <!-- =================================================
-             SEMUA APLIKASI
-        ================================================== -->
-
-        <section
-            class="applications"
-            id="semua-aplikasi"
-        >
-
-
-            @forelse($applications as $application)
-
-
-                <!-- APPLICATION CARD -->
-
-                <div class="application-card">
-
-
-                    <!-- LOGO -->
-
-                    <div class="application-icon">
-
-
-                        @if($application->icon)
-
-                            <img
-                                src="{{ asset('storage/' . $application->icon) }}"
-                                alt="{{ $application->name }}"
-                            >
-
-                        @else
-
-                            <span class="fallback-icon">
-                                📱
-                            </span>
-
-                        @endif
-
-
-                    </div>
-
-
-
-                    <!-- NAME -->
-
-                    <h3>
-                        {{ $application->name }}
-                    </h3>
-
-
-
-                    <!-- DESCRIPTION -->
-
-                    <p class="application-description">
-                        {{ $application->description ?: 'Tidak ada deskripsi aplikasi.' }}
-                    </p>
-
-
-
-                    <!-- OPEN APPLICATION -->
-
-                    <a
-                        href="{{ route('applications.open', $application) }}"
-                        class="open-button"
-                    >
-                        Buka Aplikasi →
-                    </a>
-
-
-                </div>
-
-
-            @empty
-
-
-                <!-- EMPTY -->
-
-                <div class="empty">
-
-                    <h3>
-                        Aplikasi tidak ditemukan
-                    </h3>
-
-
-                    <p>
-                        Coba gunakan kata kunci pencarian lain.
-                    </p>
-
-                </div>
-
-
-            @endforelse
-
-
-        </section>
 
 
     </main>

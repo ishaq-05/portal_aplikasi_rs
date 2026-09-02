@@ -9,18 +9,43 @@ class ApplicationController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Application::query();
+        $search = trim($request->input('search', ''));
 
-        if ($request->has('search') && $request->search != '') {
-            $query->where('name', 'like', '%' . $request->search . '%');
-        }
+        /*
+        |--------------------------------------------------------------------------
+        | SEMUA APLIKASI
+        |--------------------------------------------------------------------------
+        */
 
-        // Ambil semua aplikasi
-        $applications = $query->get();
+        $applications = Application::where('is_active', true)
+            ->when($search, function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            })
+            ->orderBy('name')
+            ->get();
 
-        // Ambil 3 aplikasi terbaru untuk section Aplikasi Populer
-        $popularApplications = Application::latest()->take(3)->get();
 
-        return view('welcome', compact('applications', 'popularApplications'));
+        /*
+        |--------------------------------------------------------------------------
+        | APLIKASI POPULER
+        |--------------------------------------------------------------------------
+        |
+        | Mengambil 5 aplikasi aktif dengan jumlah kunjungan terbanyak.
+        |
+        */
+
+        $popularApplications = Application::where('is_active', true)
+            ->withCount('visits')
+            ->orderByDesc('visits_count')
+            ->orderBy('name')
+            ->take(5)
+            ->get();
+
+
+        return view('applications.index', compact(
+            'applications',
+            'popularApplications',
+            'search'
+        ));
     }
 }
