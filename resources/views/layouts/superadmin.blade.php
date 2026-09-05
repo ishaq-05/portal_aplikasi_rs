@@ -365,7 +365,7 @@
 
 
 
-                {{-- SEMUA APLIKASI --}}
+                {{-- KEMBALI KE PORTAL --}}
 
                 <li>
 
@@ -378,7 +378,7 @@
                         </span>
 
                         <span>
-                            SEMUA APLIKASI
+                            KEMBALI KE PORTAL
                         </span>
 
                     </a>
