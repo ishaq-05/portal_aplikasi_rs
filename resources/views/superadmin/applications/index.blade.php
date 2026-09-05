@@ -1,450 +1,733 @@
-<!DOCTYPE html>
-<html lang="id">
+@extends('layouts.superadmin')
 
-<head>
-    <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('title', 'Kelola Aplikasi - Super Admin')
 
-    <title>Kelola Aplikasi</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+@push('styles')
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #172033;
-        }
+<style>
 
-        .navbar {
-            height: 70px;
-            background: white;
-            border-bottom: 1px solid #e5e7eb;
+    .page-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
 
-            padding: 0 40px;
-        }
+    .page-header h1 {
+        font-size: 32px;
+        line-height: 1.15;
 
-        .brand {
-            display: flex;
-            align-items: center;
+        font-weight: 800;
+
+        color: #111827;
+
+        margin-bottom: 7px;
+    }
+
+
+    .page-header p {
+        font-size: 15px;
+        color: #5f7695;
+    }
+
+
+
+    /* =====================================================
+       TOOLBAR
+    ===================================================== */
+
+    .toolbar {
+        width: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        margin-bottom: 12px;
+    }
+
+
+    .search-box {
+        width: 390px;
+
+        position: relative;
+    }
+
+
+    .search-box input {
+        width: 100%;
+
+        height: 42px;
+
+        border: 2px solid #222;
+
+        border-radius: 22px;
+
+        padding: 0 18px 0 45px;
+
+        font-size: 14px;
+
+        outline: none;
+    }
+
+
+    .search-box input:focus {
+        border-color: #087f60;
+    }
+
+
+    .search-icon {
+        position: absolute;
+
+        left: 15px;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        font-size: 22px;
+    }
+
+
+    .add-button {
+        height: 43px;
+
+        padding: 0 18px;
+
+        border-radius: 9px;
+
+        background: #087f60;
+
+        border: 1px solid #005f48;
+
+        color: #ffffff;
+
+        text-decoration: none;
+
+        font-size: 13px;
+
+        font-weight: bold;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+    }
+
+
+    .add-button:hover {
+        background: #066b51;
+    }
+
+
+    .plus-icon {
+        width: 28px;
+        height: 28px;
+
+        border-radius: 50%;
+
+        background: #ffffff;
+
+        color: #087f60;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 22px;
+
+        font-weight: bold;
+    }
+
+
+
+    /* =====================================================
+       TABLE
+    ===================================================== */
+
+    .table-container {
+        width: 100%;
+
+        overflow-x: auto;
+    }
+
+
+    table {
+        width: 100%;
+
+        border-collapse: collapse;
+
+        background: #ffffff;
+
+        border: 1px solid #222;
+    }
+
+
+    th {
+        height: 58px;
+
+        padding: 10px 14px;
+
+        background: #087f60;
+
+        color: #ffffff;
+
+        font-size: 15px;
+
+        font-weight: bold;
+
+        text-align: center;
+
+        border: 1px solid #222;
+    }
+
+
+    td {
+        height: 58px;
+
+        padding: 8px 14px;
+
+        font-size: 14px;
+
+        text-align: center;
+
+        border: 1px solid #222;
+
+        color: #111827;
+    }
+
+
+    tbody tr:hover {
+        background: #f3faf7;
+    }
+
+
+    .logo-cell {
+        width: 155px;
+    }
+
+
+    .application-logo {
+        width: 80px;
+
+        height: 48px;
+
+        object-fit: contain;
+
+        display: block;
+
+        margin: auto;
+
+        border: 1px solid #aeb5bd;
+
+        border-radius: 8px;
+
+        background: #ffffff;
+    }
+
+
+    .no-logo {
+        width: 80px;
+
+        height: 48px;
+
+        margin: auto;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        background: #eef7f4;
+
+        border: 1px solid #aeb5bd;
+
+        border-radius: 8px;
+
+        color: #087f60;
+
+        font-weight: bold;
+    }
+
+
+    .application-name {
+        font-size: 15px;
+    }
+
+
+    .application-url {
+        max-width: 520px;
+
+        margin: auto;
+
+        overflow: hidden;
+
+        white-space: nowrap;
+
+        text-overflow: ellipsis;
+
+        color: #075985;
+    }
+
+
+
+    /* =====================================================
+       STATUS
+    ===================================================== */
+
+    .status {
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        min-width: 68px;
+
+        padding: 7px 13px;
+
+        border-radius: 20px;
+
+        font-size: 12px;
+
+        font-weight: bold;
+    }
+
+
+    .status-active {
+        background: #d9f7e6;
+
+        color: #087f60;
+    }
+
+
+    .status-inactive {
+        background: #fee2e2;
+
+        color: #b91c1c;
+    }
+
+
+
+    /* =====================================================
+       ACTION
+    ===================================================== */
+
+    .action-wrapper {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+
+    .action-button {
+        width: 42px;
+        height: 42px;
+
+        border-radius: 9px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-decoration: none;
+
+        font-size: 21px;
+
+        cursor: pointer;
+    }
+
+
+    .edit-button {
+        background: #62c3ae;
+
+        border: 1px solid #111827;
+
+        color: #111827;
+    }
+
+
+    .edit-button:hover {
+        background: #45b39b;
+    }
+
+
+    .delete-button {
+        background: #ff6972;
+
+        border: 1px solid #111827;
+
+        color: #111827;
+    }
+
+
+    .delete-button:hover {
+        background: #f14d58;
+    }
+
+
+    .delete-button button {
+        border: none;
+
+        background: transparent;
+
+        width: 100%;
+        height: 100%;
+
+        cursor: pointer;
+
+        font-size: 20px;
+    }
+
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .table-footer {
+        margin-top: 10px;
+
+        color: #5f7695;
+
+        font-size: 14px;
+    }
+
+
+    .empty {
+        padding: 50px 20px;
+
+        text-align: center;
+
+        color: #64748b;
+
+        background: #ffffff;
+
+        border: 1px solid #d7dce2;
+
+        border-radius: 10px;
+    }
+
+
+    @media (max-width: 900px) {
+
+        .toolbar {
             gap: 12px;
         }
 
-        .brand-icon {
-            width: 42px;
-            height: 42px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #0f766e;
-            color: white;
-
-            border-radius: 10px;
-
-            font-size: 20px;
-        }
-
-        .brand h2 {
-            font-size: 18px;
-        }
-
-        .brand p {
-            font-size: 12px;
-            color: #6b7280;
-            margin-top: 3px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 25px;
-        }
-
-        .top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            margin-bottom: 25px;
-        }
-
-        .top h1 {
-            font-size: 30px;
-            margin-bottom: 7px;
-        }
-
-        .top p {
-            color: #6b7280;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 18px;
-
-            border-radius: 9px;
-
-            text-decoration: none;
-
-            font-weight: bold;
-            font-size: 14px;
-        }
-        .btn-danger {
-    background: #dc2626;
-    color: white;
-    border: 1px solid #dc2626;
-    cursor: pointer;
-}
-
-.btn-danger:hover {
-    background: #b91c1c;
-    border-color: #b91c1c;
-}
-
-        .btn-primary {
-            background: #0f766e;
-            color: white;
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #374151;
-
-            border: 1px solid #d1d5db;
-        }
-
-        .table-card {
-            background: white;
-
-            border: 1px solid #e5e7eb;
-
-            border-radius: 14px;
-
-            overflow: hidden;
-
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
-        }
-
-        table {
+        .search-box {
             width: 100%;
-            border-collapse: collapse;
         }
 
-        th {
-            text-align: left;
+    }
 
-            background: #f9fafb;
 
-            padding: 15px 18px;
+    @media (max-width: 700px) {
 
-            font-size: 13px;
-
-            color: #6b7280;
-
-            border-bottom: 1px solid #e5e7eb;
+        .toolbar {
+            flex-direction: column;
+            align-items: stretch;
         }
 
-        td {
-            padding: 16px 18px;
 
-            border-bottom: 1px solid #f0f0f0;
-
-            font-size: 14px;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        .icon {
-            width: 45px;
-            height: 45px;
-
-            object-fit: cover;
-
-            border-radius: 10px;
-
-            border: 1px solid #e5e7eb;
-        }
-
-        .no-icon {
-            width: 45px;
-            height: 45px;
-
-            display: flex;
-            align-items: center;
+        .add-button {
             justify-content: center;
-
-            background: #e6fffb;
-
-            border-radius: 10px;
-
-            color: #0f766e;
-
-            font-weight: bold;
         }
 
-        .status {
-            display: inline-block;
 
-            padding: 5px 10px;
-
-            border-radius: 20px;
-
-            font-size: 12px;
-
-            font-weight: bold;
+        .page-header h1 {
+            font-size: 27px;
         }
 
-        .active {
-            background: #dcfce7;
-            color: #166534;
-        }
+    }
 
-        .inactive {
-            background: #fee2e2;
-            color: #991b1b;
-        }
+</style>
 
-        .url {
-            max-width: 250px;
-
-            overflow: hidden;
-
-            white-space: nowrap;
-
-            text-overflow: ellipsis;
-
-            color: #2563eb;
-        }
-
-        .empty {
-            padding: 50px;
-
-            text-align: center;
-
-            color: #6b7280;
-        }
-
-        @media (max-width: 800px) {
-
-            .navbar {
-                padding: 0 20px;
-            }
-
-            .top {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .table-card {
-                overflow-x: auto;
-            }
-
-            table {
-                min-width: 750px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<nav class="navbar">
-
-    <div class="brand">
-
-        <div class="brand-icon">
-            🏥
-        </div>
-
-        <div>
-            <h2>Portal Aplikasi</h2>
-            <p>Super Admin</p>
-        </div>
-
-    </div>
-
-    <a
-        href="{{ route('superadmin.dashboard') }}"
-        class="btn btn-secondary"
-    >
-        ← Dashboard
-    </a>
-
-</nav>
+@endpush
 
 
-<main class="container">
 
-    <div class="top">
-
-        <div>
-            <h1>Kelola Aplikasi</h1>
-
-            <p>
-                Kelola aplikasi yang tersedia di Portal Rumah Sakit.
-            </p>
-        </div>
-
-        <a
-    href="{{ route('superadmin.applications.create') }}"
-    class="btn btn-primary"
->
-    + Tambah Aplikasi
-</a>
-
-    </div>
+@section('content')
 
 
-    <div class="table-card">
+<div class="page-header">
 
-        @if ($applications->count() > 0)
+    <h1>
+        KELOLA APLIKASI PORTAL
+        <br>
+        SUPER ADMIN
+    </h1>
 
-            <table>
+    <p>
+        Kelola aplikasi yang tersedia di Portal Rumah Sakit.
+    </p>
 
-                <thead>
-
-                    <tr>
-                        <th>Logo</th>
-                        <th>Nama Aplikasi</th>
-                        <th>URL</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    @foreach ($applications as $application)
-
-                        <tr>
-
-                            <td>
-
-                                @if ($application->icon)
-
-                                    <img
-                                        src="{{ asset('storage/' . $application->icon) }}"
-                                        class="icon"
-                                        alt="{{ $application->name }}"
-                                    >
-
-                                @else
-
-                                    <div class="no-icon">
-                                        {{ strtoupper(substr($application->name, 0, 1)) }}
-                                    </div>
-
-                                @endif
-
-                            </td>
+</div>
 
 
-                            <td>
 
-                                <strong>
-                                    {{ $application->name }}
-                                </strong>
+<div class="toolbar">
 
-                            </td>
-
-
-                            <td>
-
-                                <div class="url">
-                                    {{ $application->url }}
-                                </div>
-
-                            </td>
-
-
-                            <td>
-
-                                @if ($application->is_active)
-
-                                    <span class="status active">
-                                        Aktif
-                                    </span>
-
-                                @else
-
-                                    <span class="status inactive">
-                                        Nonaktif
-                                    </span>
-
-                                @endif
-
-                            </td>
-                            <td>
-
-    <a
-        href="{{ route('superadmin.applications.edit', $application) }}"
-        class="btn btn-secondary"
-    >
-        Edit
-    </a>
 
     <form
-        action="{{ route('superadmin.applications.destroy', $application) }}"
-        method="POST"
-        style="display: inline;"
-        onsubmit="return confirm('Yakin ingin menghapus aplikasi {{ $application->name }}?');"
+        action="{{ route('superadmin.applications.index') }}"
+        method="GET"
+        class="search-box"
     >
 
-        @csrf
+        <span class="search-icon">
+            🔍
+        </span>
 
-        @method('DELETE')
-
-        <button
-            type="submit"
-            class="btn btn-danger"
+        <input
+            type="text"
+            name="search"
+            value="{{ request('search') }}"
+            placeholder="search"
         >
-            Hapus
-        </button>
 
     </form>
 
-</td>
 
-                        </tr>
 
-                    @endforeach
+    <a
+        href="{{ route('superadmin.applications.create') }}"
+        class="add-button"
+    >
 
-                </tbody>
+        <span class="plus-icon">
+            +
+        </span>
 
-            </table>
+        TAMBAH APLIKASI
 
-        @else
+    </a>
 
-            <div class="empty">
+</div>
 
-                <h3>Belum ada aplikasi</h3>
 
-                <p>
-                    Silakan tambahkan aplikasi baru ke portal.
-                </p>
 
-            </div>
+@if ($applications->count() > 0)
 
-        @endif
 
-    </div>
+<div class="table-container">
 
-</main>
+    <table>
 
-</body>
+        <thead>
 
-</html>
+            <tr>
+
+                <th style="width: 80px;">
+                    No
+                </th>
+
+                <th class="logo-cell">
+                    Logo
+                </th>
+
+                <th>
+                    Nama Aplikasi
+                </th>
+
+                <th>
+                    URL
+                </th>
+
+                <th style="width: 140px;">
+                    Status
+                </th>
+
+                <th style="width: 230px;">
+                    Aksi
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+
+            @foreach ($applications as $index => $application)
+
+
+            <tr>
+
+
+                <td>
+                    {{ $index + 1 }}
+                </td>
+
+
+
+                <td>
+
+                    @if ($application->icon)
+
+                        <img
+                            src="{{ asset('storage/' . $application->icon) }}"
+                            alt="{{ $application->name }}"
+                            class="application-logo"
+                        >
+
+                    @else
+
+                        <div class="no-logo">
+
+                            {{
+                                strtoupper(
+                                    substr(
+                                        $application->name,
+                                        0,
+                                        1
+                                    )
+                                )
+                            }}
+
+                        </div>
+
+                    @endif
+
+                </td>
+
+
+
+                <td>
+
+                    <div class="application-name">
+                        {{ $application->name }}
+                    </div>
+
+                </td>
+
+
+
+                <td>
+
+                    <div class="application-url">
+
+                        {{ $application->url }}
+
+                    </div>
+
+                </td>
+
+
+
+                <td>
+
+                    @if ($application->is_active)
+
+                        <span class="status status-active">
+                            Aktif
+                        </span>
+
+                    @else
+
+                        <span class="status status-inactive">
+                            Nonaktif
+                        </span>
+
+                    @endif
+
+                </td>
+
+
+
+                <td>
+
+                    <div class="action-wrapper">
+
+
+                        <a
+                            href="{{ route('superadmin.applications.edit', $application) }}"
+                            class="action-button edit-button"
+                            title="Edit aplikasi"
+                        >
+                            ✎
+                        </a>
+
+
+
+                        <form
+                            action="{{ route('superadmin.applications.destroy', $application) }}"
+                            method="POST"
+                            onsubmit="return confirm('Yakin ingin menghapus aplikasi {{ $application->name }}?');"
+                        >
+
+                            @csrf
+
+                            @method('DELETE')
+
+                            <button
+                                type="submit"
+                                class="action-button delete-button"
+                                title="Hapus aplikasi"
+                            >
+                                🗑
+                            </button>
+
+                        </form>
+
+
+                    </div>
+
+                </td>
+
+
+            </tr>
+
+
+            @endforeach
+
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+
+<div class="table-footer">
+
+    Menampilkan {{ $applications->count() }} aplikasi
+
+</div>
+
+
+@else
+
+
+<div class="empty">
+
+    <h3>
+        Belum ada aplikasi
+    </h3>
+
+    <p>
+        Silakan tambahkan aplikasi baru ke portal.
+    </p>
+
+</div>
+
+
+@endif
+
+
+@endsection

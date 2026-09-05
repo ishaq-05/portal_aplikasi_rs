@@ -8,12 +8,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Application extends Model
 {
     protected $fillable = [
+
         'name',
+
         'url',
-        'icon',
+
         'description',
+
+        'icon',
+
         'is_active',
+
     ];
+
 
     public function visits(): HasMany
     {

@@ -38,41 +38,47 @@ class SuperAdminApplicationController extends Controller
     {
         $validated = $request->validate([
 
-            // Nama aplikasi
             'name' => [
                 'required',
                 'string',
                 'max:255',
             ],
 
-            // URL aplikasi
             'url' => [
                 'required',
                 'url',
                 'max:2048',
             ],
 
-            // Deskripsi aplikasi
             'description' => [
-                'nullable',
+                'required',
                 'string',
                 'max:1000',
             ],
 
-            // Logo aplikasi
             'icon' => [
                 'nullable',
-                'image',
+                'file',
                 'mimes:jpg,jpeg,png,webp,svg',
                 'max:2048',
             ],
 
-            // Status aplikasi
             'is_active' => [
-                'required',
+                'nullable',
                 'boolean',
             ],
+
         ]);
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Status
+        |--------------------------------------------------------------------------
+        */
+
+        $validated['is_active'] =
+            $request->has('is_active');
 
 
         /*
@@ -86,6 +92,7 @@ class SuperAdminApplicationController extends Controller
             $validated['icon'] = $request
                 ->file('icon')
                 ->store('applications', 'public');
+
         }
 
 
@@ -97,12 +104,6 @@ class SuperAdminApplicationController extends Controller
 
         Application::create($validated);
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | Redirect
-        |--------------------------------------------------------------------------
-        */
 
         return redirect()
             ->route('superadmin.applications.index')
@@ -132,82 +133,88 @@ class SuperAdminApplicationController extends Controller
         Request $request,
         Application $application
     ) {
+
         $validated = $request->validate([
 
-            // Nama aplikasi
             'name' => [
                 'required',
                 'string',
                 'max:255',
             ],
 
-            // URL aplikasi
             'url' => [
                 'required',
                 'url',
                 'max:2048',
             ],
 
-            // Deskripsi aplikasi
             'description' => [
-                'nullable',
+                'required',
                 'string',
                 'max:1000',
             ],
 
-            // Logo aplikasi
             'icon' => [
                 'nullable',
-                'image',
+                'file',
                 'mimes:jpg,jpeg,png,webp,svg',
                 'max:2048',
             ],
 
-            // Status aplikasi
             'is_active' => [
-                'required',
+                'nullable',
                 'boolean',
             ],
+
         ]);
 
 
         /*
         |--------------------------------------------------------------------------
-        | Jika Ada Logo Baru
+        | Status
+        |--------------------------------------------------------------------------
+        */
+
+        $validated['is_active'] =
+            $request->has('is_active');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Jika ada logo baru
         |--------------------------------------------------------------------------
         */
 
         if ($request->hasFile('icon')) {
 
+
             // Hapus logo lama
+
             if ($application->icon) {
 
                 Storage::disk('public')
                     ->delete($application->icon);
+
             }
 
 
             // Simpan logo baru
+
             $validated['icon'] = $request
                 ->file('icon')
                 ->store('applications', 'public');
+
         }
 
 
         /*
         |--------------------------------------------------------------------------
-        | Update Data Aplikasi
+        | Update aplikasi
         |--------------------------------------------------------------------------
         */
 
         $application->update($validated);
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | Redirect
-        |--------------------------------------------------------------------------
-        */
 
         return redirect()
             ->route('superadmin.applications.index')
@@ -225,7 +232,7 @@ class SuperAdminApplicationController extends Controller
     {
         /*
         |--------------------------------------------------------------------------
-        | Hapus Logo
+        | Hapus logo
         |--------------------------------------------------------------------------
         */
 
@@ -233,23 +240,18 @@ class SuperAdminApplicationController extends Controller
 
             Storage::disk('public')
                 ->delete($application->icon);
+
         }
 
 
         /*
         |--------------------------------------------------------------------------
-        | Hapus Data Aplikasi
+        | Hapus aplikasi
         |--------------------------------------------------------------------------
         */
 
         $application->delete();
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | Redirect
-        |--------------------------------------------------------------------------
-        */
 
         return redirect()
             ->route('superadmin.applications.index')

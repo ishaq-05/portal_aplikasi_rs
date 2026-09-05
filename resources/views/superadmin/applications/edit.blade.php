@@ -10,286 +10,95 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Edit Aplikasi</title>
+    <title>Edit Aplikasi Portal</title>
 
 
     <style>
 
         * {
             box-sizing: border-box;
+
             margin: 0;
+
             padding: 0;
         }
 
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #172033;
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #f4f6f8;
+
+            color: #111827;
+
+            min-height: 100vh;
         }
 
 
-        /* =========================================================
-           NAVBAR
-        ========================================================= */
+        .page {
+            width: 100%;
 
-        .navbar {
+            min-height: 100vh;
 
-            height: 70px;
-
-            background: white;
-
-            border-bottom: 1px solid #e5e7eb;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding: 0 40px;
+            padding: 1px 20px 40px;
         }
 
 
-        .brand {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-        }
-
-
-        .brand-icon {
-
-            width: 42px;
-
-            height: 42px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            background: #0f766e;
-
-            color: white;
-
-            border-radius: 10px;
-
-            font-size: 20px;
-        }
-
-
-        .brand h2 {
-
-            font-size: 18px;
-        }
-
-
-        .brand p {
-
-            font-size: 12px;
-
-            color: #6b7280;
-
-            margin-top: 3px;
-        }
-
-
-        /* =========================================================
-           CONTAINER
-        ========================================================= */
-
-        .container {
-
-            max-width: 850px;
-
-            margin: 40px auto;
-
-            padding: 0 25px;
-        }
-
-
-        /* =========================================================
+        /* =====================================================
            HEADER
-        ========================================================= */
+        ===================================================== */
 
         .header {
+            width: 742px;
 
-            margin-bottom: 25px;
+            max-width: 100%;
+
+            margin: 0 auto;
+
+            padding-top: 47px;
+
+            text-align: center;
+
+            position: relative;
         }
 
 
         .header h1 {
-
             font-size: 30px;
 
-            margin-bottom: 8px;
+            line-height: 1.15;
+
+            font-weight: 900;
+
+            color: #050505;
+
+            text-shadow: 1px 1px 0 #777;
         }
 
 
         .header p {
-
-            color: #6b7280;
-
-            line-height: 1.6;
-        }
-
-
-        /* =========================================================
-           CARD
-        ========================================================= */
-
-        .card {
-
-            background: white;
-
-            border: 1px solid #e5e7eb;
-
-            border-radius: 15px;
-
-            padding: 30px;
-
-            box-shadow:
-                0 5px 20px rgba(0, 0, 0, 0.04);
-        }
-
-
-        /* =========================================================
-           FORM
-        ========================================================= */
-
-        .form-group {
-
-            margin-bottom: 24px;
-        }
-
-
-        label {
-
-            display: block;
-
-            font-size: 14px;
-
-            font-weight: bold;
-
-            margin-bottom: 8px;
-        }
-
-
-        .required {
-
-            color: #dc2626;
-        }
-
-
-        input[type="text"],
-        input[type="url"],
-        input[type="file"],
-        textarea {
-
-            width: 100%;
-
-            padding: 13px 14px;
-
-            border: 1px solid #d1d5db;
-
-            border-radius: 9px;
-
-            font-size: 14px;
-
-            outline: none;
-
-            background: white;
-
-            font-family: Arial, sans-serif;
-        }
-
-
-        input[type="text"]:focus,
-        input[type="url"]:focus,
-        input[type="file"]:focus,
-        textarea:focus {
-
-            border-color: #0f766e;
-
-            box-shadow:
-                0 0 0 3px rgba(15, 118, 110, 0.08);
-        }
-
-
-        /* =========================================================
-           DESKRIPSI
-        ========================================================= */
-
-        textarea {
-
-            min-height: 120px;
-
-            resize: vertical;
-
-            line-height: 1.6;
-        }
-
-
-        .description-counter {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            margin-top: 6px;
-
-            font-size: 12px;
-
-            color: #6b7280;
-        }
-
-
-        /* =========================================================
-           HELP
-        ========================================================= */
-
-        .help {
-
             margin-top: 7px;
 
-            color: #6b7280;
+            font-size: 16px;
 
-            font-size: 12px;
-
-            line-height: 1.5;
+            color: #172033;
         }
 
 
-        /* =========================================================
-           ERROR
-        ========================================================= */
+        /* =====================================================
+           KEMBALI
+        ===================================================== */
 
-        .error {
+        .back-button {
+            position: absolute;
 
-            margin-top: 7px;
+            right: 0;
 
-            color: #dc2626;
+            top: 187px;
 
-            font-size: 13px;
-        }
+            width: 157px;
 
-
-        /* =========================================================
-           CURRENT LOGO
-        ========================================================= */
-
-        .current-logo {
-
-            width: 110px;
-
-            height: 110px;
-
-            margin-bottom: 18px;
+            height: 28px;
 
             display: flex;
 
@@ -297,37 +106,157 @@
 
             justify-content: center;
 
-            background: #f9fafb;
+            gap: 17px;
 
-            border: 1px solid #e5e7eb;
+            border: 2px solid #111827;
 
-            border-radius: 12px;
+            border-radius: 18px;
 
-            padding: 10px;
+            background: #087f60;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 900;
+        }
+
+
+        .back-button:hover {
+            background: #066c52;
+        }
+
+
+        .back-arrow {
+            font-size: 27px;
+
+            font-weight: 900;
+
+            line-height: 20px;
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-wrapper {
+            width: 742px;
+
+            max-width: 100%;
+
+            margin: 104px auto 0;
+
+            background: white;
+
+            border: 2px solid #111111;
+
+            border-radius: 8px;
 
             overflow: hidden;
         }
 
 
-        .current-logo img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: contain;
-
-            object-position: center;
-
-            display: block;
+        .form-content {
+            padding: 10px 108px 23px;
         }
 
 
-        .no-logo {
+        .form-group {
+            margin-bottom: 16px;
+        }
 
-            width: 80px;
 
-            height: 80px;
+        .form-label {
+            display: block;
+
+            margin-bottom: 2px;
+
+            font-size: 13px;
+
+            font-weight: 900;
+
+            color: #111111;
+        }
+
+
+        .form-control {
+            width: 100%;
+
+            height: 30px;
+
+            padding: 4px 9px;
+
+            border: 1px solid #111111;
+
+            border-radius: 9px;
+
+            background: white;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 12px;
+
+            color: #111111;
+
+            outline: none;
+        }
+
+
+        .form-control:focus {
+            border-color: #087f60;
+
+            box-shadow: 0 0 0 2px rgba(8,127,96,.12);
+        }
+
+
+        textarea.form-control {
+            height: 97px;
+
+            padding: 7px 9px;
+
+            resize: vertical;
+        }
+
+
+        .form-help {
+            margin-top: 2px;
+
+            padding-left: 7px;
+
+            font-size: 11px;
+
+            color: #172033;
+
+            line-height: 1.3;
+        }
+
+
+        .error {
+            margin-top: 4px;
+
+            color: #dc2626;
+
+            font-size: 11px;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           LOGO SAAT INI
+        ===================================================== */
+
+        .current-logo {
+            width: 100px;
+
+            height: 70px;
+
+            border: 1px solid #111111;
+
+            border-radius: 8px;
 
             display: flex;
 
@@ -335,233 +264,381 @@
 
             justify-content: center;
 
-            background: #e6fffb;
+            background: white;
 
-            color: #0f766e;
+            overflow: hidden;
 
-            border-radius: 12px;
-
-            font-size: 25px;
-
-            font-weight: bold;
+            margin-bottom: 8px;
         }
 
 
-        /* =========================================================
-           PREVIEW LOGO BARU
-        ========================================================= */
+        .current-logo img {
+            max-width: 90px;
 
-        .preview-container {
-
-            margin-top: 15px;
-
-            display: none;
-
-            align-items: center;
-
-            gap: 15px;
-        }
-
-
-        .preview-container.show {
-
-            display: flex;
-        }
-
-
-        .preview {
-
-            width: 80px;
-
-            height: 80px;
+            max-height: 60px;
 
             object-fit: contain;
-
-            object-position: center;
-
-            border-radius: 12px;
-
-            border: 1px solid #e5e7eb;
-
-            padding: 6px;
-
-            background: #f9fafb;
         }
 
 
-        .preview-text {
+        /* =====================================================
+           UPLOAD
+        ===================================================== */
 
-            color: #6b7280;
+        .upload-box {
+            position: relative;
 
-            font-size: 13px;
-        }
+            width: 100%;
 
+            height: 84px;
 
-        /* =========================================================
-           STATUS
-        ========================================================= */
+            border: 1px dashed #111111;
 
-        .status-box {
+            border-radius: 8px;
 
             display: flex;
 
             align-items: center;
 
-            gap: 12px;
+            justify-content: center;
 
-            padding: 15px;
+            text-align: center;
 
-            background: #f9fafb;
+            cursor: pointer;
 
-            border-radius: 10px;
-
-            border: 1px solid #e5e7eb;
+            overflow: hidden;
         }
 
 
-        .status-box input {
+        .upload-box:hover {
+            background: #f7fbf9;
 
-            width: 18px;
-
-            height: 18px;
-
-            flex-shrink: 0;
+            border-color: #087f60;
         }
 
 
-        .status-text strong {
+        .upload-input {
+            position: absolute;
 
-            display: block;
+            inset: 0;
 
-            font-size: 14px;
+            width: 100%;
 
-            margin-bottom: 3px;
-        }
+            height: 100%;
 
-
-        .status-text span {
-
-            font-size: 12px;
-
-            color: #6b7280;
-
-            line-height: 1.5;
-        }
-
-
-        /* =========================================================
-           ACTIONS
-        ========================================================= */
-
-        .actions {
-
-            display: flex;
-
-            justify-content: flex-end;
-
-            gap: 10px;
-
-            margin-top: 30px;
-
-            padding-top: 20px;
-
-            border-top: 1px solid #e5e7eb;
-        }
-
-
-        .btn {
-
-            display: inline-block;
-
-            padding: 12px 18px;
-
-            border-radius: 9px;
-
-            text-decoration: none;
-
-            font-weight: bold;
-
-            font-size: 14px;
+            opacity: 0;
 
             cursor: pointer;
         }
 
 
-        .btn-secondary {
+        .upload-content {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            pointer-events: none;
+        }
+
+
+        .upload-icon {
+            width: 31px;
+
+            height: 25px;
+
+            color: #4b5563;
+        }
+
+
+        .upload-icon svg {
+            width: 100%;
+
+            height: 100%;
+        }
+
+
+        .upload-title {
+            font-size: 12px;
+
+            line-height: 1.1;
+
+            font-weight: 900;
+        }
+
+
+        .upload-format {
+            margin-top: 2px;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           PREVIEW
+        ===================================================== */
+
+        .logo-preview {
+            display: none;
+
+            width: 100%;
+
+            height: 100%;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+        }
+
+
+        .logo-preview img {
+            max-width: 100px;
+
+            max-height: 55px;
+
+            object-fit: contain;
+        }
+
+
+        .logo-preview-name {
+            margin-top: 3px;
+
+            font-size: 10px;
+
+            color: #475569;
+        }
+
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
+        .status-box {
+            width: 100%;
+
+            height: 47px;
+
+            border: 1px solid #111111;
+
+            border-radius: 9px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 9px;
+        }
+
+
+        .status-label {
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            cursor: pointer;
+        }
+
+
+        .toggle {
+            position: relative;
+
+            flex-shrink: 0;
+
+            width: 42px;
+
+            height: 21px;
+        }
+
+
+        .toggle input {
+            opacity: 0;
+
+            width: 0;
+
+            height: 0;
+        }
+
+
+        .toggle-slider {
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 20px;
+
+            background: #d1d5db;
+
+            transition: .2s;
+        }
+
+
+        .toggle-slider::before {
+            content: "";
+
+            position: absolute;
+
+            width: 17px;
+
+            height: 17px;
+
+            left: 2px;
+
+            top: 2px;
+
+            border-radius: 50%;
 
             background: white;
 
-            color: #374151;
-
-            border: 1px solid #d1d5db;
+            transition: .2s;
         }
 
 
-        .btn-secondary:hover {
-
-            background: #f9fafb;
+        .toggle input:checked + .toggle-slider {
+            background: #00c878;
         }
 
 
-        .btn-primary {
+        .toggle input:checked + .toggle-slider::before {
+            transform: translateX(21px);
+        }
 
-            border: none;
 
-            background: #0f766e;
+        .status-text {
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        .status-title {
+            font-size: 12px;
+
+            font-weight: 900;
+        }
+
+
+        .status-description {
+            margin-top: 2px;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .form-footer {
+            min-height: 78px;
+
+            border-top: 1px solid #111111;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 20px;
+
+            padding: 0 44px;
+        }
+
+
+        .button {
+            height: 28px;
+
+            min-width: 125px;
+
+            padding: 0 18px;
+
+            border-radius: 17px;
+
+            border: 2px solid #111827;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            text-decoration: none;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .button-cancel {
+            background: #ff3b43;
+
+            color: #111111;
+        }
+
+
+        .button-save {
+            background: #087f60;
 
             color: white;
         }
 
 
-        .btn-primary:hover {
+        @media (max-width: 650px) {
 
-            background: #115e59;
-        }
+            .page {
+                padding-left: 12px;
 
-
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
-
-        @media (max-width: 600px) {
-
-            .navbar {
-
-                padding: 0 20px;
+                padding-right: 12px;
             }
 
 
-            .container {
-
-                margin-top: 30px;
-
-                padding: 0 15px;
-            }
-
-
-            .card {
-
-                padding: 20px;
+            .header {
+                padding-top: 30px;
             }
 
 
             .header h1 {
-
-                font-size: 26px;
+                font-size: 24px;
             }
 
 
-            .actions {
+            .back-button {
+                position: relative;
 
-                flex-direction: column-reverse;
+                top: auto;
+
+                right: auto;
+
+                margin: 25px 0 0 auto;
             }
 
 
-            .actions .btn {
+            .form-wrapper {
+                margin-top: 30px;
+            }
 
-                width: 100%;
 
-                text-align: center;
+            .form-content {
+                padding: 20px 25px;
+            }
+
+
+            .form-footer {
+                padding: 18px 20px;
+
+                gap: 10px;
             }
 
         }
@@ -574,70 +651,48 @@
 <body>
 
 
-<!-- =========================================================
-     NAVBAR
-========================================================= -->
-
-<nav class="navbar">
-
-    <div class="brand">
-
-        <div class="brand-icon">
-            🏥
-        </div>
+<div class="page">
 
 
-        <div>
-
-            <h2>
-                Portal Aplikasi
-            </h2>
-
-            <p>
-                Super Admin
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <a
-        href="{{ route('superadmin.applications.index') }}"
-        class="btn btn-secondary"
-    >
-        ← Kembali
-    </a>
-
-</nav>
-
-
-
-<!-- =========================================================
-     MAIN
-========================================================= -->
-
-<main class="container">
-
+    {{-- HEADER --}}
 
     <div class="header">
 
         <h1>
-            Edit Aplikasi
+            EDIT APLIKASI PORTAL
         </h1>
 
         <p>
-            Ubah informasi aplikasi yang tersedia di portal.
+            Ubah informasi aplikasi yang tersedia di Portal Rumah Sakit.
         </p>
+
+
+        <a
+            href="{{ route('superadmin.applications.index') }}"
+            class="back-button"
+        >
+
+            <span class="back-arrow">
+                ←
+            </span>
+
+            <span>
+                Kembali
+            </span>
+
+        </a>
 
     </div>
 
 
 
-    <div class="card">
+    {{-- FORM --}}
+
+    <div class="form-wrapper">
 
 
         <form
+            id="editApplicationForm"
             action="{{ route('superadmin.applications.update', $application) }}"
             method="POST"
             enctype="multipart/form-data"
@@ -648,165 +703,148 @@
             @method('PUT')
 
 
-
-            <!-- =================================================
-                 NAMA
-            ================================================== -->
-
-            <div class="form-group">
-
-                <label for="name">
-
-                    Nama Aplikasi
-
-                    <span class="required">
-                        *
-                    </span>
-
-                </label>
+            <div class="form-content">
 
 
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value="{{ old('name', $application->name) }}"
-                    placeholder="Contoh: SIMRS"
-                    required
-                >
+                {{-- NAMA --}}
+
+                <div class="form-group">
+
+                    <label
+                        for="name"
+                        class="form-label"
+                    >
+                        NAMA APLIKASI
+                    </label>
 
 
-                @error('name')
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="form-control"
+                        value="{{ old('name', $application->name) }}"
+                        required
+                    >
 
-                    <div class="error">
-                        {{ $message }}
+
+                    <div class="form-help">
+                        Masukan nama aplikasi yang akan di tampilkan di portal
                     </div>
 
-                @enderror
 
-            </div>
+                    @error('name')
 
+                        <div class="error">
+                            {{ $message }}
+                        </div>
 
-
-            <!-- =================================================
-                 URL
-            ================================================== -->
-
-            <div class="form-group">
-
-                <label for="url">
-
-                    URL Aplikasi
-
-                    <span class="required">
-                        *
-                    </span>
-
-                </label>
-
-
-                <input
-                    type="url"
-                    id="url"
-                    name="url"
-                    value="{{ old('url', $application->url) }}"
-                    placeholder="https://contoh.rumahsakit.com"
-                    required
-                >
-
-
-                <div class="help">
-
-                    Masukkan alamat lengkap aplikasi,
-                    termasuk http:// atau https://.
+                    @enderror
 
                 </div>
 
 
-                @error('url')
 
-                    <div class="error">
-                        {{ $message }}
+                {{-- URL --}}
+
+                <div class="form-group">
+
+                    <label
+                        for="url"
+                        class="form-label"
+                    >
+                        URL APLIKASI
+                    </label>
+
+
+                    <input
+                        type="url"
+                        id="url"
+                        name="url"
+                        class="form-control"
+                        value="{{ old('url', $application->url) }}"
+                        required
+                    >
+
+
+                    <div class="form-help">
+                        Masukan alamat lengkap aplikasi, termasuk http:// atau https://.
                     </div>
 
-                @enderror
 
-            </div>
+                    @error('url')
 
+                        <div class="error">
+                            {{ $message }}
+                        </div>
 
-
-            <!-- =================================================
-                 DESKRIPSI
-            ================================================== -->
-
-            <div class="form-group">
-
-                <label for="description">
-
-                    Deskripsi Aplikasi
-
-                </label>
-
-
-                <textarea
-                    id="description"
-                    name="description"
-                    maxlength="1000"
-                    placeholder="Contoh: Aplikasi untuk mengelola data dan pelayanan rumah sakit."
-                >{{ old('description', $application->description) }}</textarea>
-
-
-                <div class="description-counter">
-
-                    <span>
-                        Jelaskan secara singkat fungsi aplikasi.
-                    </span>
-
-                    <span id="descriptionCount">
-                        0 / 1000
-                    </span>
+                    @enderror
 
                 </div>
 
 
-                @error('description')
 
-                    <div class="error">
-                        {{ $message }}
+                {{-- DESKRIPSI --}}
+
+                <div class="form-group">
+
+                    <label
+                        for="description"
+                        class="form-label"
+                    >
+                        DESKRIPSI APLIKASI
+                    </label>
+
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        class="form-control"
+                        required
+                    >{{ old('description', $application->description) }}</textarea>
+
+
+                    <div class="form-help">
+                        Jelaskan secara singkat fungsi aplikasi
                     </div>
 
-                @enderror
 
-            </div>
+                    @error('description')
 
+                        <div class="error">
+                            {{ $message }}
+                        </div>
 
+                    @enderror
 
-            <!-- =================================================
-                 LOGO SAAT INI
-            ================================================== -->
-
-            <div class="form-group">
-
-                <label>
-                    Logo Saat Ini
-                </label>
+                </div>
 
 
-                <div class="current-logo">
+
+                {{-- LOGO LAMA --}}
+
+                <div class="form-group">
+
+                    <label class="form-label">
+                        LOGO SAAT INI
+                    </label>
+
 
                     @if ($application->icon)
 
-                        <img
-                            src="{{ asset('storage/' . $application->icon) }}"
-                            alt="{{ $application->name }}"
-                        >
+                        <div class="current-logo">
+
+                            <img
+                                src="{{ asset('storage/' . $application->icon) }}"
+                                alt="{{ $application->name }}"
+                            >
+
+                        </div>
 
                     @else
 
-                        <div class="no-logo">
-
-                            {{ strtoupper(substr($application->name, 0, 1)) }}
-
+                        <div class="current-logo">
+                            Tidak ada logo
                         </div>
 
                     @endif
@@ -815,127 +853,182 @@
 
 
 
-                <!-- GANTI LOGO -->
+                {{-- GANTI LOGO --}}
 
-                <label for="icon">
+                <div class="form-group">
 
-                    Ganti Logo
-
-                </label>
-
-
-                <input
-                    type="file"
-                    id="icon"
-                    name="icon"
-                    accept=".jpg,.jpeg,.png,.webp,.svg"
-                >
+                    <label class="form-label">
+                        GANTI LOGO
+                    </label>
 
 
-                <div class="help">
-
-                    Kosongkan jika tidak ingin mengganti logo.
-                    Format JPG, JPEG, PNG, WEBP, atau SVG.
-                    Maksimal 2 MB.
-
-                </div>
-
-
-                @error('icon')
-
-                    <div class="error">
-                        {{ $message }}
-                    </div>
-
-                @enderror
-
-
-
-                <!-- PREVIEW LOGO BARU -->
-
-                <div
-                    class="preview-container"
-                    id="previewContainer"
-                >
-
-                    <img
-                        id="preview"
-                        class="preview"
-                        alt="Preview logo baru"
+                    <label
+                        class="upload-box"
+                        for="icon"
                     >
 
+                        <input
+                            type="file"
+                            id="icon"
+                            name="icon"
+                            class="upload-input"
+                            accept=".jpg,.jpeg,.png,.webp,.svg"
+                        >
 
-                    <span class="preview-text">
 
-                        Preview logo baru
+                        <div
+                            class="upload-content"
+                            id="uploadContent"
+                        >
 
-                    </span>
+                            <div class="upload-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+
+                                    <path
+                                        d="M12 16V4"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                    />
+
+                                    <path
+                                        d="M7.5 8.5L12 4L16.5 8.5"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+
+                                    <path
+                                        d="M5 16.5V18C5 19.1046 5.89543 20 7 20H17C18.1046 20 19 19.1046 19 18V16.5"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                    />
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="upload-title">
+
+                                KLIK UNTUK
+                                <br>
+                                UPLOAD LOGO
+
+                            </div>
+
+
+                            <div class="upload-format">
+
+                                Kosongkan jika tidak ingin mengganti logo.
+                                Maksimal 2 MB.
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="logo-preview"
+                            id="logoPreview"
+                        >
+
+                            <img
+                                id="previewImage"
+                                src=""
+                                alt="Preview Logo"
+                            >
+
+
+                            <div
+                                class="logo-preview-name"
+                                id="previewName"
+                            ></div>
+
+                        </div>
+
+                    </label>
+
+
+                    @error('icon')
+
+                        <div class="error">
+                            {{ $message }}
+                        </div>
+
+                    @enderror
 
                 </div>
+
+
+
+                {{-- STATUS --}}
+
+                <div class="form-group">
+
+                    <label class="form-label">
+                        STATUS APLIKASI
+                    </label>
+
+
+                    <div class="status-box">
+
+                        <label class="status-label">
+
+
+                            <span class="toggle">
+
+                                <input
+                                    type="checkbox"
+                                    name="is_active"
+                                    value="1"
+                                    {{ old('is_active', $application->is_active) ? 'checked' : '' }}
+                                >
+
+                                <span class="toggle-slider"></span>
+
+                            </span>
+
+
+                            <span class="status-text">
+
+                                <span class="status-title">
+                                    Aplikasi Aktif
+                                </span>
+
+                                <span class="status-description">
+                                    Aplikasi akan langsung ditampilkan kepada user
+                                </span>
+
+                            </span>
+
+
+                        </label>
+
+                    </div>
+
+                </div>
+
 
             </div>
 
 
 
-            <!-- =================================================
-                 STATUS
-            ================================================== -->
+            {{-- FOOTER --}}
 
-            <div class="form-group">
-
-                <label>
-                    Status Aplikasi
-                </label>
-
-
-                <div class="status-box">
-
-
-                    <input
-                        type="hidden"
-                        name="is_active"
-                        value="0"
-                    >
-
-
-                    <input
-                        type="checkbox"
-                        id="is_active"
-                        name="is_active"
-                        value="1"
-                        {{ $application->is_active ? 'checked' : '' }}
-                    >
-
-
-                    <div class="status-text">
-
-                        <strong>
-                            Aplikasi Aktif
-                        </strong>
-
-                        <span>
-                            Jika aktif, aplikasi akan terlihat oleh user.
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 ACTIONS
-            ================================================== -->
-
-            <div class="actions">
+            <div class="form-footer">
 
 
                 <a
                     href="{{ route('superadmin.applications.index') }}"
-                    class="btn btn-secondary"
+                    class="button button-cancel"
                 >
                     Batal
                 </a>
@@ -943,7 +1036,7 @@
 
                 <button
                     type="submit"
-                    class="btn btn-primary"
+                    class="button button-save"
                 >
                     Simpan Perubahan
                 </button>
@@ -957,105 +1050,85 @@
 
     </div>
 
-
-</main>
-
+</div>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
 
 <script>
 
-    /*
-    |--------------------------------------------------------------------------
-    | Preview Logo Baru
-    |--------------------------------------------------------------------------
-    */
+document.addEventListener(
+    'DOMContentLoaded',
+    function () {
 
-    const iconInput =
-        document.getElementById('icon');
+        const fileInput =
+            document.getElementById('icon');
 
+        const uploadContent =
+            document.getElementById('uploadContent');
 
-    const preview =
-        document.getElementById('preview');
+        const logoPreview =
+            document.getElementById('logoPreview');
 
+        const previewImage =
+            document.getElementById('previewImage');
 
-    const previewContainer =
-        document.getElementById('previewContainer');
-
-
-    iconInput.addEventListener(
-        'change',
-        function () {
-
-            const file = this.files[0];
+        const previewName =
+            document.getElementById('previewName');
 
 
-            if (!file) {
-
-                previewContainer.classList.remove('show');
-
-                return;
-            }
-
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload =
-                function (event) {
-
-                    preview.src =
-                        event.target.result;
-
-                    previewContainer.classList.add('show');
-
-                };
-
-
-            reader.readAsDataURL(file);
-
+        if (!fileInput) {
+            return;
         }
-    );
 
 
+        fileInput.addEventListener(
+            'change',
+            function () {
 
-    /*
-    |--------------------------------------------------------------------------
-    | Counter Deskripsi
-    |--------------------------------------------------------------------------
-    */
-
-    const description =
-        document.getElementById('description');
+                const file = this.files[0];
 
 
-    const descriptionCount =
-        document.getElementById('descriptionCount');
+                if (!file) {
+
+                    uploadContent.style.display =
+                        'flex';
+
+                    logoPreview.style.display =
+                        'none';
+
+                    return;
+                }
 
 
-    function updateDescriptionCount() {
-
-        const length =
-            description.value.length;
+                const reader =
+                    new FileReader();
 
 
-        descriptionCount.textContent =
-            length + ' / 1000';
+                reader.onload =
+                    function (event) {
+
+                        previewImage.src =
+                            event.target.result;
+
+                        previewName.textContent =
+                            file.name;
+
+                        uploadContent.style.display =
+                            'none';
+
+                        logoPreview.style.display =
+                            'flex';
+
+                    };
+
+
+                reader.readAsDataURL(file);
+
+            }
+        );
 
     }
-
-
-    description.addEventListener(
-        'input',
-        updateDescriptionCount
-    );
-
-
-    updateDescriptionCount();
+);
 
 </script>
 

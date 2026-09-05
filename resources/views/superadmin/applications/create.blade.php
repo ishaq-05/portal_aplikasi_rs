@@ -5,12 +5,9 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tambah Aplikasi</title>
+    <title>Tambah Aplikasi Portal</title>
 
 
     <style>
@@ -23,45 +20,84 @@
 
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #f4f6f8;
+
+            color: #111827;
+
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           HALAMAN
+        ===================================================== */
+
+        .page {
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding: 1px 20px 40px;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+            width: 742px;
+
+            max-width: 100%;
+
+            margin: 0 auto;
+
+            padding-top: 47px;
+
+            text-align: center;
+
+            position: relative;
+        }
+
+
+        .header h1 {
+            font-size: 30px;
+
+            line-height: 1.15;
+
+            font-weight: 900;
+
+            color: #050505;
+
+            text-shadow: 1px 1px 0 #777;
+        }
+
+
+        .header p {
+            margin-top: 7px;
+
+            font-size: 16px;
+
             color: #172033;
         }
 
 
-        /* =========================================================
-           NAVBAR
-        ========================================================= */
+        /* =====================================================
+           TOMBOL KEMBALI
+        ===================================================== */
 
-        .navbar {
-            height: 70px;
+        .back-button {
+            position: absolute;
 
-            background: #ffffff;
+            right: 0;
 
-            border-bottom: 1px solid #e5e7eb;
+            top: 187px;
 
-            display: flex;
+            width: 157px;
 
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding: 0 40px;
-        }
-
-
-        .brand {
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-        }
-
-
-        .brand-icon {
-            width: 42px;
-            height: 42px;
+            height: 28px;
 
             display: flex;
 
@@ -69,415 +105,551 @@
 
             justify-content: center;
 
-            background: #0f766e;
+            gap: 17px;
+
+            border: 2px solid #111827;
+
+            border-radius: 18px;
+
+            background: #087f60;
 
             color: white;
 
-            border-radius: 10px;
+            text-decoration: none;
 
-            font-size: 20px;
-        }
-
-
-        .brand h2 {
-            font-size: 18px;
-        }
-
-
-        .brand p {
             font-size: 12px;
 
-            color: #6b7280;
+            font-weight: 900;
 
-            margin-top: 3px;
+            transition: 0.2s;
         }
 
 
-        /* =========================================================
-           CONTAINER
-        ========================================================= */
+        .back-button:hover {
+            background: #066c52;
 
-        .container {
-            max-width: 850px;
-
-            margin: 40px auto;
-
-            padding: 0 25px;
+            transform: translateY(-1px);
         }
 
 
-        /* =========================================================
-           HEADER
-        ========================================================= */
+        .back-arrow {
+            font-size: 27px;
 
-        .header {
-            margin-bottom: 25px;
+            font-weight: 900;
+
+            line-height: 20px;
         }
 
 
-        .header h1 {
-            font-size: 30px;
+        /* =====================================================
+           FORM CONTAINER
+        ===================================================== */
 
-            margin-bottom: 8px;
-        }
+        .form-wrapper {
+            width: 742px;
 
+            max-width: 100%;
 
-        .header p {
-            color: #6b7280;
+            margin: 104px auto 0;
 
-            line-height: 1.6;
-        }
-
-
-        /* =========================================================
-           CARD
-        ========================================================= */
-
-        .card {
             background: white;
 
-            border: 1px solid #e5e7eb;
+            border: 2px solid #111111;
 
-            border-radius: 15px;
+            border-radius: 8px;
 
-            padding: 30px;
-
-            box-shadow:
-                0 5px 20px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            FORM
-        ========================================================= */
+        ===================================================== */
+
+        .form-content {
+            padding: 10px 108px 23px;
+        }
+
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
 
-        label {
+        .form-label {
             display: block;
 
-            font-size: 14px;
+            margin-bottom: 2px;
+
+            font-size: 13px;
+
+            font-weight: 900;
+
+            color: #111111;
+        }
+
+
+        .form-control {
+            width: 100%;
+
+            height: 30px;
+
+            padding: 4px 9px;
+
+            border: 1px solid #111111;
+
+            border-radius: 9px;
+
+            background: white;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 12px;
+
+            color: #111111;
+
+            outline: none;
+        }
+
+
+        .form-control:focus {
+            border-color: #087f60;
+
+            box-shadow: 0 0 0 2px rgba(8, 127, 96, 0.12);
+        }
+
+
+        textarea.form-control {
+            height: 97px;
+
+            padding: 7px 9px;
+
+            resize: vertical;
+        }
+
+
+        .form-help {
+            margin-top: 2px;
+
+            padding-left: 7px;
+
+            font-size: 11px;
+
+            color: #172033;
+
+            line-height: 1.3;
+        }
+
+
+        .error {
+            margin-top: 4px;
+
+            color: #dc2626;
+
+            font-size: 11px;
 
             font-weight: bold;
-
-            margin-bottom: 8px;
         }
 
 
-        .required {
-            color: #dc2626;
-        }
+        /* =====================================================
+           UPLOAD LOGO
+        ===================================================== */
 
-
-        input[type="text"],
-        input[type="url"],
-        input[type="file"],
-        textarea {
+        .upload-box {
+            position: relative;
 
             width: 100%;
 
-            padding: 13px 14px;
+            height: 84px;
 
-            border: 1px solid #d1d5db;
+            border: 1px dashed #111111;
 
-            border-radius: 9px;
-
-            font-size: 14px;
-
-            outline: none;
+            border-radius: 8px;
 
             background: white;
 
-            font-family: Arial, sans-serif;
-        }
-
-
-        input[type="text"]:focus,
-        input[type="url"]:focus,
-        input[type="file"]:focus,
-        textarea:focus {
-
-            border-color: #0f766e;
-
-            box-shadow:
-                0 0 0 3px rgba(15, 118, 110, 0.08);
-        }
-
-
-        /* =========================================================
-           DESKRIPSI
-        ========================================================= */
-
-        textarea {
-
-            min-height: 120px;
-
-            resize: vertical;
-
-            line-height: 1.6;
-        }
-
-
-        .description-counter {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            margin-top: 6px;
-
-            font-size: 12px;
-
-            color: #6b7280;
-        }
-
-
-        /* =========================================================
-           HELP TEXT
-        ========================================================= */
-
-        .help {
-            margin-top: 7px;
-
-            color: #6b7280;
-
-            font-size: 12px;
-
-            line-height: 1.5;
-        }
-
-
-        /* =========================================================
-           ERROR
-        ========================================================= */
-
-        .error {
-            margin-top: 7px;
-
-            color: #dc2626;
-
-            font-size: 13px;
-        }
-
-
-        /* =========================================================
-           PREVIEW
-        ========================================================= */
-
-        .preview-container {
-
-            margin-top: 15px;
-
-            display: none;
-
-            align-items: center;
-
-            gap: 15px;
-        }
-
-
-        .preview-container.show {
-            display: flex;
-        }
-
-
-        .preview {
-
-            width: 80px;
-
-            height: 80px;
-
-            object-fit: contain;
-
-            border-radius: 12px;
-
-            border: 1px solid #e5e7eb;
-
-            padding: 6px;
-
-            background: #f9fafb;
-        }
-
-
-        .preview-text {
-
-            color: #6b7280;
-
-            font-size: 13px;
-        }
-
-
-        /* =========================================================
-           STATUS
-        ========================================================= */
-
-        .status-box {
-
             display: flex;
 
             align-items: center;
 
-            gap: 12px;
+            justify-content: center;
 
-            padding: 15px;
+            text-align: center;
 
-            background: #f9fafb;
+            cursor: pointer;
 
-            border-radius: 10px;
-
-            border: 1px solid #e5e7eb;
+            overflow: hidden;
         }
 
 
-        .status-box input {
+        .upload-box:hover {
+            background: #f7fbf9;
 
-            width: 18px;
-
-            height: 18px;
-
-            flex-shrink: 0;
+            border-color: #087f60;
         }
 
 
-        .status-text strong {
+        .upload-input {
+            position: absolute;
 
-            display: block;
+            inset: 0;
 
-            font-size: 14px;
+            width: 100%;
 
-            margin-bottom: 3px;
-        }
+            height: 100%;
 
-
-        .status-text span {
-
-            font-size: 12px;
-
-            color: #6b7280;
-
-            line-height: 1.5;
-        }
-
-
-        /* =========================================================
-           ACTIONS
-        ========================================================= */
-
-        .actions {
-
-            display: flex;
-
-            justify-content: flex-end;
-
-            gap: 10px;
-
-            margin-top: 30px;
-
-            padding-top: 20px;
-
-            border-top: 1px solid #e5e7eb;
-        }
-
-
-        .btn {
-
-            display: inline-block;
-
-            padding: 12px 18px;
-
-            border-radius: 9px;
-
-            text-decoration: none;
-
-            font-weight: bold;
-
-            font-size: 14px;
+            opacity: 0;
 
             cursor: pointer;
         }
 
 
-        .btn-secondary {
+        .upload-content {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            pointer-events: none;
+        }
+
+
+        .upload-icon {
+            width: 31px;
+
+            height: 25px;
+
+            color: #4b5563;
+
+            margin-bottom: 1px;
+        }
+
+
+        .upload-icon svg {
+            width: 100%;
+
+            height: 100%;
+        }
+
+
+        .upload-title {
+            font-size: 12px;
+
+            line-height: 1.1;
+
+            font-weight: 900;
+        }
+
+
+        .upload-format {
+            margin-top: 2px;
+
+            font-size: 11px;
+
+            color: #172033;
+        }
+
+
+        /* =====================================================
+           PREVIEW LOGO
+        ===================================================== */
+
+        .logo-preview {
+            display: none;
+
+            width: 100%;
+
+            height: 100%;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+        }
+
+
+        .logo-preview img {
+            max-width: 100px;
+
+            max-height: 55px;
+
+            object-fit: contain;
+        }
+
+
+        .logo-preview-name {
+            margin-top: 3px;
+
+            font-size: 10px;
+
+            color: #475569;
+        }
+
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
+        .status-box {
+            width: 100%;
+
+            height: 47px;
+
+            border: 1px solid #111111;
+
+            border-radius: 9px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 9px;
+        }
+
+
+        .status-label {
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           TOGGLE
+        ===================================================== */
+
+        .toggle {
+            position: relative;
+
+            flex-shrink: 0;
+
+            width: 42px;
+
+            height: 21px;
+        }
+
+
+        .toggle input {
+            opacity: 0;
+
+            width: 0;
+
+            height: 0;
+        }
+
+
+        .toggle-slider {
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 20px;
+
+            background: #d1d5db;
+
+            transition: 0.2s;
+        }
+
+
+        .toggle-slider::before {
+            content: "";
+
+            position: absolute;
+
+            width: 17px;
+
+            height: 17px;
+
+            left: 2px;
+
+            top: 2px;
+
+            border-radius: 50%;
 
             background: white;
 
-            color: #374151;
+            transition: 0.2s;
 
-            border: 1px solid #d1d5db;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.25);
         }
 
 
-        .btn-secondary:hover {
-
-            background: #f9fafb;
+        .toggle input:checked + .toggle-slider {
+            background: #00c878;
         }
 
 
-        .btn-primary {
+        .toggle input:checked + .toggle-slider::before {
+            transform: translateX(21px);
+        }
 
-            border: none;
 
-            background: #0f766e;
+        .status-text {
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        .status-title {
+            font-size: 12px;
+
+            font-weight: 900;
+        }
+
+
+        .status-description {
+            margin-top: 2px;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .form-footer {
+            min-height: 78px;
+
+            border-top: 1px solid #111111;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 20px;
+
+            padding: 0 44px;
+        }
+
+
+        .button {
+            height: 28px;
+
+            min-width: 125px;
+
+            padding: 0 18px;
+
+            border-radius: 17px;
+
+            border: 2px solid #111827;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            text-decoration: none;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .button-cancel {
+            background: #ff3b43;
+
+            color: #111111;
+        }
+
+
+        .button-cancel:hover {
+            background: #ed252e;
+        }
+
+
+        .button-save {
+            background: #087f60;
 
             color: white;
         }
 
 
-        .btn-primary:hover {
-
-            background: #115e59;
+        .button-save:hover {
+            background: #066c52;
         }
 
 
-        /* =========================================================
+        /* =====================================================
            RESPONSIVE
-        ========================================================= */
+        ===================================================== */
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
 
-            .navbar {
+            .page {
+                padding-left: 12px;
 
-                padding: 0 20px;
+                padding-right: 12px;
             }
 
 
-            .container {
-
-                margin-top: 30px;
-
-                padding: 0 15px;
-            }
-
-
-            .card {
-
-                padding: 20px;
+            .header {
+                padding-top: 30px;
             }
 
 
             .header h1 {
-
-                font-size: 26px;
+                font-size: 24px;
             }
 
 
-            .actions {
-
-                flex-direction: column-reverse;
+            .header p {
+                font-size: 14px;
             }
 
 
-            .actions .btn {
+            .back-button {
+                position: relative;
 
-                width: 100%;
+                top: auto;
 
-                text-align: center;
+                right: auto;
+
+                margin: 25px 0 0 auto;
+            }
+
+
+            .form-wrapper {
+                margin-top: 30px;
+            }
+
+
+            .form-content {
+                padding: 20px 25px;
+            }
+
+
+            .form-footer {
+                padding: 18px 20px;
+
+                gap: 10px;
+            }
+
+
+            .button {
+                min-width: 105px;
             }
 
         }
+
 
     </style>
 
@@ -487,70 +659,52 @@
 <body>
 
 
-<!-- =========================================================
-     NAVBAR
-========================================================= -->
-
-<nav class="navbar">
-
-    <div class="brand">
-
-        <div class="brand-icon">
-            🏥
-        </div>
+<div class="page">
 
 
-        <div>
-
-            <h2>
-                Portal Aplikasi
-            </h2>
-
-            <p>
-                Super Admin
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <a
-        href="{{ route('superadmin.applications.index') }}"
-        class="btn btn-secondary"
-    >
-        ← Kembali
-    </a>
-
-</nav>
-
-
-
-<!-- =========================================================
-     MAIN
-========================================================= -->
-
-<main class="container">
-
+    {{-- =====================================================
+         HEADER
+    ====================================================== --}}
 
     <div class="header">
 
         <h1>
-            Tambah Aplikasi
+            TAMBAH APLIKASI PORTAL
         </h1>
 
         <p>
             Tambahkan aplikasi baru ke Portal Aplikasi Rumah Sakit.
         </p>
 
+
+        <a
+            href="{{ route('superadmin.applications.index') }}"
+            class="back-button"
+        >
+
+            <span class="back-arrow">
+                ←
+            </span>
+
+            <span>
+                Kembali
+            </span>
+
+        </a>
+
     </div>
 
 
 
-    <div class="card">
+    {{-- =====================================================
+         FORM WRAPPER
+    ====================================================== --}}
+
+    <div class="form-wrapper">
 
 
         <form
+            id="addApplicationForm"
             action="{{ route('superadmin.applications.store') }}"
             method="POST"
             enctype="multipart/form-data"
@@ -559,262 +713,302 @@
             @csrf
 
 
+            <div class="form-content">
 
-            <!-- =================================================
-                 NAMA APLIKASI
-            ================================================== -->
 
-            <div class="form-group">
+                {{-- NAMA APLIKASI --}}
 
-                <label for="name">
+                <div class="form-group">
 
-                    Nama Aplikasi
-
-                    <span class="required">
-                        *
-                    </span>
-
-                </label>
-
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value="{{ old('name') }}"
-                    placeholder="Contoh: SIMRS"
-                    required
-                >
-
-
-                @error('name')
-
-                    <div class="error">
-                        {{ $message }}
-                    </div>
-
-                @enderror
-
-            </div>
-
-
-
-            <!-- =================================================
-                 URL APLIKASI
-            ================================================== -->
-
-            <div class="form-group">
-
-                <label for="url">
-
-                    URL Aplikasi
-
-                    <span class="required">
-                        *
-                    </span>
-
-                </label>
-
-
-                <input
-                    type="url"
-                    id="url"
-                    name="url"
-                    value="{{ old('url') }}"
-                    placeholder="https://contoh.rumahsakit.com"
-                    required
-                >
-
-
-                <div class="help">
-
-                    Masukkan alamat lengkap aplikasi,
-                    termasuk http:// atau https://.
-
-                </div>
-
-
-                @error('url')
-
-                    <div class="error">
-                        {{ $message }}
-                    </div>
-
-                @enderror
-
-            </div>
-
-
-
-            <!-- =================================================
-                 DESKRIPSI APLIKASI
-            ================================================== -->
-
-            <div class="form-group">
-
-                <label for="description">
-
-                    Deskripsi Aplikasi
-
-                </label>
-
-
-                <textarea
-                    id="description"
-                    name="description"
-                    maxlength="1000"
-                    placeholder="Contoh: Aplikasi untuk mengelola data dan pelayanan rumah sakit."
-                >{{ old('description') }}</textarea>
-
-
-                <div class="description-counter">
-
-                    <span>
-                        Jelaskan secara singkat fungsi aplikasi.
-                    </span>
-
-                    <span id="descriptionCount">
-                        0 / 1000
-                    </span>
-
-                </div>
-
-
-                @error('description')
-
-                    <div class="error">
-                        {{ $message }}
-                    </div>
-
-                @enderror
-
-            </div>
-
-
-
-            <!-- =================================================
-                 LOGO
-            ================================================== -->
-
-            <div class="form-group">
-
-                <label for="icon">
-
-                    Logo Aplikasi
-
-                </label>
-
-
-                <input
-                    type="file"
-                    id="icon"
-                    name="icon"
-                    accept=".jpg,.jpeg,.png,.webp,.svg"
-                >
-
-
-                <div class="help">
-
-                    Format:
-                    JPG, JPEG, PNG, WEBP, atau SVG.
-                    Maksimal 2 MB.
-
-                </div>
-
-
-                @error('icon')
-
-                    <div class="error">
-                        {{ $message }}
-                    </div>
-
-                @enderror
-
-
-
-                <!-- PREVIEW -->
-
-                <div
-                    class="preview-container"
-                    id="previewContainer"
-                >
-
-                    <img
-                        id="preview"
-                        class="preview"
-                        alt="Preview logo"
+                    <label
+                        for="name"
+                        class="form-label"
                     >
-
-
-                    <span class="preview-text">
-                        Preview logo aplikasi
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 STATUS
-            ================================================== -->
-
-            <div class="form-group">
-
-                <label>
-                    Status Aplikasi
-                </label>
-
-
-                <div class="status-box">
+                        NAMA APLIKASI
+                    </label>
 
 
                     <input
-                        type="hidden"
-                        name="is_active"
-                        value="0"
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="form-control"
+                        value="{{ old('name') }}"
+                        required
                     >
 
 
-                    <input
-                        type="checkbox"
-                        id="is_active"
-                        name="is_active"
-                        value="1"
-                        checked
-                    >
-
-
-                    <div class="status-text">
-
-                        <strong>
-                            Aplikasi Aktif
-                        </strong>
-
-                        <span>
-                            Aplikasi akan langsung ditampilkan kepada user.
-                        </span>
-
+                    <div class="form-help">
+                        Masukan nama aplikasi yang akan di tampilkan di portal
                     </div>
 
 
+                    @error('name')
+
+                        <div class="error">
+                            {{ $message }}
+                        </div>
+
+                    @enderror
+
                 </div>
+
+
+
+                {{-- URL --}}
+
+                <div class="form-group">
+
+                    <label
+                        for="url"
+                        class="form-label"
+                    >
+                        URL APLIKASI
+                    </label>
+
+
+                    <input
+                        type="url"
+                        id="url"
+                        name="url"
+                        class="form-control"
+                        value="{{ old('url') }}"
+                        required
+                    >
+
+
+                    <div class="form-help">
+                        Masukan alamat lengkap aplikasi, termasuk http:// atau https://.
+                    </div>
+
+
+                    @error('url')
+
+                        <div class="error">
+                            {{ $message }}
+                        </div>
+
+                    @enderror
+
+                </div>
+
+
+
+                {{-- DESKRIPSI --}}
+
+                <div class="form-group">
+
+                    <label
+                        for="description"
+                        class="form-label"
+                    >
+                        DESKRIPSI APLIKASI
+                    </label>
+
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        class="form-control"
+                        required
+                    >{{ old('description') }}</textarea>
+
+
+                    <div class="form-help">
+                        Jelaskan secara singkat fungsi aplikasi
+                    </div>
+
+
+                    @error('description')
+
+                        <div class="error">
+                            {{ $message }}
+                        </div>
+
+                    @enderror
+
+                </div>
+
+
+
+                {{-- LOGO --}}
+
+                <div class="form-group">
+
+                    <label class="form-label">
+                        LOGO APLIKASI
+                    </label>
+
+
+                    <label
+                        class="upload-box"
+                        for="icon"
+                    >
+
+                        <input
+                            type="file"
+                            id="icon"
+                            name="icon"
+                            class="upload-input"
+                            accept=".jpg,.jpeg,.png,.webp,.svg"
+                        >
+
+
+                        <div
+                            class="upload-content"
+                            id="uploadContent"
+                        >
+
+                            <div class="upload-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+
+                                    <path
+                                        d="M12 16V4"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                    />
+
+                                    <path
+                                        d="M7.5 8.5L12 4L16.5 8.5"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+
+                                    <path
+                                        d="M5 16.5V18C5 19.1046 5.89543 20 7 20H17C18.1046 20 19 19.1046 19 18V16.5"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                    />
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="upload-title">
+
+                                KLIK UNTUK
+                                <br>
+                                UPLOAD LOGO
+
+                            </div>
+
+
+                            <div class="upload-format">
+
+                                Format: JPG, JPEG, PNG, WEBP, atau SVG.
+                                Maksimal 2 MB.
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="logo-preview"
+                            id="logoPreview"
+                        >
+
+                            <img
+                                id="previewImage"
+                                src=""
+                                alt="Preview Logo"
+                            >
+
+
+                            <div
+                                class="logo-preview-name"
+                                id="previewName"
+                            ></div>
+
+                        </div>
+
+                    </label>
+
+
+                    @error('icon')
+
+                        <div class="error">
+                            {{ $message }}
+                        </div>
+
+                    @enderror
+
+                </div>
+
+
+
+                {{-- STATUS --}}
+
+                <div class="form-group">
+
+                    <label class="form-label">
+                        STATUS APLIKASI
+                    </label>
+
+
+                    <div class="status-box">
+
+                        <label class="status-label">
+
+
+                            <span class="toggle">
+
+                                <input
+                                    type="checkbox"
+                                    name="is_active"
+                                    value="1"
+                                    {{ old('is_active', true) ? 'checked' : '' }}
+                                >
+
+                                <span class="toggle-slider"></span>
+
+                            </span>
+
+
+                            <span class="status-text">
+
+                                <span class="status-title">
+                                    Aplikasi Aktif
+                                </span>
+
+                                <span class="status-description">
+                                    Aplikasi akan langsung ditampilkan kepada user
+                                </span>
+
+                            </span>
+
+
+                        </label>
+
+                    </div>
+
+                </div>
+
 
             </div>
 
 
 
-            <!-- =================================================
-                 ACTIONS
-            ================================================== -->
+            {{-- =================================================
+                 FOOTER BUTTON
+            ================================================== --}}
 
-            <div class="actions">
+            <div class="form-footer">
 
 
                 <a
                     href="{{ route('superadmin.applications.index') }}"
-                    class="btn btn-secondary"
+                    class="button button-cancel"
                 >
                     Batal
                 </a>
@@ -822,7 +1016,7 @@
 
                 <button
                     type="submit"
-                    class="btn btn-primary"
+                    class="button button-save"
                 >
                     Simpan Aplikasi
                 </button>
@@ -836,105 +1030,80 @@
 
     </div>
 
-
-</main>
-
+</div>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
 
 <script>
 
-    /*
-    |--------------------------------------------------------------------------
-    | Preview Logo
-    |--------------------------------------------------------------------------
-    */
+document.addEventListener(
+    'DOMContentLoaded',
+    function () {
 
-    const iconInput =
-        document.getElementById('icon');
+        const fileInput =
+            document.getElementById('icon');
 
+        const uploadContent =
+            document.getElementById('uploadContent');
 
-    const preview =
-        document.getElementById('preview');
+        const logoPreview =
+            document.getElementById('logoPreview');
 
+        const previewImage =
+            document.getElementById('previewImage');
 
-    const previewContainer =
-        document.getElementById('previewContainer');
-
-
-    iconInput.addEventListener(
-        'change',
-        function () {
-
-            const file = this.files[0];
+        const previewName =
+            document.getElementById('previewName');
 
 
-            if (!file) {
+        fileInput.addEventListener(
+            'change',
+            function () {
 
-                previewContainer.classList.remove('show');
+                const file = this.files[0];
 
-                return;
+
+                if (!file) {
+
+                    uploadContent.style.display =
+                        'flex';
+
+                    logoPreview.style.display =
+                        'none';
+
+                    return;
+                }
+
+
+                const reader =
+                    new FileReader();
+
+
+                reader.onload =
+                    function (event) {
+
+                        previewImage.src =
+                            event.target.result;
+
+                        previewName.textContent =
+                            file.name;
+
+                        uploadContent.style.display =
+                            'none';
+
+                        logoPreview.style.display =
+                            'flex';
+
+                    };
+
+
+                reader.readAsDataURL(file);
+
             }
-
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload =
-                function (event) {
-
-                    preview.src =
-                        event.target.result;
-
-                    previewContainer.classList.add('show');
-
-                };
-
-
-            reader.readAsDataURL(file);
-
-        }
-    );
-
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Counter Deskripsi
-    |--------------------------------------------------------------------------
-    */
-
-    const description =
-        document.getElementById('description');
-
-
-    const descriptionCount =
-        document.getElementById('descriptionCount');
-
-
-    function updateDescriptionCount() {
-
-        const length =
-            description.value.length;
-
-
-        descriptionCount.textContent =
-            length + ' / 1000';
+        );
 
     }
-
-
-    description.addEventListener(
-        'input',
-        updateDescriptionCount
-    );
-
-
-    updateDescriptionCount();
+);
 
 </script>
 
