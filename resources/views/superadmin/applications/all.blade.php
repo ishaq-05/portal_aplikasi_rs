@@ -5,18 +5,11 @@
 @push('styles')
 
 <style>
-    /* =====================================================
-       SEMUA APLIKASI
-    ===================================================== */
 
     .all-applications-page {
         width: 100%;
         min-height: 100%;
     }
-
-    /* =====================================================
-       HEADER
-    ===================================================== */
 
     .applications-page-header {
         display: flex;
@@ -64,10 +57,6 @@
         transform: translateY(-1px);
     }
 
-    /* =====================================================
-       STATISTICS
-    ===================================================== */
-
     .statistics-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -102,10 +91,6 @@
         color: #d13b3b;
     }
 
-    /* =====================================================
-       MAIN SECTION
-    ===================================================== */
-
     .applications-section {
         background: #ffffff;
         border: 1px solid #dfe6ef;
@@ -113,10 +98,6 @@
         box-shadow: 0 5px 18px rgba(18, 35, 63, .04);
         overflow: hidden;
     }
-
-    /* =====================================================
-       SEARCH
-    ===================================================== */
 
     .applications-search-area {
         padding: 19px 22px;
@@ -187,10 +168,6 @@
         color: #263954;
     }
 
-    /* =====================================================
-       SEARCH RESULT
-    ===================================================== */
-
     .search-result {
         padding: 13px 23px 0;
         color: #71829a;
@@ -201,20 +178,12 @@
         color: #233650;
     }
 
-    /* =====================================================
-       APPLICATION GRID
-    ===================================================== */
-
     .applications-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 18px;
         padding: 22px;
     }
-
-    /* =====================================================
-       APPLICATION CARD
-    ===================================================== */
 
     .application-card {
         position: relative;
@@ -241,10 +210,6 @@
     .application-card.hidden {
         display: none !important;
     }
-
-    /* =====================================================
-       LOGO
-    ===================================================== */
 
     .application-logo {
         width: 100%;
@@ -280,10 +245,6 @@
         font-weight: 800;
     }
 
-    /* =====================================================
-       CONTENT
-    ===================================================== */
-
     .application-content {
         flex: 1;
         display: flex;
@@ -314,10 +275,6 @@
 
         overflow: hidden;
     }
-
-    /* =====================================================
-       STATUS
-    ===================================================== */
 
     .application-status {
         display: flex;
@@ -360,10 +317,6 @@
         background: #d92d20;
     }
 
-    /* =====================================================
-       URL
-    ===================================================== */
-
     .application-url {
         margin-top: 10px;
         color: #3472b9;
@@ -373,10 +326,6 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
-
-    /* =====================================================
-       BUTTON
-    ===================================================== */
 
     .application-action {
         margin-top: 15px;
@@ -412,10 +361,6 @@
         background: #687585;
     }
 
-    /* =====================================================
-       EMPTY STATE
-    ===================================================== */
-
     .empty-state {
         padding: 70px 25px;
         text-align: center;
@@ -447,10 +392,6 @@
         font-size: 12px;
     }
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-
     .applications-footer {
         padding: 14px 23px;
         border-top: 1px solid #e5eaf1;
@@ -461,10 +402,6 @@
     .applications-footer strong {
         color: #253751;
     }
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
 
     @media (max-width: 1250px) {
         .applications-grid {
@@ -507,14 +444,9 @@
 
 @endpush
 
-
 @section('content')
 
 <div class="all-applications-page">
-
-    {{-- =====================================================
-         HEADER
-    ====================================================== --}}
 
     <div class="applications-page-header">
 
@@ -530,13 +462,7 @@
 
         </div>
 
-
     </div>
-
-
-    {{-- =====================================================
-         STATISTICS
-    ====================================================== --}}
 
     <div class="statistics-grid">
 
@@ -552,7 +478,6 @@
 
         </div>
 
-
         <div class="statistics-card">
 
             <div class="statistics-label">
@@ -564,7 +489,6 @@
             </div>
 
         </div>
-
 
         <div class="statistics-card inactive">
 
@@ -580,17 +504,7 @@
 
     </div>
 
-
-    {{-- =====================================================
-         APPLICATION SECTION
-    ====================================================== --}}
-
     <div class="applications-section">
-
-
-        {{-- =================================================
-             SEARCH
-        ================================================== --}}
 
         <div class="applications-search-area">
 
@@ -624,7 +538,6 @@
                     ></line>
                 </svg>
 
-
                 <input
                     type="text"
                     name="search"
@@ -634,7 +547,6 @@
                     placeholder="Cari nama atau deskripsi aplikasi..."
                     autocomplete="off"
                 >
-
 
                 <button
                     type="button"
@@ -650,21 +562,11 @@
 
         </div>
 
-
-        {{-- =================================================
-             SEARCH RESULT
-        ================================================== --}}
-
         <div
             class="search-result"
             id="searchResult"
             style="display: none;"
         ></div>
-
-
-        {{-- =================================================
-             APPLICATION GRID
-        ================================================== --}}
 
         @if($applications->count() > 0)
 
@@ -680,8 +582,6 @@
                         data-name="{{ strtolower($application->name) }}"
                         data-description="{{ strtolower($application->description ?? '') }}"
                     >
-
-                        {{-- LOGO --}}
 
                         <div class="application-logo">
 
@@ -710,22 +610,15 @@
 
                         </div>
 
-
-                        {{-- CONTENT --}}
-
                         <div class="application-content">
 
                             <h2 class="application-name">
                                 {{ $application->name }}
                             </h2>
 
-
                             <p class="application-description">
                                 {{ $application->description ?: 'Tidak ada deskripsi aplikasi.' }}
                             </p>
-
-
-                            {{-- STATUS --}}
 
                             <div class="application-status">
 
@@ -753,18 +646,12 @@
 
                             </div>
 
-
-                            {{-- URL --}}
-
                             <div
                                 class="application-url"
                                 title="{{ $application->url }}"
                             >
                                 {{ $application->url }}
                             </div>
-
-
-                            {{-- BUTTON --}}
 
                             <div class="application-action">
 
@@ -786,11 +673,6 @@
                 @endforeach
 
             </div>
-
-
-            {{-- =================================================
-                 EMPTY SEARCH
-            ================================================== --}}
 
             <div
                 class="empty-state"
@@ -836,11 +718,6 @@
 
             </div>
 
-
-            {{-- =================================================
-                 FOOTER
-            ================================================== --}}
-
             <div class="applications-footer">
 
                 Menampilkan
@@ -862,10 +739,6 @@
             </div>
 
         @else
-
-            {{-- =================================================
-                 DATABASE EMPTY / SERVER SEARCH EMPTY
-            ================================================== --}}
 
             <div class="empty-state">
 
@@ -897,7 +770,6 @@
 
                 </div>
 
-
                 <h3 class="empty-title">
 
                     @if($search)
@@ -907,7 +779,6 @@
                     @endif
 
                 </h3>
-
 
                 <p class="empty-text">
 
@@ -933,7 +804,6 @@
 </div>
 
 @endsection
-
 
 @push('scripts')
 
@@ -963,34 +833,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const visibleCount =
         document.getElementById('visibleCount');
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | SEARCH
-    |--------------------------------------------------------------------------
-    */
-
     function performSearch() {
 
         if (!searchInput) {
             return;
         }
 
-
         const keyword =
             searchInput.value
                 .toLowerCase()
                 .trim();
 
-
         let totalVisible = 0;
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | TOMBOL CLEAR
-        |--------------------------------------------------------------------------
-        */
 
         if (keyword.length > 0) {
 
@@ -1002,13 +856,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | FILTER CARD
-        |--------------------------------------------------------------------------
-        */
-
         cards.forEach(function (card) {
 
             const name =
@@ -1017,11 +864,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const description =
                 card.dataset.description || '';
 
-
             const match =
                 name.includes(keyword) ||
                 description.includes(keyword);
-
 
             if (match) {
 
@@ -1036,13 +881,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
         });
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | HASIL PENCARIAN
-        |--------------------------------------------------------------------------
-        */
 
         if (keyword !== '') {
 
@@ -1067,13 +905,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | EMPTY SEARCH
-        |--------------------------------------------------------------------------
-        */
-
         if (
             keyword !== '' &&
             totalVisible === 0
@@ -1087,13 +918,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | JUMLAH APLIKASI
-        |--------------------------------------------------------------------------
-        */
-
         if (visibleCount) {
 
             visibleCount.textContent =
@@ -1102,13 +926,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
     }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | ESCAPE HTML
-    |--------------------------------------------------------------------------
-    */
 
     function escapeHtml(text) {
 
@@ -1119,13 +936,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return div.innerHTML;
     }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | SEARCH SAAT MENGETIK
-    |--------------------------------------------------------------------------
-    */
 
     if (searchInput) {
 
@@ -1138,13 +948,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         );
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | ENTER
-        |--------------------------------------------------------------------------
-        */
-
         searchInput.addEventListener(
             'keydown',
             function (event) {
@@ -1153,16 +956,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     event.preventDefault();
 
-
                     const keyword =
                         searchInput.value.trim();
-
 
                     const url =
                         new URL(
                             window.location.href
                         );
-
 
                     if (keyword !== '') {
 
@@ -1179,7 +979,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     }
 
-
                     window.location.href =
                         url.toString();
 
@@ -1189,13 +988,6 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
     }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | CLEAR SEARCH
-    |--------------------------------------------------------------------------
-    */
 
     if (clearButton) {
 
@@ -1213,13 +1005,6 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
     }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | SEARCH AWAL
-    |--------------------------------------------------------------------------
-    */
 
     performSearch();
 

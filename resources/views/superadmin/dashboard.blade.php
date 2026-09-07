@@ -1,21 +1,14 @@
 @extends('layouts.superadmin')
 
-
 @section('title', 'Dashboard - Super Admin')
-
 
 @push('styles')
 
 <style>
 
-    /* =====================================================
-       DASHBOARD HEADER
-    ===================================================== */
-
     .dashboard-header {
         margin-bottom: 28px;
     }
-
 
     .dashboard-header h1 {
         font-size: 34px;
@@ -28,18 +21,11 @@
         margin-bottom: 8px;
     }
 
-
     .dashboard-header p {
         font-size: 16px;
 
         color: #5f7695;
     }
-
-
-
-    /* =====================================================
-       STATISTICS
-    ===================================================== */
 
     .stats-grid {
         width: 100%;
@@ -53,7 +39,6 @@
 
         margin-bottom: 32px;
     }
-
 
     .stat-card {
         min-height: 160px;
@@ -78,13 +63,11 @@
             0 5px 12px rgba(0, 0, 0, 0.10);
     }
 
-
     .stat-title {
         font-size: 15px;
 
         font-weight: bold;
     }
-
 
     .stat-number {
         text-align: center;
@@ -98,7 +81,6 @@
         margin: 5px 0;
     }
 
-
     .stat-description {
         text-align: center;
 
@@ -106,12 +88,6 @@
 
         font-weight: 500;
     }
-
-
-
-    /* =====================================================
-       ANALYSIS
-    ===================================================== */
 
     .analysis-section {
         width: 100%;
@@ -127,7 +103,6 @@
         margin-bottom: 38px;
     }
 
-
     .analysis-title {
         font-size: 27px;
 
@@ -138,7 +113,6 @@
         margin-bottom: 4px;
     }
 
-
     .analysis-description {
         font-size: 14px;
 
@@ -146,7 +120,6 @@
 
         margin-bottom: 16px;
     }
-
 
     .analysis-content {
         width: 100%;
@@ -160,12 +133,6 @@
         gap: 15px;
     }
 
-
-
-    /* =====================================================
-       CHART
-    ===================================================== */
-
     .chart-card {
         min-height: 215px;
 
@@ -178,7 +145,6 @@
         padding: 14px 15px;
     }
 
-
     .chart-title {
         font-size: 13px;
 
@@ -186,7 +152,6 @@
 
         margin-bottom: 10px;
     }
-
 
     .chart {
         position: relative;
@@ -197,7 +162,6 @@
 
         overflow: hidden;
     }
-
 
     .chart-grid {
         position: absolute;
@@ -215,7 +179,6 @@
         justify-content: space-between;
     }
 
-
     .grid-line {
         width: 100%;
 
@@ -223,7 +186,6 @@
 
         background: #d5dbe3;
     }
-
 
     .chart-months {
         position: absolute;
@@ -242,7 +204,6 @@
         font-size: 11px;
     }
 
-
     .chart-svg {
         position: absolute;
 
@@ -259,7 +220,6 @@
         overflow: visible;
     }
 
-
     .chart-line {
         fill: none;
 
@@ -272,7 +232,6 @@
         stroke-linejoin: round;
     }
 
-
     .chart-point {
         fill: #ffffff;
 
@@ -281,12 +240,6 @@
         stroke-width: 3;
     }
 
-
-
-    /* =====================================================
-       ANALYSIS SIDE
-    ===================================================== */
-
     .analysis-side {
         display: flex;
 
@@ -294,7 +247,6 @@
 
         gap: 11px;
     }
-
 
     .analysis-card {
         flex: 1;
@@ -318,13 +270,11 @@
         justify-content: space-between;
     }
 
-
     .analysis-card-title {
         font-size: 12px;
 
         font-weight: bold;
     }
-
 
     .analysis-card-number {
         text-align: center;
@@ -336,7 +286,6 @@
         font-weight: 800;
     }
 
-
     .analysis-card-description {
         text-align: center;
 
@@ -344,12 +293,6 @@
 
         font-weight: 500;
     }
-
-
-
-    /* =====================================================
-       POPULAR APPLICATION
-    ===================================================== */
 
     .popular-section {
         width: 100%;
@@ -365,13 +308,11 @@
         color: #ffffff;
     }
 
-
     .popular-header {
         text-align: center;
 
         margin-bottom: 22px;
     }
-
 
     .popular-header h2 {
         font-size: 28px;
@@ -381,13 +322,11 @@
         margin-bottom: 4px;
     }
 
-
     .popular-header p {
         font-size: 14px;
 
         color: #ffffff;
     }
-
 
     .popular-grid {
         width: 100%;
@@ -399,7 +338,6 @@
 
         gap: 28px;
     }
-
 
     .popular-card {
         background: #ffffff;
@@ -419,7 +357,6 @@
         flex-direction: column;
     }
 
-
     .popular-logo-wrapper {
         width: 100%;
 
@@ -436,7 +373,6 @@
         border-bottom: 1px solid #172033;
     }
 
-
     .popular-logo {
         width: 145px;
 
@@ -444,7 +380,6 @@
 
         object-fit: contain;
     }
-
 
     .popular-no-logo {
         width: 145px;
@@ -466,7 +401,6 @@
         background: #f3f7f9;
     }
 
-
     .popular-body {
         flex: 1;
 
@@ -481,7 +415,6 @@
         justify-content: space-between;
     }
 
-
     .popular-rank {
         font-size: 11px;
 
@@ -492,7 +425,6 @@
         margin-bottom: 2px;
     }
 
-
     .popular-name {
         font-size: 16px;
 
@@ -500,7 +432,6 @@
 
         margin-bottom: 3px;
     }
-
 
     .popular-description {
         font-size: 11px;
@@ -515,7 +446,6 @@
 
         text-overflow: ellipsis;
     }
-
 
     .popular-button {
         width: 100%;
@@ -543,13 +473,11 @@
         font-weight: bold;
     }
 
-
     .popular-button:hover {
         background: #eefaf6;
 
         color: #087f60;
     }
-
 
     .popular-empty {
         grid-column: 1 / -1;
@@ -565,18 +493,11 @@
         border-radius: 10px;
     }
 
-
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
-
     @media (max-width: 1100px) {
 
         .main-content {
             padding: 30px 25px 40px;
         }
-
 
         .analysis-content {
             grid-template-columns:
@@ -584,13 +505,11 @@
                 180px;
         }
 
-
         .popular-grid {
             gap: 18px;
         }
 
     }
-
 
     @media (max-width: 900px) {
 
@@ -599,11 +518,9 @@
                 repeat(2, minmax(0, 1fr));
         }
 
-
         .analysis-content {
             grid-template-columns: 1fr;
         }
-
 
         .analysis-side {
             display: grid;
@@ -612,7 +529,6 @@
                 repeat(2, minmax(0, 1fr));
         }
 
-
         .popular-grid {
             grid-template-columns:
                 repeat(2, minmax(0, 1fr));
@@ -620,18 +536,15 @@
 
     }
 
-
     @media (max-width: 700px) {
 
         .dashboard-header h1 {
             font-size: 29px;
         }
 
-
         .stats-grid {
             grid-template-columns: 1fr;
         }
-
 
         .popular-grid {
             grid-template-columns: 1fr;
@@ -639,23 +552,19 @@
 
     }
 
-
     @media (max-width: 480px) {
 
         .analysis-side {
             grid-template-columns: 1fr;
         }
 
-
         .dashboard-header h1 {
             font-size: 25px;
         }
 
-
         .analysis-title {
             font-size: 22px;
         }
-
 
         .popular-header h2 {
             font-size: 24px;
@@ -667,14 +576,7 @@
 
 @endpush
 
-
-
 @section('content')
-
-
-{{-- =====================================================
-     HEADER DASHBOARD
-====================================================== --}}
 
 <div class="dashboard-header">
 
@@ -688,14 +590,7 @@
 
 </div>
 
-
-
-{{-- =====================================================
-     STATISTIK
-====================================================== --}}
-
 <div class="stats-grid">
-
 
     <div class="stat-card">
 
@@ -713,8 +608,6 @@
 
     </div>
 
-
-
     <div class="stat-card">
 
         <div class="stat-title">
@@ -730,8 +623,6 @@
         </div>
 
     </div>
-
-
 
     <div class="stat-card">
 
@@ -751,12 +642,6 @@
 
 </div>
 
-
-
-{{-- =====================================================
-     ANALISIS
-====================================================== --}}
-
 <section class="analysis-section">
 
     <h2 class="analysis-title">
@@ -767,11 +652,7 @@
         Perbandingan aktivitas user berdasarkan 6 bulan terakhir.
     </p>
 
-
     <div class="analysis-content">
-
-
-        {{-- CHART --}}
 
         <div class="chart-card">
 
@@ -779,9 +660,7 @@
                 Tren Penggunaan 6 Bulan Terakhir
             </div>
 
-
             <div class="chart">
-
 
                 <div class="chart-grid">
 
@@ -791,8 +670,6 @@
                     <div class="grid-line"></div>
 
                 </div>
-
-
 
                 <svg
                     class="chart-svg"
@@ -804,7 +681,6 @@
                         class="chart-line"
                         points="0,110 120,110 240,110 360,110 480,25 600,45"
                     />
-
 
                     <circle
                         class="chart-point"
@@ -850,8 +726,6 @@
 
                 </svg>
 
-
-
                 <div class="chart-months">
 
                     <span>Apr 2026</span>
@@ -867,12 +741,7 @@
 
         </div>
 
-
-
-        {{-- SIDE ANALYSIS --}}
-
         <div class="analysis-side">
-
 
             <div class="analysis-card">
 
@@ -890,8 +759,6 @@
 
             </div>
 
-
-
             <div class="analysis-card">
 
                 <div class="analysis-card-title">
@@ -908,21 +775,13 @@
 
             </div>
 
-
         </div>
 
     </div>
 
 </section>
 
-
-
-{{-- =====================================================
-     APLIKASI POPULER
-====================================================== --}}
-
 <section class="popular-section">
-
 
     <div class="popular-header">
 
@@ -936,25 +795,19 @@
 
     </div>
 
-
-
     <div class="popular-grid">
-
 
         @if (
             isset($popularApplications) &&
             $popularApplications->count() > 0
         )
 
-
             @foreach (
                 $popularApplications->take(3)
                 as $index => $application
             )
 
-
                 <div class="popular-card">
-
 
                     <div class="popular-logo-wrapper">
 
@@ -986,10 +839,7 @@
 
                     </div>
 
-
-
                     <div class="popular-body">
-
 
                         <div>
 
@@ -997,11 +847,9 @@
                                 #{{ $index + 1 }}
                             </div>
 
-
                             <div class="popular-name">
                                 {{ $application->name }}
                             </div>
-
 
                             <div class="popular-description">
 
@@ -1014,8 +862,6 @@
 
                         </div>
 
-
-
                         <a
                             href="{{ $application->url }}"
                             target="_blank"
@@ -1025,29 +871,22 @@
                             Buka Aplikasi
                         </a>
 
-
                     </div>
 
                 </div>
 
-
             @endforeach
 
-
         @else
-
 
             <div class="popular-empty">
                 Belum ada data aplikasi populer.
             </div>
 
-
         @endif
-
 
     </div>
 
 </section>
-
 
 @endsection

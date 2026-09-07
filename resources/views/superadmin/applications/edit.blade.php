@@ -12,7 +12,6 @@
 
     <title>Edit Aplikasi Portal</title>
 
-
     <style>
 
         * {
@@ -22,7 +21,6 @@
 
             padding: 0;
         }
-
 
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -34,7 +32,6 @@
             min-height: 100vh;
         }
 
-
         .page {
             width: 100%;
 
@@ -42,11 +39,6 @@
 
             padding: 1px 20px 40px;
         }
-
-
-        /* =====================================================
-           HEADER
-        ===================================================== */
 
         .header {
             width: 742px;
@@ -62,7 +54,6 @@
             position: relative;
         }
 
-
         .header h1 {
             font-size: 30px;
 
@@ -75,7 +66,6 @@
             text-shadow: 1px 1px 0 #777;
         }
 
-
         .header p {
             margin-top: 7px;
 
@@ -83,11 +73,6 @@
 
             color: #172033;
         }
-
-
-        /* =====================================================
-           KEMBALI
-        ===================================================== */
 
         .back-button {
             position: absolute;
@@ -123,11 +108,9 @@
             font-weight: 900;
         }
 
-
         .back-button:hover {
             background: #066c52;
         }
-
 
         .back-arrow {
             font-size: 27px;
@@ -136,11 +119,6 @@
 
             line-height: 20px;
         }
-
-
-        /* =====================================================
-           FORM
-        ===================================================== */
 
         .form-wrapper {
             width: 742px;
@@ -158,16 +136,13 @@
             overflow: hidden;
         }
 
-
         .form-content {
             padding: 10px 108px 23px;
         }
 
-
         .form-group {
             margin-bottom: 16px;
         }
-
 
         .form-label {
             display: block;
@@ -180,7 +155,6 @@
 
             color: #111111;
         }
-
 
         .form-control {
             width: 100%;
@@ -204,13 +178,11 @@
             outline: none;
         }
 
-
         .form-control:focus {
             border-color: #087f60;
 
             box-shadow: 0 0 0 2px rgba(8,127,96,.12);
         }
-
 
         textarea.form-control {
             height: 97px;
@@ -219,7 +191,6 @@
 
             resize: vertical;
         }
-
 
         .form-help {
             margin-top: 2px;
@@ -233,7 +204,6 @@
             line-height: 1.3;
         }
 
-
         .error {
             margin-top: 4px;
 
@@ -243,11 +213,6 @@
 
             font-weight: bold;
         }
-
-
-        /* =====================================================
-           LOGO SAAT INI
-        ===================================================== */
 
         .current-logo {
             width: 100px;
@@ -271,7 +236,6 @@
             margin-bottom: 8px;
         }
 
-
         .current-logo img {
             max-width: 90px;
 
@@ -279,11 +243,6 @@
 
             object-fit: contain;
         }
-
-
-        /* =====================================================
-           UPLOAD
-        ===================================================== */
 
         .upload-box {
             position: relative;
@@ -309,13 +268,11 @@
             overflow: hidden;
         }
 
-
         .upload-box:hover {
             background: #f7fbf9;
 
             border-color: #087f60;
         }
-
 
         .upload-input {
             position: absolute;
@@ -331,7 +288,6 @@
             cursor: pointer;
         }
 
-
         .upload-content {
             display: flex;
 
@@ -344,7 +300,6 @@
             pointer-events: none;
         }
 
-
         .upload-icon {
             width: 31px;
 
@@ -353,13 +308,11 @@
             color: #4b5563;
         }
 
-
         .upload-icon svg {
             width: 100%;
 
             height: 100%;
         }
-
 
         .upload-title {
             font-size: 12px;
@@ -369,17 +322,11 @@
             font-weight: 900;
         }
 
-
         .upload-format {
             margin-top: 2px;
 
             font-size: 11px;
         }
-
-
-        /* =====================================================
-           PREVIEW
-        ===================================================== */
 
         .logo-preview {
             display: none;
@@ -395,7 +342,6 @@
             flex-direction: column;
         }
 
-
         .logo-preview img {
             max-width: 100px;
 
@@ -404,7 +350,6 @@
             object-fit: contain;
         }
 
-
         .logo-preview-name {
             margin-top: 3px;
 
@@ -412,11 +357,6 @@
 
             color: #475569;
         }
-
-
-        /* =====================================================
-           STATUS
-        ===================================================== */
 
         .status-box {
             width: 100%;
@@ -434,7 +374,6 @@
             padding: 0 9px;
         }
 
-
         .status-label {
             width: 100%;
 
@@ -447,7 +386,6 @@
             cursor: pointer;
         }
 
-
         .toggle {
             position: relative;
 
@@ -458,7 +396,6 @@
             height: 21px;
         }
 
-
         .toggle input {
             opacity: 0;
 
@@ -466,7 +403,6 @@
 
             height: 0;
         }
-
 
         .toggle-slider {
             position: absolute;
@@ -479,7 +415,6 @@
 
             transition: .2s;
         }
-
 
         .toggle-slider::before {
             content: "";
@@ -501,16 +436,13 @@
             transition: .2s;
         }
 
-
         .toggle input:checked + .toggle-slider {
             background: #00c878;
         }
 
-
         .toggle input:checked + .toggle-slider::before {
             transform: translateX(21px);
         }
-
 
         .status-text {
             display: flex;
@@ -518,24 +450,17 @@
             flex-direction: column;
         }
 
-
         .status-title {
             font-size: 12px;
 
             font-weight: 900;
         }
 
-
         .status-description {
             margin-top: 2px;
 
             font-size: 11px;
         }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
 
         .form-footer {
             min-height: 78px;
@@ -552,7 +477,6 @@
 
             padding: 0 44px;
         }
-
 
         .button {
             height: 28px;
@@ -580,20 +504,17 @@
             justify-content: center;
         }
 
-
         .button-cancel {
             background: #ff3b43;
 
             color: #111111;
         }
 
-
         .button-save {
             background: #087f60;
 
             color: white;
         }
-
 
         @media (max-width: 650px) {
 
@@ -603,16 +524,13 @@
                 padding-right: 12px;
             }
 
-
             .header {
                 padding-top: 30px;
             }
 
-
             .header h1 {
                 font-size: 24px;
             }
-
 
             .back-button {
                 position: relative;
@@ -624,16 +542,13 @@
                 margin: 25px 0 0 auto;
             }
 
-
             .form-wrapper {
                 margin-top: 30px;
             }
 
-
             .form-content {
                 padding: 20px 25px;
             }
-
 
             .form-footer {
                 padding: 18px 20px;
@@ -647,14 +562,9 @@
 
 </head>
 
-
 <body>
 
-
 <div class="page">
-
-
-    {{-- HEADER --}}
 
     <div class="header">
 
@@ -665,7 +575,6 @@
         <p>
             Ubah informasi aplikasi yang tersedia di Portal Rumah Sakit.
         </p>
-
 
         <a
             href="{{ route('superadmin.applications.index') }}"
@@ -684,12 +593,7 @@
 
     </div>
 
-
-
-    {{-- FORM --}}
-
     <div class="form-wrapper">
-
 
         <form
             id="editApplicationForm"
@@ -702,11 +606,7 @@
 
             @method('PUT')
 
-
             <div class="form-content">
-
-
-                {{-- NAMA --}}
 
                 <div class="form-group">
 
@@ -717,7 +617,6 @@
                         NAMA APLIKASI
                     </label>
 
-
                     <input
                         type="text"
                         id="name"
@@ -727,11 +626,9 @@
                         required
                     >
 
-
                     <div class="form-help">
                         Masukan nama aplikasi yang akan di tampilkan di portal
                     </div>
-
 
                     @error('name')
 
@@ -743,10 +640,6 @@
 
                 </div>
 
-
-
-                {{-- URL --}}
-
                 <div class="form-group">
 
                     <label
@@ -755,7 +648,6 @@
                     >
                         URL APLIKASI
                     </label>
-
 
                     <input
                         type="url"
@@ -766,11 +658,9 @@
                         required
                     >
 
-
                     <div class="form-help">
-                        Masukan alamat lengkap aplikasi, termasuk http:// atau https://.
+                        Masukan alamat lengkap aplikasi, termasuk http:
                     </div>
-
 
                     @error('url')
 
@@ -782,10 +672,6 @@
 
                 </div>
 
-
-
-                {{-- DESKRIPSI --}}
-
                 <div class="form-group">
 
                     <label
@@ -795,18 +681,15 @@
                         DESKRIPSI APLIKASI
                     </label>
 
-
                     <textarea
                         id="description"
                         name="description"
                         class="form-control"
                     >{{ old('description', $application->description) }}</textarea>
 
-
                     <div class="form-help">
                         Jelaskan secara singkat fungsi aplikasi (opsional)
                     </div>
-
 
                     @error('description')
 
@@ -818,16 +701,11 @@
 
                 </div>
 
-
-
-                {{-- LOGO LAMA --}}
-
                 <div class="form-group">
 
                     <label class="form-label">
                         LOGO SAAT INI
                     </label>
-
 
                     @if ($application->icon)
 
@@ -850,16 +728,11 @@
 
                 </div>
 
-
-
-                {{-- GANTI LOGO --}}
-
                 <div class="form-group">
 
                     <label class="form-label">
                         GANTI LOGO
                     </label>
-
 
                     <label
                         class="upload-box"
@@ -874,7 +747,6 @@
                             accept=".jpg,.jpeg,.png,.webp,.svg"
                         >
 
-
                         <div
                             class="upload-content"
                             id="uploadContent"
@@ -885,7 +757,7 @@
                                 <svg
                                     viewBox="0 0 24 24"
                                     fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                    xmlns="http:
                                 >
 
                                     <path
@@ -914,7 +786,6 @@
 
                             </div>
 
-
                             <div class="upload-title">
 
                                 KLIK UNTUK
@@ -922,7 +793,6 @@
                                 UPLOAD LOGO
 
                             </div>
-
 
                             <div class="upload-format">
 
@@ -932,7 +802,6 @@
                             </div>
 
                         </div>
-
 
                         <div
                             class="logo-preview"
@@ -945,7 +814,6 @@
                                 alt="Preview Logo"
                             >
 
-
                             <div
                                 class="logo-preview-name"
                                 id="previewName"
@@ -954,7 +822,6 @@
                         </div>
 
                     </label>
-
 
                     @error('icon')
 
@@ -966,21 +833,15 @@
 
                 </div>
 
-
-
-                {{-- STATUS --}}
-
                 <div class="form-group">
 
                     <label class="form-label">
                         STATUS APLIKASI
                     </label>
 
-
                     <div class="status-box">
 
                         <label class="status-label">
-
 
                             <span class="toggle">
 
@@ -995,7 +856,6 @@
 
                             </span>
 
-
                             <span class="status-text">
 
                                 <span class="status-title">
@@ -1008,22 +868,15 @@
 
                             </span>
 
-
                         </label>
 
                     </div>
 
                 </div>
 
-
             </div>
 
-
-
-            {{-- FOOTER --}}
-
             <div class="form-footer">
-
 
                 <a
                     href="{{ route('superadmin.applications.index') }}"
@@ -1032,7 +885,6 @@
                     Batal
                 </a>
 
-
                 <button
                     type="submit"
                     class="button button-save"
@@ -1040,18 +892,13 @@
                     Simpan Perubahan
                 </button>
 
-
             </div>
 
-
         </form>
-
 
     </div>
 
 </div>
-
-
 
 <script>
 
@@ -1074,18 +921,15 @@ document.addEventListener(
         const previewName =
             document.getElementById('previewName');
 
-
         if (!fileInput) {
             return;
         }
-
 
         fileInput.addEventListener(
             'change',
             function () {
 
                 const file = this.files[0];
-
 
                 if (!file) {
 
@@ -1098,10 +942,8 @@ document.addEventListener(
                     return;
                 }
 
-
                 const reader =
                     new FileReader();
-
 
                 reader.onload =
                     function (event) {
@@ -1120,7 +962,6 @@ document.addEventListener(
 
                     };
 
-
                 reader.readAsDataURL(file);
 
             }
@@ -1130,7 +971,6 @@ document.addEventListener(
 );
 
 </script>
-
 
 </body>
 

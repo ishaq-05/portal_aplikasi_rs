@@ -6,10 +6,6 @@
 
 <style>
 
-    /* =====================================================
-       PAGE HEADER
-    ===================================================== */
-
     .page-header {
         text-align: center;
         margin-bottom: 20px;
@@ -28,11 +24,6 @@
         color: #5f7695;
     }
 
-
-    /* =====================================================
-       TOOLBAR
-    ===================================================== */
-
     .toolbar {
         width: 100%;
 
@@ -45,16 +36,10 @@
         margin-bottom: 12px;
     }
 
-
-    /* =====================================================
-       SEARCH BOX
-    ===================================================== */
-
     .search-box {
         width: 390px;
         position: relative;
     }
-
 
     .search-box input {
         width: 100%;
@@ -74,14 +59,12 @@
         transition: .2s ease;
     }
 
-
     .search-box input:focus {
         border-color: #087f60;
 
         box-shadow:
             0 0 0 3px rgba(8, 127, 96, .08);
     }
-
 
     .search-icon {
         position: absolute;
@@ -97,11 +80,6 @@
 
         z-index: 2;
     }
-
-
-    /* =====================================================
-       CLEAR SEARCH
-    ===================================================== */
 
     .search-clear {
         position: absolute;
@@ -133,16 +111,10 @@
         transition: .15s ease;
     }
 
-
     .search-clear:hover {
         background: #dcdcdc;
         color: #111;
     }
-
-
-    /* =====================================================
-       ADD BUTTON
-    ===================================================== */
 
     .add-button {
         height: 43px;
@@ -174,12 +146,10 @@
         transition: .2s ease;
     }
 
-
     .add-button:hover {
         background: #066b51;
         color: #ffffff;
     }
-
 
     .plus-icon {
         width: 28px;
@@ -201,11 +171,6 @@
         font-weight: bold;
     }
 
-
-    /* =====================================================
-       SEARCH RESULT INFO
-    ===================================================== */
-
     .search-result {
         display: none;
 
@@ -224,22 +189,15 @@
         font-size: 13px;
     }
 
-
     .search-result strong {
         font-weight: 700;
     }
-
-
-    /* =====================================================
-       TABLE
-    ===================================================== */
 
     .table-container {
         width: 100%;
 
         overflow-x: auto;
     }
-
 
     table {
         width: 100%;
@@ -250,7 +208,6 @@
 
         border: 1px solid #222;
     }
-
 
     th {
         height: 58px;
@@ -270,7 +227,6 @@
         border: 1px solid #222;
     }
 
-
     td {
         height: 58px;
 
@@ -285,30 +241,21 @@
         color: #111827;
     }
 
-
     tbody tr {
         transition: .15s ease;
     }
-
 
     tbody tr:hover {
         background: #f3faf7;
     }
 
-
     tbody tr.search-hidden {
         display: none;
     }
 
-
-    /* =====================================================
-       LOGO
-    ===================================================== */
-
     .logo-cell {
         width: 155px;
     }
-
 
     .application-logo {
         width: 80px;
@@ -326,7 +273,6 @@
 
         background: #ffffff;
     }
-
 
     .no-logo {
         width: 80px;
@@ -350,20 +296,10 @@
         font-weight: bold;
     }
 
-
-    /* =====================================================
-       APPLICATION NAME
-    ===================================================== */
-
     .application-name {
         font-size: 15px;
         font-weight: 600;
     }
-
-
-    /* =====================================================
-       URL
-    ===================================================== */
 
     .application-url {
         max-width: 520px;
@@ -378,11 +314,6 @@
 
         color: #075985;
     }
-
-
-    /* =====================================================
-       STATUS
-    ===================================================== */
 
     .status {
         display: inline-flex;
@@ -401,24 +332,17 @@
         font-weight: bold;
     }
 
-
     .status-active {
         background: #d9f7e6;
 
         color: #087f60;
     }
 
-
     .status-inactive {
         background: #fee2e2;
 
         color: #b91c1c;
     }
-
-
-    /* =====================================================
-       ACTION
-    ===================================================== */
 
     .action-wrapper {
         display: flex;
@@ -428,7 +352,6 @@
 
         gap: 12px;
     }
-
 
     .action-button {
         width: 42px;
@@ -450,7 +373,6 @@
         transition: .15s ease;
     }
 
-
     .edit-button {
         background: #62c3ae;
 
@@ -459,13 +381,11 @@
         color: #111827;
     }
 
-
     .edit-button:hover {
         background: #45b39b;
 
         color: #111827;
     }
-
 
     .delete-button {
         background: #ff6972;
@@ -475,11 +395,9 @@
         color: #111827;
     }
 
-
     .delete-button:hover {
         background: #f14d58;
     }
-
 
     .delete-button button {
         border: none;
@@ -494,11 +412,6 @@
         font-size: 20px;
     }
 
-
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-
     .table-footer {
         margin-top: 10px;
 
@@ -506,11 +419,6 @@
 
         font-size: 14px;
     }
-
-
-    /* =====================================================
-       EMPTY
-    ===================================================== */
 
     .empty {
         padding: 50px 20px;
@@ -526,7 +434,6 @@
         border-radius: 10px;
     }
 
-
     .empty h3 {
         margin-bottom: 8px;
 
@@ -535,15 +442,9 @@
         font-size: 18px;
     }
 
-
     .empty p {
         font-size: 14px;
     }
-
-
-    /* =====================================================
-       SEARCH EMPTY
-    ===================================================== */
 
     .search-empty {
         display: none;
@@ -559,13 +460,11 @@
         border-radius: 10px;
     }
 
-
     .search-empty-icon {
         font-size: 42px;
 
         margin-bottom: 10px;
     }
-
 
     .search-empty h3 {
         margin-bottom: 7px;
@@ -575,17 +474,11 @@
         font-size: 18px;
     }
 
-
     .search-empty p {
         color: #64748b;
 
         font-size: 13px;
     }
-
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
 
     @media (max-width: 900px) {
 
@@ -593,13 +486,11 @@
             gap: 12px;
         }
 
-
         .search-box {
             width: 100%;
         }
 
     }
-
 
     @media (max-width: 700px) {
 
@@ -609,16 +500,13 @@
             align-items: stretch;
         }
 
-
         .add-button {
             justify-content: center;
         }
 
-
         .page-header h1 {
             font-size: 27px;
         }
-
 
         .search-box {
             width: 100%;
@@ -630,16 +518,9 @@
 
 @endpush
 
-
 @section('content')
 
 <div>
-
-    
-
-    {{-- =====================================================
-         PAGE HEADER
-    ====================================================== --}}
 
     <div class="page-header">
 
@@ -655,14 +536,7 @@
 
     </div>
 
-
-    {{-- =====================================================
-         TOOLBAR
-    ====================================================== --}}
-
     <div class="toolbar">
-
-        {{-- SEARCH --}}
 
         <form
             action="{{ route('superadmin.applications.index') }}"
@@ -675,7 +549,6 @@
                 🔍
             </span>
 
-
             <input
                 type="text"
                 name="search"
@@ -684,7 +557,6 @@
                 placeholder="Cari nama aplikasi, URL, atau status..."
                 autocomplete="off"
             >
-
 
             <button
                 type="button"
@@ -697,9 +569,6 @@
             </button>
 
         </form>
-
-
-        {{-- TAMBAH APLIKASI --}}
 
         <a
             href="{{ route('superadmin.applications.create') }}"
@@ -716,20 +585,10 @@
 
     </div>
 
-
-    {{-- =====================================================
-         SEARCH RESULT
-    ====================================================== --}}
-
     <div
         class="search-result"
         id="searchResult"
     ></div>
-
-
-    {{-- =====================================================
-         TABLE
-    ====================================================== --}}
 
     @if ($applications->count() > 0)
 
@@ -772,7 +631,6 @@
 
                 </thead>
 
-
                 <tbody id="applicationsTableBody">
 
                     @foreach ($applications as $index => $application)
@@ -784,14 +642,9 @@
                             data-status="{{ $application->is_active ? 'aktif' : 'nonaktif' }}"
                         >
 
-                            {{-- NOMOR --}}
-
                             <td class="row-number">
                                 {{ $index + 1 }}
                             </td>
-
-
-                            {{-- LOGO --}}
 
                             <td>
 
@@ -823,9 +676,6 @@
 
                             </td>
 
-
-                            {{-- NAMA --}}
-
                             <td>
 
                                 <div class="application-name">
@@ -833,9 +683,6 @@
                                 </div>
 
                             </td>
-
-
-                            {{-- URL --}}
 
                             <td>
 
@@ -847,9 +694,6 @@
                                 </div>
 
                             </td>
-
-
-                            {{-- STATUS --}}
 
                             <td>
 
@@ -869,14 +713,9 @@
 
                             </td>
 
-
-                            {{-- AKSI --}}
-
                             <td>
 
                                 <div class="action-wrapper">
-
-                                    {{-- EDIT --}}
 
                                     <a
                                         href="{{ route('superadmin.applications.edit', $application) }}"
@@ -885,9 +724,6 @@
                                     >
                                         ✎
                                     </a>
-
-
-                                    {{-- HAPUS --}}
 
                                     <form
                                         action="{{ route('superadmin.applications.destroy', $application) }}"
@@ -923,11 +759,6 @@
 
         </div>
 
-
-        {{-- =====================================================
-             SEARCH EMPTY
-        ====================================================== --}}
-
         <div
             class="search-empty"
             id="searchEmpty"
@@ -947,11 +778,6 @@
 
         </div>
 
-
-        {{-- =====================================================
-             FOOTER
-        ====================================================== --}}
-
         <div class="table-footer">
 
             Menampilkan
@@ -963,7 +789,6 @@
             aplikasi
 
         </div>
-
 
     @else
 
@@ -983,9 +808,7 @@
 
 </div>
 
-
 @endsection
-
 
 @push('scripts')
 
@@ -1013,34 +836,18 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.application-row')
         );
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | FUNGSI SEARCH
-    |--------------------------------------------------------------------------
-    */
-
     function performSearch() {
 
         if (!searchInput) {
             return;
         }
 
-
         const keyword =
             searchInput.value
                 .toLowerCase()
                 .trim();
 
-
         let visibleRows = 0;
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | TOMBOL CLEAR
-        |--------------------------------------------------------------------------
-        */
 
         if (keyword.length > 0) {
 
@@ -1051,13 +858,6 @@ document.addEventListener('DOMContentLoaded', function () {
             searchClear.style.display = 'none';
 
         }
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | FILTER DATA
-        |--------------------------------------------------------------------------
-        */
 
         rows.forEach(function (row) {
 
@@ -1070,12 +870,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const status =
                 row.dataset.status || '';
 
-
             const matched =
                 name.includes(keyword) ||
                 url.includes(keyword) ||
                 status.includes(keyword);
-
 
             if (matched) {
 
@@ -1090,13 +888,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
         });
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | NOMOR URUT DINAMIS
-        |--------------------------------------------------------------------------
-        */
 
         let number = 1;
 
@@ -1119,13 +910,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | HASIL PENCARIAN
-        |--------------------------------------------------------------------------
-        */
-
         if (keyword !== '') {
 
             searchResult.style.display = 'block';
@@ -1146,13 +930,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | EMPTY SEARCH
-        |--------------------------------------------------------------------------
-        */
-
         if (
             keyword !== '' &&
             visibleRows === 0
@@ -1166,13 +943,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | JUMLAH DATA
-        |--------------------------------------------------------------------------
-        */
-
         if (visibleCount) {
 
             visibleCount.textContent =
@@ -1181,13 +951,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
     }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | ESCAPE HTML
-    |--------------------------------------------------------------------------
-    */
 
     function escapeHtml(text) {
 
@@ -1200,13 +963,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | KETIKA MENGETIK
-    |--------------------------------------------------------------------------
-    */
-
     if (searchInput) {
 
         searchInput.addEventListener(
@@ -1217,13 +973,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             }
         );
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | ENTER
-        |--------------------------------------------------------------------------
-        */
 
         searchInput.addEventListener(
             'keydown',
@@ -1239,13 +988,6 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
     }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | CLEAR SEARCH
-    |--------------------------------------------------------------------------
-    */
 
     if (searchClear) {
 
@@ -1263,13 +1005,6 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
     }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | JALANKAN SAAT HALAMAN DIBUKA
-    |--------------------------------------------------------------------------
-    */
 
     performSearch();
 

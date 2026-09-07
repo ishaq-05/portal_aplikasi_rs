@@ -4,15 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portal Karyawan - Syifa Global Group</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Styling Front End (CSS Native) -->
+    <link rel="preconnect" href="https:
+    <link rel="preconnect" href="https:
+    <link href="https:
+
     <style>
-        /* Mengaktifkan Gulir Halus (Smooth Scroll) */
+
         html {
             scroll-behavior: smooth;
         }
@@ -29,7 +27,6 @@
             overflow-x: hidden;
         }
 
-        /* 1. Header / Navbar (Hijau Gelap) */
         .navbar {
             background-color: #031c10;
             display: flex;
@@ -42,18 +39,17 @@
             z-index: 1000;
         }
 
-        /* Container Logo dengan Latar Belakang Putih */
         .navbar .logo-link {
             display: flex;
             align-items: center;
-            background-color: #ffffff; /* Latar putih untuk menjaga warna asli logo */
+            background-color: #ffffff;
             padding: 4px 12px;
             border-radius: 4px;
             text-decoration: none;
         }
 
         .navbar .logo-img {
-            height: 30px; /* Ukuran proporsional di dalam kotak putih */
+            height: 30px;
             width: auto;
             object-fit: contain;
         }
@@ -76,12 +72,11 @@
             opacity: 0.8;
         }
 
-        /* 2. Banner Utama */
         .hero-section {
             position: relative;
             width: 100%;
             min-height: calc(100vh - 60px);
-            background: linear-gradient(135deg, rgba(140, 15, 110, 0.88), rgba(70, 8, 75, 0.93)), 
+            background: linear-gradient(135deg, rgba(140, 15, 110, 0.88), rgba(70, 8, 75, 0.93)),
                         url("{{ asset('images/figma_portal.jpeg') }}") center/cover no-repeat;
             display: flex;
             justify-content: center;
@@ -105,7 +100,6 @@
             opacity: 0.9;
         }
 
-        /* Container untuk Search Box dan Hasil Dropdown */
         .search-container {
             position: relative;
             width: 100%;
@@ -139,7 +133,6 @@
             color: #333333;
         }
 
-        /* Box Hasil Pencarian (Dropdown) */
         .search-results-dropdown {
             position: absolute;
             top: 100%;
@@ -221,7 +214,6 @@
             text-align: center;
         }
 
-        /* 3. Section Aplikasi Populer */
         .popular-section {
             background-color: #031c10;
             padding: 60px 50px;
@@ -283,7 +275,6 @@
             object-fit: cover;
         }
 
-        /* 4. Section Semua Aplikasi (Bawah) */
         .bottom-section {
             background-color: #ffffff;
             padding: 60px 50px;
@@ -340,7 +331,6 @@
 </head>
 <body>
 
-    <!-- Header / Navbar -->
     <nav class="navbar">
         <a href="#beranda" class="logo-link">
             <img src="{{ asset('images/logo-syifa-global-group.png') }}" alt="Syifa Global Group" class="logo-img">
@@ -352,12 +342,11 @@
         </ul>
     </nav>
 
-    <!-- Banner Utama (Beranda) -->
     <section id="beranda" class="hero-section">
         <div class="hero-content">
             <h1>Akses Mudah untuk<br>Layanan Rumah Sakit Anda</h1>
             <p>Connected Care, Better Experience.</p>
-            
+
             <div class="search-container">
                 <form action="{{ route('applications.index') }}" method="GET" class="search-box">
                     <svg viewBox="0 0 24 24">
@@ -366,13 +355,11 @@
                     <input type="text" id="searchInput" name="search" placeholder="Cari..." value="{{ request('search') }}" autocomplete="off">
                 </form>
 
-                <!-- Box Hasil Pencarian Otomatis -->
                 <div id="searchResults" class="search-results-dropdown"></div>
             </div>
         </div>
     </section>
 
-    <!-- Section Aplikasi Populer -->
     <section id="aplikasi-populer" class="popular-section">
         <h2>Aplikasi Populer</h2>
         <div class="card-grid-top">
@@ -401,7 +388,6 @@
         </div>
     </section>
 
-    <!-- Section Semua Aplikasi -->
     <section id="semua-aplikasi" class="bottom-section">
         <div class="card-grid-bottom">
             @if(isset($applications) && count($applications) > 0)
@@ -424,7 +410,6 @@
         </div>
     </section>
 
-    <!-- Script JavaScript untuk Filter Otomatis saat Mengetik -->
     <script>
         const applicationsData = @json($applications ?? []);
         const searchInput = document.getElementById('searchInput');
@@ -432,7 +417,7 @@
 
         searchInput.addEventListener('input', function() {
             const query = this.value.toLowerCase().trim();
-            
+
             if (query.length === 0) {
                 searchResults.style.display = 'none';
                 searchResults.innerHTML = '';
@@ -473,14 +458,12 @@
             searchResults.style.display = 'block';
         });
 
-        // Sembunyikan dropdown saat klik di luar kolom pencarian
         document.addEventListener('click', function(e) {
             if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
                 searchResults.style.display = 'none';
             }
         });
 
-        // Tampilkan kembali jika input diklik lagi
         searchInput.addEventListener('focus', function() {
             if (this.value.trim().length > 0) {
                 searchResults.style.display = 'block';
