@@ -375,29 +375,217 @@
                 60px;
         }
 
+        /* =========================
+   APLIKASI POPULER
+========================= */
 
-        /* =========================================================
-           APLIKASI POPULER
-        ========================================================= */
+.popular-section {
+    background: #087f5b;
+    padding: 30px 24px 18px;
+    margin-top: 0;
+    border-bottom: 3px solid #8b5cf6;
+}
 
-        .popular-section {
-            margin-bottom: 85px;
-        }
+.popular-section .section-divider {
+    display: none;
+}
 
+.popular-section .section-header {
+    text-align: center;
+    margin-bottom: 26px;
+}
 
-        .popular-list {
-            width: 100%;
+.popular-section .section-header h2 {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
 
-            max-width: 960px;
+.popular-section .section-header p {
+    display: none;
+}
 
-            margin: 0 auto;
+/* Container 3 card */
+.popular-list {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 122px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-            display: flex;
+/* Card */
+.popular-card {
+    position: relative;
+    width: 181px;
+    min-width: 181px;
+    height: 169px;
 
-            flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-            gap: 16px;
-        }
+    background: #f4f7fa;
+    border: 1.5px solid #222;
+    border-radius: 9px;
+
+    overflow: visible;
+}
+
+/* Logo */
+.popular-icon {
+    width: 100%;
+    height: 84px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fffdf5;
+
+    border-radius: 8px 8px 6px 6px;
+    border-bottom: 1px solid #999;
+
+    overflow: hidden;
+}
+
+.popular-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px 15px;
+}
+
+.popular-fallback {
+    font-size: 35px;
+}
+
+/* Ranking */
+.popular-rank {
+    position: absolute;
+
+    top: 82px;
+    right: 7px;
+
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #b8b8b8;
+    color: #111;
+
+    border-radius: 50%;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    z-index: 5;
+}
+
+/* Info */
+.popular-info {
+    flex: 1;
+
+    text-align: center;
+
+    padding: 8px 7px 2px;
+}
+
+.popular-info h3 {
+    margin: 0 0 3px;
+
+    color: #111;
+
+    font-size: 17px;
+    line-height: 20px;
+
+    font-weight: 800;
+}
+
+.popular-info p {
+    margin: 0;
+
+    color: #555;
+
+    font-size: 10px;
+    line-height: 13px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Jumlah penggunaan */
+.popular-count {
+    display: none;
+}
+
+/* Tombol */
+.popular-button {
+    align-self: center;
+
+    width: 121px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 7px;
+
+    background: #fffdf5;
+
+    border: 1.5px solid #222;
+    border-radius: 20px;
+
+    color: #111;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.popular-button:hover {
+    background: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Jika data kosong */
+.popular-list .empty {
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+    .popular-list {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 650px) {
+    .popular-list {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .popular-card {
+        width: 181px;
+    }
+}
 
 
         /* =========================================================
@@ -1326,6 +1514,279 @@
 
         }
 
+
+        /* =========================================================
+           FINAL APLIKASI POPULER DESIGN
+           Tampilan 3 kartu seperti referensi
+        ========================================================= */
+
+        .popular-section {
+            background: #087f5b !important;
+            padding: 30px 24px 18px !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            border-bottom: 3px solid #8b5cf6 !important;
+        }
+
+        .popular-section .section-divider {
+            display: none !important;
+        }
+
+        .popular-section .section-header {
+            text-align: center !important;
+            margin-bottom: 26px !important;
+        }
+
+        .popular-section .section-header h2 {
+            color: #ffffff !important;
+            font-size: 30px !important;
+            line-height: 1.2 !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+            margin: 0 !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .popular-section .section-header p {
+            display: none !important;
+        }
+
+        .popular-section .popular-list {
+            width: 100% !important;
+            max-width: 1000px !important;
+            margin: 0 auto !important;
+
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: center !important;
+            align-items: stretch !important;
+
+            gap: 122px !important;
+        }
+
+        .popular-section .popular-card {
+            position: relative !important;
+
+            width: 181px !important;
+            min-width: 181px !important;
+            max-width: 181px !important;
+            height: 169px !important;
+            min-height: 169px !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: none !important;
+
+            padding: 0 !important;
+            gap: 0 !important;
+
+            background: #f4f7fa !important;
+            border: 1.5px solid #222222 !important;
+            border-radius: 9px !important;
+
+            overflow: visible !important;
+
+            transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+        }
+
+        .popular-section .popular-card:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .popular-section .popular-icon {
+            width: 100% !important;
+            height: 84px !important;
+            min-height: 84px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            padding: 8px 15px !important;
+
+            background: #fffdf5 !important;
+
+            border: 0 !important;
+            border-bottom: 1px solid #999999 !important;
+            border-radius: 8px 8px 6px 6px !important;
+
+            overflow: hidden !important;
+        }
+
+        .popular-section .popular-icon img {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+
+            max-width: 100% !important;
+            max-height: 100% !important;
+
+            padding: 0 !important;
+            margin: auto !important;
+
+            object-fit: contain !important;
+            object-position: center !important;
+        }
+
+        .popular-section .popular-fallback {
+            font-size: 35px !important;
+        }
+
+        .popular-section .popular-rank {
+            position: absolute !important;
+
+            top: 82px !important;
+            right: 7px !important;
+
+            width: 31px !important;
+            height: 31px !important;
+            min-width: 31px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            padding: 0 !important;
+
+            background: #b8b8b8 !important;
+            color: #111111 !important;
+
+            border-radius: 50% !important;
+
+            font-size: 17px !important;
+            line-height: 1 !important;
+            font-weight: 800 !important;
+
+            z-index: 5 !important;
+        }
+
+        .popular-section .popular-info {
+            width: 100% !important;
+            min-width: 0 !important;
+
+            flex: 1 !important;
+
+            display: block !important;
+
+            text-align: center !important;
+
+            padding: 8px 7px 2px !important;
+        }
+
+        .popular-section .popular-info h3 {
+            margin: 0 0 3px !important;
+
+            color: #111111 !important;
+
+            font-size: 17px !important;
+            line-height: 20px !important;
+            font-weight: 800 !important;
+
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+
+        .popular-section .popular-info p {
+            margin: 0 !important;
+
+            color: #555555 !important;
+
+            font-size: 10px !important;
+            line-height: 13px !important;
+
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+
+        .popular-section .popular-count {
+            display: none !important;
+        }
+
+        .popular-section .popular-button {
+            align-self: center !important;
+
+            width: 121px !important;
+            min-width: 121px !important;
+            max-width: 121px !important;
+
+            height: 22px !important;
+            min-height: 22px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            margin: 0 0 7px !important;
+            padding: 0 !important;
+
+            background: #fffdf5 !important;
+
+            border: 1.5px solid #222222 !important;
+            border-radius: 20px !important;
+
+            color: #111111 !important;
+
+            font-family: inherit !important;
+            font-size: 11px !important;
+            line-height: 1 !important;
+            font-weight: 700 !important;
+
+            text-align: center !important;
+            text-decoration: none !important;
+            white-space: nowrap !important;
+
+            transition: 0.2s ease !important;
+        }
+
+        .popular-section .popular-button:hover {
+            background: #ffffff !important;
+            color: #111111 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: none !important;
+        }
+
+        .popular-section .popular-list .empty {
+            width: 100% !important;
+            text-align: center !important;
+            color: #ffffff !important;
+        }
+
+        @media (max-width: 850px) {
+            .popular-section .popular-list {
+                gap: 30px !important;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .popular-section .popular-list {
+                flex-wrap: wrap !important;
+                gap: 20px !important;
+            }
+
+            .popular-section .popular-card {
+                width: 181px !important;
+                min-width: 181px !important;
+                max-width: 181px !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .popular-section {
+                padding: 25px 15px 18px !important;
+            }
+
+            .popular-section .section-header h2 {
+                font-size: 27px !important;
+            }
+
+            .popular-section .popular-list {
+                gap: 18px !important;
+            }
+        }
+
     </style>
 
 </head>
@@ -1591,110 +2052,109 @@
 
 
                     <p>
-                        5 aplikasi yang paling sering digunakan oleh user.
+                        3 aplikasi yang paling sering digunakan oleh user.
                     </p>
 
                 </div>
 
 
-                <div class="popular-list">
+                <div
+    class="popular-list"
+    id="popularApplicationsList"
+>
+    @forelse($popularApplications as $application)
+
+        <div
+            class="popular-card"
+            data-application-id="{{ $application->id }}"
+        >
+
+            <!-- RANKING -->
+
+            <div class="popular-rank">
+                #{{ $loop->iteration }}
+            </div>
 
 
-                    @forelse($popularApplications as $application)
+            <!-- LOGO -->
 
-                        <div class="popular-card">
+            <div class="popular-icon">
 
+                @if($application->icon)
 
-                            <!-- RANKING -->
+                    <img
+                        src="{{ asset('storage/' . $application->icon) }}"
+                        alt="{{ $application->name }}"
+                    >
 
-                            <div class="popular-rank">
-                                #{{ $loop->iteration }}
-                            </div>
+                @else
 
+                    <span class="popular-fallback">
+                        📱
+                    </span>
 
-                            <!-- LOGO -->
+                @endif
 
-                            <div class="popular-icon">
-
-                                @if($application->icon)
-
-                                    <img
-                                        src="{{ asset('storage/' . $application->icon) }}"
-                                        alt="{{ $application->name }}"
-                                    >
-
-                                @else
-
-                                    <span class="popular-fallback">
-                                        📱
-                                    </span>
-
-                                @endif
-
-                            </div>
+            </div>
 
 
-                            <!-- INFO -->
+            <!-- INFO -->
 
-                            <div class="popular-info">
+            <div class="popular-info">
 
-                                <h3>
-                                    {{ $application->name }}
-                                </h3>
+                <h3>
+                    {{ $application->name }}
+                </h3>
 
+                <p>
+                    {{ $application->description ?: 'Aplikasi yang sering digunakan user.' }}
+                </p>
 
-                                <p>
-                                    {{ $application->description ?: 'Aplikasi yang sering digunakan user.' }}
-                                </p>
-
-                            </div>
-
-
-                            <!-- JUMLAH -->
-
-                            <div class="popular-count">
-
-                                <strong>
-                                    {{ $application->visits_count }}
-                                </strong>
-
-                                <span>
-                                    kali digunakan
-                                </span>
-
-                            </div>
+            </div>
 
 
-                            <!-- BUTTON -->
+            <!-- JUMLAH KLIK -->
 
-                            <a
-                                href="{{ route('applications.open', $application) }}"
-                                class="popular-button"
-                            >
-                                Buka Aplikasi →
-                            </a>
+            <div class="popular-count">
 
-                        </div>
+                <strong>
+                    {{ $application->visits_count }}
+                </strong>
 
+                <span>
+                    kali digunakan
+                </span>
 
-                    @empty
-
-                        <div class="empty">
-
-                            <h3>
-                                Belum ada data aplikasi populer
-                            </h3>
+            </div>
 
 
-                            <p>
-                                Data akan muncul setelah aplikasi digunakan oleh user.
-                            </p>
+            <!-- BUTTON -->
 
-                        </div>
+            <a
+                href="{{ route('applications.open', $application) }}"
+                class="popular-button"
+            >
+                Buka Aplikasi →
+            </a>
 
-                    @endforelse
+        </div>
 
-                </div>
+    @empty
+
+        <div class="empty">
+
+            <h3>
+                Belum ada data aplikasi populer
+            </h3>
+
+            <p>
+                Data akan muncul setelah aplikasi digunakan oleh user.
+            </p>
+
+        </div>
+
+    @endforelse
+</div>
 
             </section>
 
@@ -1803,7 +2263,195 @@
 
 
     </main>
+<script>
+    /*
+     * =========================================================
+     * APLIKASI POPULER - UPDATE OTOMATIS
+     * =========================================================
+     *
+     * Logo TIDAK lagi diambil dari application.icon milik API.
+     * URL logo dibuat oleh Laravel dari data aplikasi yang ada
+     * di halaman, sehingga sama persis dengan logo pada card
+     * "Semua Aplikasi".
+     */
 
+    const applicationLogoMap = @json(
+        $applications->mapWithKeys(function ($application) {
+            return [
+                $application->id => $application->icon
+                    ? asset('storage/' . $application->icon)
+                    : null
+            ];
+        })
+    );
+
+
+    async function loadPopularApplications() {
+        try {
+            const response = await fetch(
+                '{{ route('applications.popular') }}',
+                {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    cache: 'no-store'
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error('Gagal mengambil data aplikasi populer.');
+            }
+
+            const applications = await response.json();
+
+            const popularList = document.getElementById(
+                'popularApplicationsList'
+            );
+
+            if (!popularList) {
+                return;
+            }
+
+            if (!applications.length) {
+                popularList.innerHTML = `
+                    <div class="empty">
+                        <h3>Belum ada data aplikasi populer</h3>
+                        <p>
+                            Data akan muncul setelah aplikasi digunakan oleh user.
+                        </p>
+                    </div>
+                `;
+
+                return;
+            }
+
+            popularList.innerHTML = applications.map((application, index) => {
+
+                const appId = application.id;
+
+                /*
+                 * Gunakan URL logo yang dibuat Laravel.
+                 * Ini mencegah logo menjadi broken image.
+                 */
+                const logoUrl =
+                    applicationLogoMap[appId] ??
+                    applicationDataMap[appId]?.icon ??
+                    null;
+
+                const appName =
+                    applicationDataMap[appId]?.name ??
+                    application.name ??
+                    'Aplikasi';
+
+                const description =
+                    applicationDataMap[appId]?.description ??
+                    application.description ??
+                    'Aplikasi yang sering digunakan user.';
+
+                const openUrl =
+                    applicationDataMap[appId]?.url ??
+                    `{{ url('/applications') }}/${appId}/open`;
+
+                const logoHtml = logoUrl
+                    ? `
+                        <img
+                            src="${logoUrl}"
+                            alt="${escapeHtml(appName)}"
+                            loading="eager"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <span
+                            class="popular-fallback"
+                            style="display:none;"
+                        >📱</span>
+                    `
+                    : `
+                        <span class="popular-fallback">📱</span>
+                    `;
+
+                return `
+                    <div
+                        class="popular-card"
+                        data-application-id="${appId}"
+                    >
+
+                        <div class="popular-rank">
+                            ${index + 1}
+                        </div>
+
+                        <div class="popular-icon">
+                            ${logoHtml}
+                        </div>
+
+                        <div class="popular-info">
+                            <h3>
+                                ${escapeHtml(appName)}
+                            </h3>
+
+                            <p>
+                                ${escapeHtml(
+                                    description ||
+                                    'Aplikasi yang sering digunakan user.'
+                                )}
+                            </p>
+                        </div>
+
+                        <div class="popular-count">
+                            <strong>
+                                ${application.visits_count ?? 0}
+                            </strong>
+
+                            <span>
+                                kali digunakan
+                            </span>
+                        </div>
+
+                        <a
+                            href="${openUrl}"
+                            class="popular-button"
+                        >
+                            Buka Aplikasi →
+                        </a>
+
+                    </div>
+                `;
+            }).join('');
+
+        } catch (error) {
+            console.error(
+                'Gagal memperbarui aplikasi populer:',
+                error
+            );
+        }
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text ?? '';
+        return div.innerHTML;
+    }
+
+    /*
+     * Jangan menjalankan polling saat user sedang melakukan
+     * pencarian karena section Aplikasi Populer memang tidak
+     * ditampilkan pada kondisi tersebut.
+     */
+    @if(!$search)
+        loadPopularApplications();
+
+        // Update ranking dan jumlah klik setiap 3 detik.
+        setInterval(loadPopularApplications, 3000);
+
+        // Update saat user kembali ke tab browser.
+        document.addEventListener('visibilitychange', function () {
+            if (!document.hidden) {
+                loadPopularApplications();
+            }
+        });
+    @endif
+</script>
 
 </body>
 

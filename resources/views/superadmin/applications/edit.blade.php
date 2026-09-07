@@ -800,12 +800,11 @@
                         id="description"
                         name="description"
                         class="form-control"
-                        required
                     >{{ old('description', $application->description) }}</textarea>
 
 
                     <div class="form-help">
-                        Jelaskan secara singkat fungsi aplikasi
+                        Jelaskan secara singkat fungsi aplikasi (opsional)
                     </div>
 
 
