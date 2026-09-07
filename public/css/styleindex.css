@@ -1,0 +1,350 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #ffffff;
+    color: #111;
+}
+
+/* Header Navbar */
+.header {
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 18px 80px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    max-width: 1350px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img { 
+    height: 38px; 
+}
+
+.navbar {
+    display: flex;
+    gap: 45px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #222222;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* 1. HERO WRAPPER */
+.hero-wrapper {
+    background: #ffffff;
+    padding: 40px 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-text { flex: 1.3; }
+
+.rsu-logo {
+    height: 65px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.35;
+    margin-bottom: 12px;
+}
+
+.hero-subtitle {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 25px;
+    padding: 10px 20px;
+    max-width: 450px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.search-icon {
+    font-size: 14px;
+    margin-right: 10px;
+    color: #888;
+}
+
+.search-input-wrapper input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+.hero-image {
+    flex: 0.9;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.oval-image-wrapper {
+    width: 280px;
+    height: 350px;
+    border-radius: 140px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.oval-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Judul Aplikasi Populer */
+.popular-title-box {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 30;
+}
+
+.popular-title-box h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111111;
+}
+
+/* 2. SECTION APLIKASI POPULER (LENGKUNG HIJAU) */
+.popular-green-section {
+    background-color: #3b5d44;
+    border-top-left-radius: 50% 70px;
+    border-top-right-radius: 50% 70px;
+    padding-top: 200px;
+    padding-bottom: 80px;
+    margin-top: 140px;
+    position: relative;
+    z-index: 10;
+}
+
+.popular-grid-container {
+    max-width: 1250px;
+    margin: -340px auto 0 auto;
+    position: relative;
+    z-index: 25;
+}
+
+.popular-grid {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.popular-card {
+    background: #ffffff;
+    width: 360px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+}
+
+.popular-card-top {
+    height: 180px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.popular-card-top img {
+    max-height: 110px;
+    max-width: 85%;
+    object-fit: contain;
+}
+
+.popular-card-bottom {
+    background: #d8ded9;
+    padding: 25px 20px;
+    text-align: center;
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge-rank {
+    position: absolute;
+    top: -22px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.rank-1 { background: #ffd700; color: #554300; }
+.rank-2 { background: #c0c0c0; color: #222222; }
+.rank-3 { background: #cd7f32; color: #3d1f00; }
+
+.popular-card-bottom h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.popular-card-bottom p {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+.btn-open {
+    display: inline-block;
+    padding: 8px 24px;
+    background: #ffffff;
+    border: 1px solid #777;
+    border-radius: 6px;
+    color: #111;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: auto;
+}
+
+/* 3. SECTION SEMUA APLIKASI (PERBAIKAN BACKGROUND SEAMLESS) */
+.all-apps-section {
+    background: linear-gradient(
+        to bottom, 
+        rgba(235, 240, 236, 0.95) 0%, 
+        rgba(215, 225, 217, 0.98) 100%
+    ), url('../images/rs.jpeg') center/cover no-repeat fixed;
+    padding: 60px 40px 100px;
+    position: relative;
+}
+
+.all-apps-container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #111111;
+}
+
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+.app-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.app-card-header {
+    height: 140px;
+    background: #d8ded9;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.app-card-header img {
+    max-height: 95px;
+    max-width: 85%;
+    object-fit: contain;
+}
+
+.placeholder-box {
+    width: 100%;
+    height: 100%;
+    background: #d8ded9;
+}
+
+.app-card-body h3 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: #111;
+}
+
+.app-card-body p {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+/* Footer Hijau Ringkas & Pas */
+.bottom-green-footer {
+    height: 60px;
+    background-color: #3b5d44;
+}
+
+@media (max-width: 1100px) {
+    .applications-grid { grid-template-columns: repeat(2, 1fr); }
+    .popular-grid { flex-direction: column; align-items: center; }
+    .hero-container { flex-direction: column; text-align: center; }
+    .hero-image { justify-content: center; }
+}
