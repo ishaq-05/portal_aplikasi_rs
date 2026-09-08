@@ -853,7 +853,7 @@
                     type="submit"
                     class="button button-save"
                 >
-                    Simpan Aplikasi
+                    Simpan Aplikasi nya
                 </button>
 
             </div>
