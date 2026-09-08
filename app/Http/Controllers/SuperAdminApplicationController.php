@@ -1,9 +1,27 @@
 <?php
 
+namespace App\Http\Controllers;
+
+use App\Models\Application;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+class SuperAdminApplicationController extends Controller
+{
+    /*
     |--------------------------------------------------------------------------
     | KELOLA APLIKASI
     |--------------------------------------------------------------------------
+    */
 
+    public function index()
+    {
+        $applications = Application::orderBy('name')->get();
+
+        return view(
+            'superadmin.applications.index',
+            compact('applications')
+        );
     }
 
 
@@ -26,7 +44,31 @@
         );
 
 
+        /*
+        |--------------------------------------------------------------------------
+        | Statistik
+        |--------------------------------------------------------------------------
+        */
 
+        $totalApplications = Application::count();
+
+        $activeApplications = Application::where(
+            'is_active',
+            true
+        )->count();
+
+        $inactiveApplications = Application::where(
+            'is_active',
+            false
+        )->count();
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Ambil aplikasi
+        |--------------------------------------------------------------------------
+        |
+        | Search berdasarkan:
         | 1. Nama aplikasi
         | 2. Deskripsi aplikasi
         |

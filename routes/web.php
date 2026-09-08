@@ -121,3 +121,5 @@ Route::delete('/superadmin/applications/{application}', [
     SuperAdminApplicationController::class,
     'destroy'
 ])->name('superadmin.applications.destroy');
+
+

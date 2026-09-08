@@ -4,7 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Aplikasi RSU Syifa Medika</title>
-    <!-- M
+    <!-- Mencegah Browser Cache CSS -->
+    <link rel="stylesheet" href="{{ asset('css/styleindex.css') }}?v={{ time() }}">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <div class="brand">
+                <img src="{{ asset('images/logo-syifa-global-group.png') }}" alt="Syifa Global Group" class="logo-img">
+            </div>
+            <nav class="navbar">
+                <a href="#beranda" class="nav-link">Beranda</a>
+                <a href="#aplikasi-populer" class="nav-link">Aplikasi Populer</a>
+                <a href="#semua-aplikasi" class="nav-link">Semua Aplikasi</a>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <!-- HERO SECTION -->
@@ -15,7 +32,20 @@
                         <img src="{{ asset('images/logosyifa.png') }}" alt="RSU Syifa Medika" class="rsu-logo">
                     </div>
                     <h1>Pusat Akses Terpadu Seluruh Aplikasi<br>RSU Syifa Medika Banjarbaru</h1>
-                    <p class=
+                    <p class="hero-subtitle">Connected Care, Better Experience.</p>
+
+                    <form method="GET" action="{{ route('applications.index') }}" class="search-form">
+                        <div class="search-input-wrapper">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" name="search" placeholder="Cari Aplikasi..." value="{{ $search }}">
+                        </div>
+                    </form>
+                </div>
+                <div class="hero-image">
+                    <div class="oval-image-wrapper">
+                        <img src="{{ asset('images/rs.jpeg') }}" alt="Gedung RSU Syifa Medika">
+                    </div>
+                </div>
             </div>
 
             <!-- Judul Aplikasi Populer -->
@@ -26,7 +56,14 @@
 
         <!-- APLIKASI POPULER SECTION -->
         <section class="popular-green-section">
-            <div class="po
+            <div class="popular-grid-container">
+                <div class="popular-grid" id="popularApplicationsList">
+                    @forelse($popularApplications as $application)
+                        <div class="popular-card" data-application-id="{{ $application->id }}">
+                            <div class="popular-card-top">
+                                @if($application->icon)
+                                    <img src="{{ asset('storage/' . $application->icon) }}" alt="{{ $application->name }}">
+                                @else
                                     <span class="fallback-icon">📱</span>
                                 @endif
                             </div>
@@ -57,7 +94,7 @@
                                 @if($application->icon)
                                     <img src="{{ asset('storage/' . $application->icon) }}" alt="{{ $application->name }}">
                                 @else
-                                    <div class="placeholder-box"></div>
+                                    <div class="placeholder-box"><span class="fallback-icon">📱</span></div>
                                 @endif
                             </div>
                             <div class="app-card-body">
@@ -74,7 +111,39 @@
         </section>
 
         <!-- Footer -->
-        <footer class="bottom-green-footer"></footer>
+        <footer class="bottom-green-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-brand-badge">
+                        <img src="{{ asset('images/logosyifa.png') }}" alt="RSU Syifa Medika">
+                        <span>RSU Syifa Medika</span>
+                    </div>
+                    <div class="footer-social-icons">
+                        <a href="#" aria-label="Instagram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg>
+                        </a>
+                        <a href="#" aria-label="TikTok">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 3v10.5a3.5 3.5 0 1 1-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15 3c.5 3 2.5 5 6 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 21v-7h2.5l.5-3H14V9c0-.9.3-1.5 1.7-1.5H17V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H8.5v3H11v7h3z" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Instagram</h4>
+                    <p>@rsusyifamedika</p>
+                    <p>@rsusyifamedikainfo</p>
+                    <p>@syifaglobalgroup</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Facebook</h4>
+                    <p>@rsusyifamedikabanjarbaru</p>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <p class="footer-copyright">&copy; RSU Syifa Medika {{ date('Y') }}</p>
+        </footer>
     </main>
 
     <script>
