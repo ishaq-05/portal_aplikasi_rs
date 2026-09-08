@@ -4,24 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Aplikasi RSU Syifa Medika</title>
-    <!-- Mencegah Browser Cache CSS -->
-    <link rel="stylesheet" href="{{ asset('css/styleindex.css') }}?v={{ time() }}">
-</head>
-<body>
-
-    <!-- Header Navigation -->
-    <header class="header">
-        <div class="header-content">
-            <div class="brand">
-                <img src="{{ asset('images/logo-syifa-global-group.png') }}" alt="Syifa Global Group" class="logo-img">
-            </div>
-            <nav class="navbar">
-                <a href="#beranda" class="nav-link">Beranda</a>
-                <a href="#aplikasi-populer" class="nav-link">Aplikasi Populer</a>
-                <a href="#semua-aplikasi" class="nav-link">Semua Aplikasi</a>
-            </nav>
-        </div>
-    </header>
+    <!-- M
 
     <main>
         <!-- HERO SECTION -->
@@ -32,20 +15,7 @@
                         <img src="{{ asset('images/logosyifa.png') }}" alt="RSU Syifa Medika" class="rsu-logo">
                     </div>
                     <h1>Pusat Akses Terpadu Seluruh Aplikasi<br>RSU Syifa Medika Banjarbaru</h1>
-                    <p class="hero-subtitle">Connected Care, Better Experience.</p>
-                    
-                    <form method="GET" action="{{ route('applications.index') }}" class="search-form">
-                        <div class="search-input-wrapper">
-                            <span class="search-icon">🔍</span>
-                            <input type="text" name="search" placeholder="Cari Aplikasi..." value="{{ $search }}">
-                        </div>
-                    </form>
-                </div>
-                <div class="hero-image">
-                    <div class="oval-image-wrapper">
-                        <img src="{{ asset('images/rs.jpeg') }}" alt="Gedung RSU Syifa Medika">
-                    </div>
-                </div>
+                    <p class=
             </div>
 
             <!-- Judul Aplikasi Populer -->
@@ -56,14 +26,7 @@
 
         <!-- APLIKASI POPULER SECTION -->
         <section class="popular-green-section">
-            <div class="popular-grid-container">
-                <div class="popular-grid" id="popularApplicationsList">
-                    @forelse($popularApplications as $application)
-                        <div class="popular-card" data-application-id="{{ $application->id }}">
-                            <div class="popular-card-top">
-                                @if($application->icon)
-                                    <img src="{{ asset('storage/' . $application->icon) }}" alt="{{ $application->name }}">
-                                @else
+            <div class="po
                                     <span class="fallback-icon">📱</span>
                                 @endif
                             </div>

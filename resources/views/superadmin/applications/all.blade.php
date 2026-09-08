@@ -918,59 +918,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-        if (visibleCount) {
-
-            visibleCount.textContent =
-                totalVisible;
-
-        }
-
-    }
-
-    function escapeHtml(text) {
-
-        const div =
-            document.createElement('div');
-
-        div.textContent = text;
-
-        return div.innerHTML;
-    }
-
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            'input',
-            function () {
-
-                performSearch();
-
-            }
-        );
-
-        searchInput.addEventListener(
-            'keydown',
-            function (event) {
-
-                if (event.key === 'Enter') {
-
-                    event.preventDefault();
-
-                    const keyword =
-                        searchInput.value.trim();
-
-                    const url =
-                        new URL(
-                            window.location.href
-                        );
-
-                    if (keyword !== '') {
-
-                        url.searchParams.set(
-                            'search',
-                            keyword
-                        );
-
                     } else {
 
                         url.searchParams.delete(
@@ -989,26 +936,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-    if (clearButton) {
-
-        clearButton.addEventListener(
-            'click',
-            function () {
-
-                searchInput.value = '';
-
-                performSearch();
-
-                searchInput.focus();
-
-            }
-        );
-
-    }
-
-    performSearch();
-
-});
-</script>
+    if (cl
 
 @endpush
