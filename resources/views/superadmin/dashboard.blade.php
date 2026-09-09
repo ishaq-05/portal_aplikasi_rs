@@ -2,25 +2,32 @@
 
 @section('title', 'Dashboard - Super Admin')
 
-@push('styles')
+@section('content')
+
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+    .dashboard-page,
+    .dashboard-page * {
+        font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    .dashboard-page {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)),
+            url('/images/rs.jpeg');
+        background-size: cover;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        padding: 20px 20px 260px;
+        border-radius: 14px;
+    }
+
     .dashboard-header {
-        margin-bottom: 28px;
+        display: none;
     }
 
-    .dashboard-header h1 {
-        font-size: 34px;
-        line-height: 1.1;
-        font-weight: 800;
-        color: #172033;
-        margin-bottom: 8px;
-    }
-
-    .dashboard-header p {
-        font-size: 16px;
-        color: #5f7695;
-    }
-
+    /* STATS GRID */
     .stats-grid {
         width: 100%;
         display: grid;
@@ -31,92 +38,122 @@
 
     .stat-card {
         min-height: 160px;
-        background: #087f60;
-        border: 1px solid #005f48;
-        border-radius: 12px;
-        padding: 21px 25px;
-        color: #ffffff;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 20px 24px 16px;
+        color: #172033;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.10);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
     }
 
     .stat-title {
-        font-size: 15px;
-        font-weight: bold;
+        font-size: 14px;
+        font-weight: 700;
+        color: #172033;
+    }
+
+    .stat-card-body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
     }
 
     .stat-number {
-        text-align: center;
-        font-size: 55px;
+        font-size: 58px;
         line-height: 1;
-        font-weight: 800;
-        margin: 5px 0;
+        font-weight: 600; /* Ketebalan angka statistik dikurangi dari 800 ke 600 */
+        color: #0f172a;
     }
 
-    .stat-description {
-        text-align: center;
-        font-size: 13px;
-        font-weight: 500;
+    .stat-sparkline {
+        width: 120px;
+        height: 50px;
+        flex-shrink: 0;
     }
 
+    .stat-sparkline.is-up polyline {
+        stroke: #22c55e;
+    }
+
+    .stat-sparkline.is-down polyline {
+        stroke: #ef4444;
+    }
+
+    .stat-sparkline polyline {
+        fill: none;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    /* ANALYSIS SECTION - SESUAI GAMBAR REFERENSI */
     .analysis-section {
         width: 100%;
         background: #ffffff;
-        border: 2px solid #172033;
-        border-radius: 13px;
-        padding: 20px;
-        margin-bottom: 38px;
+        border: 1px solid #e2e8f0;
+        border-radius: 20px;
+        padding: 28px 24px 28px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
     }
 
     .analysis-title {
-        font-size: 27px;
-        font-weight: 800;
-        color: #172033;
-        margin-bottom: 4px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        color: #000000;
+        margin-bottom: 2px;
+        letter-spacing: -0.2px;
     }
 
     .analysis-description {
-        font-size: 14px;
+        text-align: center;
+        font-size: 12px;
         color: #5f7695;
-        margin-bottom: 16px;
+        margin-bottom: 20px;
     }
 
     .analysis-content {
         width: 100%;
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 205px;
-        gap: 15px;
+        grid-template-columns: minmax(0, 1fr) 220px;
+        gap: 16px;
     }
 
     .chart-card {
-        min-height: 215px;
-        background: #ffffff;
-        border: 1px solid #172033;
-        border-radius: 10px;
-        padding: 14px 15px;
+        min-height: 220px;
+        background: #f8f9fa;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 20px 22px;
+        display: flex;
+        flex-direction: column;
     }
 
     .chart-title {
-        font-size: 13px;
-        color: #172033;
-        margin-bottom: 10px;
+        font-size: 14px;
+        color: #000000;
+        margin-bottom: 20px;
+        font-weight: 600;
     }
 
     .chart {
         position: relative;
         width: 100%;
-        height: 165px;
-        overflow: hidden;
+        flex: 1;
+        min-height: 130px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .chart-grid {
-        position: absolute;
-        left: 50px;
-        right: 10px;
-        top: 10px;
-        bottom: 25px;
+        width: 100%;
+        height: 100px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -125,202 +162,170 @@
     .grid-line {
         width: 100%;
         height: 1px;
-        background: #d5dbe3;
+        background: #e2e8f0;
     }
 
-    .chart-months {
-        position: absolute;
-        left: 50px;
-        right: 10px;
-        bottom: 0;
-        display: flex;
-        justify-content: space-between;
-        color: #5f7695;
-        font-size: 11px;
-    }
-
+    .chart-months,
     .chart-svg {
-        position: absolute;
-        left: 50px;
-        right: 10px;
-        top: 10px;
-        bottom: 25px;
-        width: calc(100% - 60px);
-        height: calc(100% - 35px);
-        overflow: visible;
-    }
-
-    .chart-line {
-        fill: none;
-        stroke: #087f60;
-        stroke-width: 3;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
-
-    .chart-point {
-        fill: #ffffff;
-        stroke: #087f60;
-        stroke-width: 3;
+        display: none;
     }
 
     .analysis-side {
         display: flex;
         flex-direction: column;
-        gap: 11px;
+        gap: 12px;
     }
 
     .analysis-card {
         flex: 1;
-        min-height: 96px;
-        background: #087f60;
-        color: #ffffff;
-        border: 1px solid #005f48;
-        border-radius: 10px;
-        padding: 11px 13px;
+        min-height: 104px;
+        background: #f8f9fa;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 16px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
     }
 
     .analysis-card-title {
-        font-size: 12px;
-        font-weight: bold;
+        font-size: 13px;
+        font-weight: 600;
+        color: #172033;
+        margin-bottom: 4px;
     }
 
     .analysis-card-number {
-        text-align: center;
-        font-size: 42px;
-        line-height: 1;
-        font-weight: 800;
+        font-size: 22px;
+        font-weight: 700;
+        color: #0f172a;
     }
 
     .analysis-card-description {
-        text-align: center;
         font-size: 11px;
-        font-weight: 500;
+        color: #64748b;
     }
 
+    /* POPULAR SECTION */
     .popular-section {
         width: 100%;
-        background: #087f60;
-        border: 1px solid #005f48;
-        border-radius: 12px;
-        padding: 22px 25px 27px;
+        background: #5b8260;
+        border: none;
+        border-radius: 16px;
+        padding: 30px 25px 35px;
         color: #ffffff;
     }
 
     .popular-header {
         text-align: center;
-        margin-bottom: 22px;
+        margin-bottom: 24px;
     }
 
     .popular-header h2 {
-        font-size: 28px;
-        font-weight: 800;
+        font-size: 24px;
+        font-weight: 700;
         margin-bottom: 4px;
     }
 
     .popular-header p {
-        font-size: 14px;
+        font-size: 14px; /* Ukuran font deskripsi header aplikasi populer diperbesar */
         color: #ffffff;
     }
 
     .popular-grid {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 28px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
     }
 
     .popular-card {
         background: #ffffff;
         color: #111827;
-        border: 1px solid #172033;
-        border-radius: 10px;
+        border-radius: 18px;
         overflow: hidden;
-        min-height: 165px;
+        min-height: 290px;
         display: flex;
         flex-direction: column;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 
     .popular-logo-wrapper {
         width: 100%;
-        height: 88px;
+        height: 135px;
         background: #ffffff;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-bottom: 1px solid #172033;
+        padding: 20px;
     }
 
     .popular-logo {
-        width: 145px;
-        height: 75px;
+        max-width: 85%;
+        max-height: 85px;
         object-fit: contain;
     }
 
     .popular-no-logo {
-        width: 145px;
-        height: 75px;
+        width: 100%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 30px;
+        font-size: 32px;
         font-weight: bold;
-        color: #087f60;
+        color: #5b8260;
         background: #f3f7f9;
     }
 
     .popular-body {
         flex: 1;
-        padding: 8px 12px 10px;
+        background: #dcded3;
+        padding: 20px 18px 24px;
         text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-    }
-
-    .popular-rank {
-        font-size: 11px;
-        color: #087f60;
-        font-weight: bold;
-        margin-bottom: 2px;
+        align-items: center;
     }
 
     .popular-name {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 3px;
+        font-size: 22px;
+        font-weight: 600; /* Ketebalan nama aplikasi dikurangi dari 800 ke 600 */
+        color: #000000;
+        margin-bottom: 4px;
     }
 
     .popular-description {
-        font-size: 11px;
-        color: #5f7695;
-        margin-bottom: 7px;
-        white-space: nowrap;
+        font-size: 14px; /* Ukuran font deskripsi aplikasi diperbesar dari 12px ke 14px */
+        color: #475569;
+        margin-bottom: 14px;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
         overflow: hidden;
-        text-overflow: ellipsis;
     }
 
     .popular-button {
-        width: 100%;
-        height: 30px;
+        width: auto;
+        padding: 6px 20px;
         background: #ffffff;
-        border: 1px solid #172033;
-        border-radius: 18px;
-        display: flex;
+        border: 1px solid #111827;
+        border-radius: 2px;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
         text-decoration: none;
         color: #172033;
         font-size: 11px;
-        font-weight: bold;
+        font-weight: 600;
+        transition: all 0.2s ease;
     }
 
     .popular-button:hover {
-        background: #eefaf6;
-        color: #087f60;
+        background: #111827;
+        color: #ffffff;
     }
 
     .popular-empty {
@@ -336,9 +341,6 @@
         .analysis-content {
             grid-template-columns: minmax(0, 1fr) 180px;
         }
-        .popular-grid {
-            gap: 18px;
-        }
     }
 
     @media (max-width: 900px) {
@@ -353,18 +355,12 @@
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
         .popular-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: 1fr;
         }
     }
 
     @media (max-width: 700px) {
-        .dashboard-header h1 {
-            font-size: 29px;
-        }
         .stats-grid {
-            grid-template-columns: 1fr;
-        }
-        .popular-grid {
             grid-template-columns: 1fr;
         }
     }
@@ -373,20 +369,10 @@
         .analysis-side {
             grid-template-columns: 1fr;
         }
-        .dashboard-header h1 {
-            font-size: 25px;
-        }
-        .analysis-title {
-            font-size: 22px;
-        }
-        .popular-header h2 {
-            font-size: 24px;
-        }
     }
 </style>
-@endpush
 
-@section('content')
+<div class="dashboard-page">
 
 <div class="dashboard-header">
     <h1>DASHBOARD</h1>
@@ -396,30 +382,42 @@
 <div class="stats-grid">
     <div class="stat-card">
         <div class="stat-title">Total Aplikasi</div>
-        <div class="stat-number">{{ $totalApplications ?? 0 }}</div>
-        <div class="stat-description">Total aplikasi dalam sistem</div>
+        <div class="stat-card-body">
+            <div class="stat-number">{{ $totalApplications ?? 0 }}</div>
+            <svg class="stat-sparkline is-up" viewBox="0 0 100 40" preserveAspectRatio="none">
+                <polyline points="0,35 25,25 50,30 75,10 100,5" />
+            </svg>
+        </div>
     </div>
 
     <div class="stat-card">
         <div class="stat-title">Aplikasi Aktif</div>
-        <div class="stat-number">{{ $activeApplications ?? 0 }}</div>
-        <div class="stat-description">Aplikasi yang dapat digunakan user</div>
+        <div class="stat-card-body">
+            <div class="stat-number">{{ $activeApplications ?? 0 }}</div>
+            <svg class="stat-sparkline is-up" viewBox="0 0 100 40" preserveAspectRatio="none">
+                <polyline points="0,35 25,25 50,30 75,10 100,5" />
+            </svg>
+        </div>
     </div>
 
     <div class="stat-card">
         <div class="stat-title">Aplikasi Nonaktif</div>
-        <div class="stat-number">{{ $inactiveApplications ?? 0 }}</div>
-        <div class="stat-description">Aplikasi yang tidak aktif</div>
+        <div class="stat-card-body">
+            <div class="stat-number">{{ $inactiveApplications ?? 0 }}</div>
+            <svg class="stat-sparkline is-down" viewBox="0 0 100 40" preserveAspectRatio="none">
+                <polyline points="0,10 25,25 50,20 75,35 100,38" />
+            </svg>
+        </div>
     </div>
 </div>
 
 <section class="analysis-section">
-    <h2 class="analysis-title">ANALISIS PENGGUNA APLIKASI</h2>
-    <p class="analysis-description">Perbandingan aktivitas user berdasarkan 6 bulan terakhir.</p>
+    <h2 class="analysis-title">Analisis Penggunaan Aplikasi</h2>
+    <p class="analysis-description">Perbandingan aktivitas user berdasarkan 6 bulan terakhir</p>
 
     <div class="analysis-content">
         <div class="chart-card">
-            <div class="chart-title">Tren Penggunaan 6 Bulan Terakhir</div>
+            <div class="chart-title">Tren penggunaan 6 bulan terakhir</div>
             <div class="chart">
                 <div class="chart-grid">
                     <div class="grid-line"></div>
@@ -467,13 +465,13 @@
 
 <section class="popular-section">
     <div class="popular-header">
-        <h2>APLIKASI POPULER</h2>
+        <h2>Aplikasi Paling Populer</h2>
         <p>Aplikasi yang paling sering digunakan oleh user.</p>
     </div>
 
     <div class="popular-grid">
         @if (isset($popularApplications) && $popularApplications->count() > 0)
-            @foreach ($popularApplications->take(3) as $index => $application)
+            @foreach ($popularApplications->take(3) as $application)
                 <div class="popular-card">
                     <div class="popular-logo-wrapper">
                         @if ($application->icon)
@@ -487,7 +485,6 @@
 
                     <div class="popular-body">
                         <div>
-                            <div class="popular-rank">#{{ $index + 1 }}</div>
                             <div class="popular-name">{{ $application->name }}</div>
                             <div class="popular-description">
                                 {{ $application->description ?? 'Aplikasi Portal Rumah Sakit' }}
@@ -507,5 +504,7 @@
         @endif
     </div>
 </section>
+
+</div>
 
 @endsection
