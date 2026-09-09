@@ -1,93 +1,124 @@
 @extends('layouts.superadmin')
 
+@section('title', 'Edit Aplikasi Portal')
+
 @section('content')
 <style>
-    /* Wrapper background gambar dengan overlay hijau */
-    .content-bg-wrapper {
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+    .portal-container {
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        padding: 40px 20px 60px;
+        /* Gradasi Hijau Overlay di atas Foto Background */
+        background-image: linear-gradient(135deg, rgba(46, 78, 63, 0.75), rgba(91, 130, 96, 0.75)), url('/images/rs.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
         min-height: 100vh;
-        width: 100%;
-        background: 
-            linear-gradient(rgba(115, 157, 120, 0.85), rgba(115, 157, 120, 0.85)), 
-            url("{{ asset('images/rs.jpeg') }}") center/cover no-repeat fixed;
-        padding: 40px 20px 60px 20px;
-        margin: -1.5rem; /* Menutupi padding default dari layout utama jika ada */
     }
 
-    .edit-portal-container {
-        width: 100%;
-        max-width: 650px;
+    .portal-header {
+        width: 800px;
+        max-width: 100%;
         margin: 0 auto;
-    }
-
-    /* Header dibuat warna putih presisi acuan */
-    .edit-portal-header {
         text-align: center;
-        margin-bottom: 25px;
-        color: #ffffff;
     }
 
-    .edit-portal-header h1 {
-        font-size: 36px;
+    .portal-header h1 {
+        font-size: 38px;
+        line-height: 1.2;
         font-weight: 700;
         color: #ffffff;
-        margin-bottom: 6px;
+        text-shadow: none;
+        letter-spacing: -0.5px;
     }
 
-    .edit-portal-header p {
+    .portal-header p {
+        margin-top: 6px;
         font-size: 15px;
         color: rgba(255, 255, 255, 0.9);
+        font-weight: 400;
     }
 
-    .edit-portal-card {
-        background: #ffffff;
-        border-radius: 16px;
-        padding: 35px 40px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    .form-wrapper {
+        width: 820px;
+        max-width: 100%;
+        margin: 28px auto 0;
+        background: white;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    .form-content {
+        padding: 40px 45px 20px;
     }
 
     .form-group {
-        margin-bottom: 20px;
+        margin-bottom: 22px;
     }
 
     .form-label {
         display: block;
+        margin-bottom: 8px;
         font-size: 15px;
         font-weight: 600;
-        color: #111827;
-        margin-bottom: 8px;
+        color: #1f2937;
     }
 
     .form-control {
         width: 100%;
-        height: 46px;
+        height: 48px;
         padding: 10px 16px;
         border: 1px solid #d1d5db;
-        border-radius: 10px;
+        border-radius: 12px;
+        background: #ffffff;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
         font-size: 14px;
+        color: #111827;
         outline: none;
-        background-color: #ffffff;
-        transition: border-color 0.2s;
+        transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     .form-control:focus {
-        border-color: #0b7a69;
+        border-color: #0d8a72;
+        box-shadow: 0 0 0 3px rgba(13, 138, 114, 0.15);
     }
 
     textarea.form-control {
-        height: 46px;
-        resize: none;
+        height: 100px;
+        padding: 12px 16px;
+        resize: vertical;
+    }
+
+    .form-help {
+        margin-top: 6px;
+        padding-left: 2px;
+        font-size: 11px;
+        color: #9ca3af;
+        line-height: 1.3;
+    }
+
+    .error {
+        margin-top: 6px;
+        color: #dc2626;
+        font-size: 12px;
+        font-weight: 500;
     }
 
     /* Logo Saat Ini Box */
     .current-logo-box {
-        width: 60px;
-        height: 50px;
-        background-color: #d9d9d9;
-        border-radius: 8px;
+        width: 70px;
+        height: 55px;
+        background-color: #f3f4f6;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        padding: 6px;
     }
 
     .current-logo-box img {
@@ -96,147 +127,264 @@
         object-fit: contain;
     }
 
-    /* Input File wrapper */
+    /* Upload File Input */
     .file-input-wrapper {
+        width: 100%;
+        height: 48px;
         border: 1px solid #d1d5db;
-        border-radius: 10px;
-        padding: 6px 12px;
-        background-color: #ffffff;
+        border-radius: 12px;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        position: relative;
     }
 
-    .file-input-wrapper input[type="file"] {
-        font-size: 13px;
-        color: #374151;
+    .upload-box {
         width: 100%;
+        height: 100%;
+        border: none;
+        background: transparent;
+        display: flex;
+        align-items: center;
         cursor: pointer;
     }
 
-    .form-help {
-        font-size: 11px;
-        color: #6b7280;
-        margin-top: 6px;
+    .upload-input {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
     }
 
-    /* Status Checkbox Box */
-    .status-box {
+    .custom-file-btn {
+        background: #e5e7eb;
+        color: #374151;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 6px;
         border: 1px solid #d1d5db;
-        border-radius: 10px;
+        margin-right: 12px;
+        white-space: nowrap;
+    }
+
+    .file-name-text {
+        font-size: 12px;
+        color: #6b7280;
+    }
+
+    .logo-preview {
+        display: none;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .logo-preview img {
+        max-height: 32px;
+        object-fit: contain;
+    }
+
+    .logo-preview-name {
+        font-size: 12px;
+        color: #374151;
+    }
+
+    /* Status Box */
+    .status-box {
+        width: 100%;
         height: 48px;
+        border: 1px solid #d1d5db;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
         padding: 0 16px;
+        background: #ffffff;
+    }
+
+    .status-label {
+        width: 100%;
         display: flex;
         align-items: center;
         gap: 12px;
-        background-color: #ffffff;
+        cursor: pointer;
     }
 
-    .status-box input[type="checkbox"] {
+    .toggle {
+        position: relative;
+        flex-shrink: 0;
+        width: 44px;
+        height: 22px;
+    }
+
+    .toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .toggle-slider {
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        background: #d1d5db;
+        transition: 0.2s;
+    }
+
+    .toggle-slider::before {
+        content: "";
+        position: absolute;
         width: 18px;
         height: 18px;
-        accent-color: #0b7a69;
-        cursor: pointer;
+        left: 2px;
+        top: 2px;
+        border-radius: 50%;
+        background: white;
+        transition: 0.2s;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
 
-    .status-box label {
-        font-size: 14px;
-        font-weight: 500;
-        color: #111827;
-        cursor: pointer;
+    .toggle input:checked + .toggle-slider {
+        background: #0d8a72;
     }
 
-    .divider {
-        height: 1px;
-        background-color: #e5e7eb;
-        margin: 25px 0;
+    .toggle input:checked + .toggle-slider::before {
+        transform: translateX(22px);
     }
 
-    /* Action Buttons */
+    .status-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: #1f2937;
+    }
+
+    /* Footer & Buttons */
     .form-footer {
+        padding: 20px 45px 35px;
         display: flex;
+        align-items: center;
         justify-content: flex-end;
         gap: 12px;
+        border-top: 1px solid #e5e7eb;
     }
 
-    .btn-portal {
+    .button {
         height: 42px;
-        padding: 0 28px;
-        border-radius: 9999px;
+        min-width: 100px;
+        padding: 0 24px;
+        border-radius: 10px;
         font-size: 14px;
         font-weight: 600;
         cursor: pointer;
-        display: inline-flex;
+        text-decoration: none;
+        display: flex;
         align-items: center;
         justify-content: center;
-        text-decoration: none;
-        border: 1px solid transparent;
+        transition: all 0.2s ease;
     }
 
-    .btn-cancel {
-        background-color: #ffffff;
-        color: #111827;
-        border-color: #d1d5db;
+    .button-cancel {
+        background: #ffffff;
+        color: #374151;
+        border: 1px solid #d1d5db;
     }
 
-    .btn-cancel:hover {
-        background-color: #f9fafb;
+    .button-cancel:hover {
+        background: #f3f4f6;
     }
 
-    .btn-save {
-        background-color: #0b7a69;
-        color: #ffffff;
+    .button-save {
+        background: #0d8a72;
+        color: white;
+        border: none;
     }
 
-    .btn-save:hover {
-        background-color: #086355;
+    .button-save:hover {
+        background: #0a735f;
     }
 
-    .text-error {
-        color: #dc2626;
-        font-size: 12px;
-        margin-top: 4px;
+    @media (max-width: 650px) {
+        .portal-container {
+            padding: 20px 12px 40px;
+        }
+
+        .portal-header h1 {
+            font-size: 28px;
+        }
+
+        .portal-header p {
+            font-size: 13px;
+        }
+
+        .form-content {
+            padding: 25px 20px 15px;
+        }
+
+        .form-footer {
+            padding: 15px 20px 25px;
+        }
+
+        .button {
+            height: 38px;
+            padding: 0 16px;
+            font-size: 13px;
+        }
     }
 </style>
 
-<div class="content-bg-wrapper">
-    <div class="edit-portal-container">
-        <div class="edit-portal-header">
-            <h1>Edit Aplikasi</h1>
-            <p>Ubah informasi aplikasi yang tersedia di portal.</p>
-        </div>
+<div class="portal-container">
 
-        <div class="edit-portal-card">
-            <form action="{{ route('superadmin.applications.update', $application) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
+    <div class="portal-header">
+        <h1>Edit Aplikasi</h1>
+        <p>Ubah informasi aplikasi yang tersedia di portal.</p>
+    </div>
+
+    <div class="form-wrapper">
+        <form
+            id="editApplicationForm"
+            action="{{ route('superadmin.applications.update', $application) }}"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+            @csrf
+            @method('PUT')
+
+            <div class="form-content">
 
                 <!-- Nama Aplikasi -->
                 <div class="form-group">
                     <label for="name" class="form-label">Nama Aplikasi</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        class="form-control" 
-                        value="{{ old('name', $application->name) }}" 
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="form-control"
+                        value="{{ old('name', $application->name) }}"
                         required
                     >
                     @error('name')
-                        <div class="text-error">{{ $message }}</div>
+                        <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <!-- URL Aplikasi -->
                 <div class="form-group">
                     <label for="url" class="form-label">URL Aplikasi</label>
-                    <input 
-                        type="url" 
-                        id="url" 
-                        name="url" 
-                        class="form-control" 
-                        value="{{ old('url', $application->url) }}" 
+                    <input
+                        type="url"
+                        id="url"
+                        name="url"
+                        class="form-control"
+                        value="{{ old('url', $application->url) }}"
                         required
                     >
+                    <div class="form-help">Masukkan alamat lengkap aplikasi, termasuk http:// atau https://.</div>
                     @error('url')
-                        <div class="text-error">{{ $message }}</div>
+                        <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -246,32 +394,46 @@
                     <div class="current-logo-box">
                         @if ($application->icon)
                             <img src="{{ asset('storage/' . $application->icon) }}" alt="{{ $application->name }}">
+                        @else
+                            <span style="font-size: 11px; color: #9ca3af;">Tidak ada</span>
                         @endif
                     </div>
                 </div>
 
                 <!-- Ganti Logo -->
                 <div class="form-group">
-                    <label for="icon" class="form-label">Ganti Logo</label>
+                    <label class="form-label">Ganti Logo Aplikasi</label>
                     <div class="file-input-wrapper">
-                        <input type="file" id="icon" name="icon" accept=".jpg,.jpeg,.png,.webp,.svg">
+                        <label class="upload-box" for="icon">
+                            <input
+                                type="file"
+                                id="icon"
+                                name="icon"
+                                class="upload-input"
+                                accept=".jpg,.jpeg,.png,.webp,.svg"
+                            >
+                            <div class="upload-content" id="uploadContent" style="display: flex; align-items: center;">
+                                <span class="custom-file-btn">Choose File</span>
+                                <span class="file-name-text" id="fileNameText">No File Chosen</span>
+                            </div>
+                            <div class="logo-preview" id="logoPreview">
+                                <img id="previewImage" src="" alt="Preview Logo">
+                                <div class="logo-preview-name" id="previewName"></div>
+                            </div>
+                        </label>
                     </div>
-                    <div class="form-help">Kosongkan jika tidak ingin mengganti logo. Maksimal 2 MB.</div>
+                    <div class="form-help">Kosongkan jika tidak ingin mengganti. Format: JPG, JPEG, PNG, WEBP, atau SVG. Maksimal 2 MB.</div>
                     @error('icon')
-                        <div class="text-error">{{ $message }}</div>
+                        <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <!-- Edit Deskripsi -->
+                <!-- Deskripsi Aplikasi -->
                 <div class="form-group">
-                    <label for="description" class="form-label">Edit Deskripsi</label>
-                    <textarea 
-                        id="description" 
-                        name="description" 
-                        class="form-control"
-                    >{{ old('description', $application->description) }}</textarea>
+                    <label for="description" class="form-label">Deskripsi Aplikasi</label>
+                    <textarea id="description" name="description" class="form-control">{{ old('description', $application->description) }}</textarea>
                     @error('description')
-                        <div class="text-error">{{ $message }}</div>
+                        <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -279,26 +441,59 @@
                 <div class="form-group">
                     <label class="form-label">Status Aplikasi</label>
                     <div class="status-box">
-                        <input 
-                            type="checkbox" 
-                            id="is_active" 
-                            name="is_active" 
-                            value="1" 
-                            {{ old('is_active', $application->is_active) ? 'checked' : '' }}
-                        >
-                        <label for="is_active">Active</label>
+                        <label class="status-label">
+                            <span class="toggle">
+                                <input
+                                    type="checkbox"
+                                    name="is_active"
+                                    value="1"
+                                    {{ old('is_active', $application->is_active) ? 'checked' : '' }}
+                                >
+                                <span class="toggle-slider"></span>
+                            </span>
+                            <span class="status-title">Aplikasi Aktif</span>
+                        </label>
                     </div>
                 </div>
 
-                <div class="divider"></div>
+            </div>
 
-                <!-- Action Buttons -->
-                <div class="form-footer">
-                    <a href="{{ route('superadmin.applications.index') }}" class="btn-portal btn-cancel">Batal</a>
-                    <button type="submit" class="btn-portal btn-save">Simpan</button>
-                </div>
-            </form>
-        </div>
+            <div class="form-footer">
+                <a href="{{ route('superadmin.applications.index') }}" class="button button-cancel">Batal</a>
+                <button type="submit" class="button button-save">Simpan Perubahan</button>
+            </div>
+
+        </form>
     </div>
+
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const fileInput = document.getElementById('icon');
+        const uploadContent = document.getElementById('uploadContent');
+        const logoPreview = document.getElementById('logoPreview');
+        const previewImage = document.getElementById('previewImage');
+        const previewName = document.getElementById('previewName');
+
+        fileInput.addEventListener('change', function () {
+            const file = this.files[0];
+
+            if (!file) {
+                uploadContent.style.display = 'flex';
+                logoPreview.style.display = 'none';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                previewImage.src = event.target.result;
+                previewName.textContent = file.name;
+                uploadContent.style.display = 'none';
+                logoPreview.style.display = 'flex';
+            };
+            reader.readAsDataURL(file);
+        });
+    });
+</script>
 @endsection

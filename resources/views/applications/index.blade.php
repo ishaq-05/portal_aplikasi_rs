@@ -68,9 +68,6 @@
                                 @endif
                             </div>
                             <div class="popular-card-bottom">
-                                <div class="badge-rank rank-{{ $loop->iteration }}">
-                                    {{ $loop->iteration }}
-                                </div>
                                 <h3>{{ $application->name }}</h3>
                                 <p>{{ $application->description ?: 'Mendaftarkan Diri untuk Pemeriksaan' }}</p>
                                 <a href="{{ route('applications.open', $application) }}" class="btn-open">Buka Aplikasi</a>
@@ -161,7 +158,7 @@
                 const popularList = document.getElementById('popularApplicationsList');
                 if (!popularList || !applications.length) return;
 
-                popularList.innerHTML = applications.slice(0, 3).map((application, index) => {
+                popularList.innerHTML = applications.slice(0, 3).map((application) => {
                     const logoUrl = application.icon
                         ? (application.icon.startsWith('http') ? application.icon : `${storageUrl}/${application.icon}`)
                         : null;
@@ -175,9 +172,6 @@
                                 ${logo}
                             </div>
                             <div class="popular-card-bottom">
-                                <div class="badge-rank rank-${index + 1}">
-                                    ${index + 1}
-                                </div>
                                 <h3>${escapeHtml(name)}</h3>
                                 <p>${escapeHtml(description)}</p>
                                 <a href="{{ url('/applications') }}/${application.id}/open" class="btn-open">Buka Aplikasi</a>

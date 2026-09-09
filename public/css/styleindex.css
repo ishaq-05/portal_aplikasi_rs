@@ -16,17 +16,17 @@ body {
 ========================= */
 
 .header {
-    height: 38px;
+    height: 45px;
     background: #fff;
     border-bottom: 1px solid #ddd;
-    padding: 0 40px;
+    padding: 0 20px;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .header-content {
-    max-width: 1250px;
+    max-width: 980px;
     height: 100%;
     margin: 0 auto;
     display: flex;
@@ -41,13 +41,13 @@ body {
 
 .navbar {
     display: flex;
-    gap: 30px;
+    gap: 25px;
 }
 
 .nav-link {
     color: #222;
     text-decoration: none;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
 }
 
@@ -62,18 +62,18 @@ body {
         #fff 55%,
         #f1f1f1 100%
     );
-    padding: 40px;
+    padding: 30px 20px;
     position: relative;
     z-index: 1;
 }
 
 .hero-container {
-    max-width: 1250px;
+    max-width: 980px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 30px;
 }
 
 .hero-text {
@@ -81,29 +81,29 @@ body {
 }
 
 .rsu-logo {
-    height: 48px;
+    height: 42px;
     width: auto;
     display: block;
     margin-bottom: 10px;
 }
 
 .hero-text h1 {
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1.25;
     font-weight: 800;
     margin-bottom: 7px;
 }
 
 .hero-subtitle {
-    font-size: 12px;
+    font-size: 11px;
     color: #555;
     margin-bottom: 15px;
 }
 
 .search-input-wrapper {
-    width: 360px;
+    width: 320px;
     max-width: 100%;
-    height: 30px;
+    height: 32px;
     display: flex;
     align-items: center;
     padding: 0 12px;
@@ -113,7 +113,7 @@ body {
 }
 
 .search-icon {
-    font-size: 10px;
+    font-size: 11px;
     color: #888;
     margin-right: 6px;
 }
@@ -123,18 +123,18 @@ body {
     border: 0;
     outline: 0;
     background: transparent;
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .hero-image {
-    flex: 0 0 190px;
+    flex: 0 0 160px;
     display: flex;
     justify-content: flex-end;
 }
 
 .oval-image-wrapper {
-    width: 180px;
-    height: 225px;
+    width: 150px;
+    height: 190px;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -153,7 +153,7 @@ body {
 .popular-title-box {
     position: relative;
     z-index: 50;
-    height: 25px;
+    height: 30px;
     margin: 0;
     display: flex;
     align-items: center;
@@ -171,12 +171,11 @@ body {
     position: relative;
     z-index: 10;
     background: #3b5d44;
-    padding: 0 20px 45px;
+    padding: 0 20px 50px;
     margin: 0;
     overflow: visible;
 }
 
-/* Lengkungan putih turun ke tengah */
 .popular-green-section::before {
     content: "";
     position: absolute;
@@ -190,7 +189,7 @@ body {
 }
 
 .popular-grid-container {
-    max-width: 1250px;
+    max-width: 980px;
     margin: 0 auto;
     position: relative;
     z-index: 20;
@@ -201,132 +200,76 @@ body {
     z-index: 30;
     display: flex;
     justify-content: center;
-    gap: 22px;
+    gap: 20px;
     transform: translateY(-28px);
     margin-bottom: -28px;
 }
 
 .popular-card {
-    width: 360px;
+    width: 280px;
     background: #fff;
-    border-radius: 13px;
-    overflow: visible;
-    box-shadow: 0 7px 17px rgba(0, 0, 0, .18);
+    border-radius: 14px;
+    overflow: hidden; /* Mengunci sudut kartu agar rapi tanpa medali */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .18);
     position: relative;
     z-index: 40;
 }
 
 .popular-card-top {
-    height: 120px;
+    height: 155px;
     background: #fff;
-    border-radius: 13px 13px 0 0;
+    border-radius: 14px 14px 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding: 20px;
     overflow: hidden;
 }
 
 .popular-card-top img {
-    max-width: 82%;
-    max-height: 75px;
+    max-width: 80%;
+    max-height: 90px;
     object-fit: contain;
 }
 
 .popular-card-bottom {
-    min-height: 95px;
-    padding: 15px;
+    min-height: 140px;
+    padding: 20px 15px 18px;
     background: #d3dad4;
-    border-radius: 0 0 13px 13px;
+    border-radius: 0 0 14px 14px;
     text-align: center;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 .popular-card-bottom h3 {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 800;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     color: #000;
 }
 
 .popular-card-bottom p {
-    font-size: 8px;
-    color: #444;
-    line-height: 1.3;
-    margin-bottom: 8px;
-}
-
-
-/* MEDALI */
-
-.badge-rank {
-    position: absolute;
-    top: -13px;
-    right: 18px;
-    width: 29px;
-    height: 29px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 11px;
-    font-weight: 800;
-    border: 2px solid #fff;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, .25);
-    z-index: 50;
-}
-
-.badge-rank::before {
-    content: "";
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 13px;
-    height: 10px;
-    background: linear-gradient(
-        90deg,
-        #e74c3c 35%,
-        #3498db 35% 65%,
-        #e74c3c 65%
-    );
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        80% 100%,
-        20% 100%
-    );
-}
-
-.rank-1 {
-    background: #f4c430;
-    color: #6b5300;
-}
-
-.rank-2 {
-    background: #c0c0c0;
-    color: #4a4a4a;
-}
-
-.rank-3 {
-    background: #cd7f32;
-    color: #4a2700;
+    color: #444;
+    line-height: 1.35;
+    margin-bottom: 14px;
 }
 
 .btn-open {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 21px;
-    padding: 3px 13px;
+    min-height: 28px;
+    padding: 4px 16px;
     background: #fff;
     border: 1px solid #666;
     border-radius: 3px;
     color: #111;
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
     text-decoration: none;
     margin-top: auto;
@@ -342,7 +285,7 @@ body {
 ========================= */
 
 .all-apps-section {
-    padding: 30px 40px 65px;
+    padding: 35px 20px 65px;
     background:
         linear-gradient(
             rgba(235, 240, 236, .86),
@@ -353,28 +296,28 @@ body {
 }
 
 .all-apps-container {
-    max-width: 1250px;
+    max-width: 980px;
     margin: 0 auto;
 }
 
 .section-title {
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
-    margin-bottom: 22px;
+    margin-bottom: 25px;
     color: #111;
 }
 
 .applications-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+    gap: 16px;
 }
 
 .app-card {
     background: #fff;
-    border-radius: 11px;
-    padding: 8px;
+    border-radius: 12px;
+    padding: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .09);
     display: flex;
     flex-direction: column;
@@ -388,19 +331,19 @@ body {
 }
 
 .app-card-header {
-    height: 120px;
+    height: 165px;
     background: #d8ded9;
-    border-radius: 7px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     overflow: hidden;
 }
 
 .app-card-header img {
-    max-width: 85%;
-    max-height: 82px;
+    max-width: 80%;
+    max-height: 110px;
     object-fit: contain;
 }
 
@@ -413,18 +356,26 @@ body {
     justify-content: center;
 }
 
+.app-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    justify-content: space-between;
+}
+
 .app-card-body h3 {
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 800;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
     color: #111;
 }
 
 .app-card-body p {
-    font-size: 7px;
+    font-size: 10px;
     color: #555;
-    line-height: 1.3;
-    margin-bottom: 7px;
+    line-height: 1.35;
+    margin-bottom: 12px;
 }
 
 .empty {
@@ -440,12 +391,12 @@ body {
 
 .bottom-green-footer {
     background: #3b5d44;
-    padding: 27px 40px 12px;
+    padding: 27px 20px 12px;
     color: #fff;
 }
 
 .footer-content {
-    max-width: 1250px;
+    max-width: 980px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -461,7 +412,7 @@ body {
     color: #111;
     padding: 6px 12px;
     border-radius: 20px;
-    font-size: 8px;
+    font-size: 9px;
     font-weight: 700;
 }
 
@@ -489,28 +440,28 @@ body {
 }
 
 .footer-column h4 {
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
     margin-bottom: 5px;
 }
 
 .footer-column p {
-    font-size: 7px;
+    font-size: 8px;
     color: #d7e0da;
     margin-bottom: 3px;
 }
 
 .footer-divider {
-    max-width: 1250px;
+    max-width: 980px;
     margin: 20px auto 8px;
     border: 0;
     border-top: 1px solid rgba(255, 255, 255, .3);
 }
 
 .footer-copyright {
-    max-width: 1250px;
+    max-width: 980px;
     margin: 0 auto;
-    font-size: 6px;
+    font-size: 8px;
     color: #d7e0da;
 }
 
@@ -547,15 +498,13 @@ body {
 
 @media (max-width: 600px) {
 
-    /* HEADER */
-
     .header {
-        height: 25px;
-        padding: 0 7px;
+        height: 35px;
+        padding: 0 12px;
     }
 
     .logo-img {
-        height: 13px;
+        height: 18px;
     }
 
     .navbar {
@@ -563,49 +512,46 @@ body {
     }
 
     .nav-link {
-        font-size: 5px;
+        font-size: 8px;
     }
 
-
-    /* HERO */
-
     .hero-wrapper {
-        height: 198px;
-        padding: 35px 17px 10px;
+        height: auto;
+        padding: 25px 17px 15px;
     }
 
     .hero-container {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        gap: 7px;
+        gap: 10px;
     }
 
     .rsu-logo {
-        height: 24px;
+        height: 28px;
         margin-bottom: 5px;
     }
 
     .hero-text h1 {
-        font-size: 12px;
+        font-size: 14px;
         line-height: 1.2;
         margin-bottom: 4px;
     }
 
     .hero-subtitle {
-        font-size: 5px;
-        margin-bottom: 6px;
+        font-size: 8px;
+        margin-bottom: 8px;
     }
 
     .search-input-wrapper {
-        width: 177px;
-        height: 15px;
-        padding: 0 6px;
+        width: 100%;
+        height: 24px;
+        padding: 0 8px;
     }
 
     .search-icon,
     .search-input-wrapper input {
-        font-size: 5px;
+        font-size: 8px;
     }
 
     .hero-image {
@@ -617,114 +563,77 @@ body {
         height: 128px;
     }
 
-
-    /* JUDUL POPULAR */
-
     .popular-title-box {
-        height: 25px;
-        margin: 0;
+        height: 30px;
     }
 
     .popular-title-box h2 {
-        font-size: 8px;
-        font-weight: 500;
+        font-size: 11px;
+        font-weight: 600;
     }
 
-
-    /* POPULAR */
-
     .popular-green-section {
-        padding: 0 6px 28px;
+        padding: 0 10px 35px;
     }
 
     .popular-green-section::before {
-        top: 0;
-        left: -20%;
-        width: 140%;
-        height: 78px;
-        background: #f1f1f1;
-        border-radius: 0 0 50% 50% / 0 0 100% 100%;
+        height: 50px;
     }
 
     .popular-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-        transform: translateY(-24px);
-        margin-bottom: -24px;
+        gap: 8px;
+        transform: translateY(-15px);
+        margin-bottom: -15px;
     }
 
     .popular-card {
         width: 100%;
-        border-radius: 6px;
+        border-radius: 8px;
     }
 
     .popular-card-top {
-        height: 48px;
-        padding: 4px;
-        border-radius: 6px 6px 0 0;
+        height: 65px;
+        padding: 6px;
+        border-radius: 8px 8px 0 0;
     }
 
     .popular-card-top img {
-        max-width: 88%;
-        max-height: 29px;
+        max-width: 90%;
+        max-height: 40px;
     }
 
     .popular-card-bottom {
-        min-height: 53px;
-        padding: 8px 3px 5px;
-        border-radius: 0 0 6px 6px;
+        min-height: 75px;
+        padding: 10px 5px 8px;
+        border-radius: 0 0 8px 8px;
     }
 
     .popular-card-bottom h3 {
-        font-size: 7px;
+        font-size: 9px;
         margin-bottom: 3px;
     }
 
     .popular-card-bottom p {
-        font-size: 4px;
-        line-height: 1.25;
-        margin-bottom: 4px;
-    }
-
-    .badge-rank {
-        width: 18px;
-        height: 18px;
-        top: -8px;
-        right: 6px;
-        font-size: 7px;
-        border-width: 1px;
-    }
-
-    .badge-rank::before {
-        width: 8px;
-        height: 7px;
-        top: -5px;
+        font-size: 6px;
+        line-height: 1.2;
+        margin-bottom: 6px;
     }
 
     .popular-card .btn-open {
-        min-height: 12px;
-        padding: 2px 5px;
-        font-size: 4px;
+        min-height: 16px;
+        padding: 2px 8px;
+        font-size: 6px;
     }
 
-
-    /* SEMUA APLIKASI */
-
     .all-apps-section {
-        padding: 13px 6px 30px;
-        background:
-            linear-gradient(
-                rgba(235, 240, 236, .82),
-                rgba(215, 225, 217, .92)
-            ),
-            url('../images/rs.jpeg') center / cover no-repeat;
+        padding: 20px 10px 40px;
     }
 
     .section-title {
-        font-size: 8px;
-        font-weight: 500;
-        margin-bottom: 11px;
+        font-size: 11px;
+        margin-bottom: 14px;
     }
 
     .applications-grid {
@@ -733,84 +642,69 @@ body {
     }
 
     .app-card {
-        padding: 4px;
-        border-radius: 6px;
+        padding: 6px;
+        border-radius: 8px;
     }
 
     .app-card-header {
-        height: 88px;
-        border-radius: 4px;
-        margin-bottom: 4px;
+        height: 65px;
+        border-radius: 6px;
+        margin-bottom: 6px;
     }
 
     .app-card-header img {
         max-width: 85%;
-        max-height: 42px;
+        max-height: 45px;
     }
 
     .app-card-body h3 {
-        font-size: 6px;
-        margin-bottom: 2px;
-    }
-
-    .app-card-body p {
-        font-size: 3.5px;
-        line-height: 1.25;
-        margin-bottom: 4px;
-    }
-
-    .app-card .btn-open {
-        min-height: 10px;
-        padding: 2px 4px;
-        font-size: 3.5px;
-    }
-
-
-    /* FOOTER */
-
-    .bottom-green-footer {
-        padding: 13px 8px 7px;
-    }
-
-    .footer-content {
-        gap: 8px;
-    }
-
-    .footer-brand-badge {
-        padding: 4px 7px;
-        gap: 3px;
-        font-size: 5px;
-    }
-
-    .footer-brand-badge img {
-        height: 8px;
-    }
-
-    .footer-social-icons {
-        gap: 3px;
-        margin-top: 5px;
-    }
-
-    .footer-social-icons a {
-        width: 12px;
-        height: 12px;
-    }
-
-    .footer-column h4 {
-        font-size: 5px;
+        font-size: 8px;
         margin-bottom: 3px;
     }
 
-    .footer-column p {
-        font-size: 3.7px;
-        margin-bottom: 2px;
+    .app-card-body p {
+        font-size: 5.5px;
+        line-height: 1.2;
+        margin-bottom: 6px;
     }
 
-    .footer-divider {
-        margin: 10px auto 5px;
+    .app-card .btn-open {
+        min-height: 14px;
+        padding: 2px 6px;
+        font-size: 5.5px;
+    }
+
+    .bottom-green-footer {
+        padding: 16px 12px 10px;
+    }
+
+    .footer-content {
+        gap: 12px;
+    }
+
+    .footer-brand-badge {
+        padding: 4px 8px;
+        font-size: 7px;
+    }
+
+    .footer-brand-badge img {
+        height: 10px;
+    }
+
+    .footer-social-icons a {
+        width: 16px;
+        height: 16px;
+    }
+
+    .footer-column h4 {
+        font-size: 7px;
+    }
+
+    .footer-column p {
+        font-size: 5.5px;
     }
 
     .footer-copyright {
-        font-size: 3.7px;
+        font-size: 5.5px;
     }
 }
