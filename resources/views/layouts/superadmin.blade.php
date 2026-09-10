@@ -31,7 +31,7 @@
             background: #ffffff;
         }
 
-        /* TOPBAR / HEADER (Latar Belakang Hijau) */
+        /* TOPBAR / HEADER (Dikunci di posisi atas) */
         .header {
             width: 100%;
             height: 50px;
@@ -39,7 +39,10 @@
             display: flex;
             align-items: center;
             padding: 0 20px;
-            z-index: 10;
+            z-index: 1000;
+            position: fixed; /* Kunci header di atas */
+            top: 0;
+            left: 0;
         }
 
         .logo-wrapper {
@@ -48,26 +51,30 @@
             align-items: center;
         }
 
-        /* Logo menggunakan warna asli tanpa filter */
         .logo-wrapper img {
             height: 34px;
             width: auto;
             object-fit: contain;
         }
 
-        /* CONTENT WRAPPER */
+        /* CONTENT WRAPPER (Diberi margin-top setinggi header) */
         .content-wrapper {
             width: 100%;
             flex: 1;
             display: flex;
+            margin-top: 50px; /* Supaya konten tidak tertutup header */
         }
 
-        /* SIDEBAR */
+        /* SIDEBAR (Dikunci di kiri) */
         .sidebar {
             width: 190px;
             flex-shrink: 0;
             background: #ffffff;
             padding: 16px 10px;
+            position: sticky; /* Kunci sidebar agar ikut terdiam saat scroll */
+            top: 50px;
+            height: calc(100vh - 50px);
+            overflow-y: auto;
         }
 
         .sidebar-menu {
@@ -144,6 +151,9 @@
 
             .sidebar {
                 width: 100%;
+                height: auto;
+                position: relative;
+                top: 0;
                 padding: 8px;
             }
 
