@@ -24,6 +24,22 @@
             object-position: left center !important;
         }
 
+        /* Styling khusus badge logo footer tanpa teks */
+        .footer-brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .footer-brand-badge img {
+            height: 20px;
+            width: auto;
+            object-fit: contain;
+        }
+
         @media (max-width: 800px) {
             .header .logo-img {
                 width: 165px !important;
@@ -70,14 +86,6 @@
             <div class="hero-container">
 
                 <div class="hero-text">
-
-                    <div class="hero-brand">
-                        <img
-                            src="{{ asset('images/logosyifa.png') }}"
-                            alt="RSU Syifa Medika"
-                            class="rsu-logo"
-                        >
-                    </div>
 
                     <h1>
                         Pusat Akses Terpadu Seluruh Aplikasi<br>
@@ -280,12 +288,13 @@
 
                         <img
                             src="{{ asset('images/logosyifa.png') }}"
-                            alt="RSU Syifa Medika"
+                            alt="RSU Syifa Medika Banjarbaru"
                         >
 
-                        <span>
-                            RSU Syifa Medika
-                        </span>
+                        <img
+                            src="{{ asset('images/logobrb.png') }}"
+                            alt="RSU Syifa Medika Barabai"
+                        >
 
                     </div>
 
@@ -379,15 +388,15 @@
                     </h4>
 
                     <p>
-                        @rsusyifamedika
+                        @rsusyifamedikabjb
                     </p>
 
                     <p>
-                        @rsusyifamedikainfo
+                        @rsusyifamedikabrb
                     </p>
 
                     <p>
-                        @syifaglobalgroup
+                        @syifaglobal.group
                     </p>
 
                 </div>
@@ -399,7 +408,7 @@
                     </h4>
 
                     <p>
-                        @rsusyifamedikabanjarbaru
+                        @rsusyifamedikabjb
                     </p>
 
                 </div>
