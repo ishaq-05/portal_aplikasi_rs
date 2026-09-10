@@ -29,7 +29,7 @@
             <div class="hero-container">
                 <div class="hero-text">
                     <div class="hero-brand">
-                        <img src="{{ asset('images/logosyifa.png') }}" alt="RSU Syifa Medika" class="rsu-logo">
+                        <img src="{{ asset('images/logo-syifa-global-group.png') }}" alt="Syifa Global Group" class="rsu-logo">
                     </div>
                     <h1>Pusat Akses Terpadu Seluruh Aplikasi<br>RSU Syifa Medika Banjarbaru</h1>
                     <p class="hero-subtitle">Connected Care, Better Experience.</p>
@@ -111,9 +111,13 @@
         <footer class="bottom-green-footer">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="footer-brand-badge">
-                        <img src="{{ asset('images/logosyifa.png') }}" alt="RSU Syifa Medika">
-                        <span>RSU Syifa Medika</span>
+                    <div class="footer-branches" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <div class="footer-brand-badge">
+                            <img src="{{ asset('images/logosyifa.png') }}" alt="RSU Syifa Medika Banjarbaru">
+                        </div>
+                        <div class="footer-brand-badge">
+                            <img src="{{ asset('images/logobrb.png') }}" alt="RSU Syifa Medika Barabai">
+                        </div>
                     </div>
                     <div class="footer-social-icons">
                         <a href="#" aria-label="Instagram">
