@@ -7,119 +7,74 @@ use App\Http\Controllers\ApplicationVisitController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\SuperAdminAuthController;
 use App\Http\Controllers\SuperAdminApplicationController;
-
-
-/*
-|--------------------------------------------------------------------------
-| PUBLIC PORTAL
-|--------------------------------------------------------------------------
-*/
+use App\Http\Controllers\SuperAdminDashboardController;
 
 Route::get('/', [
     ApplicationController::class,
     'index'
 ])->name('applications.index');
 
-Route::get('/applications/popular', [ApplicationController::class, 'popular'])
-    ->name('applications.popular');
+Route::get('/applications/popular', [
+    ApplicationController::class,
+    'popular'
+])->name('applications.popular');
 
 Route::get('/applications/{application}/open', [
     ApplicationVisitController::class,
     'open'
 ])->name('applications.open');
 
-
-/*
-|--------------------------------------------------------------------------
-| SUPER ADMIN AUTH
-|--------------------------------------------------------------------------
-*/
-
 Route::get('/superadmin', [
     SuperAdminAuthController::class,
     'showLogin'
 ])->name('superadmin.login');
-
 
 Route::post('/superadmin/login', [
     SuperAdminAuthController::class,
     'login'
 ])->name('superadmin.login.submit');
 
-
 Route::post('/superadmin/logout', [
     SuperAdminAuthController::class,
     'logout'
 ])->name('superadmin.logout');
 
-
-/*
-|--------------------------------------------------------------------------
-| SUPER ADMIN DASHBOARD
-|--------------------------------------------------------------------------
-*/
-
 Route::get('/superadmin/dashboard', [
-    SuperAdminController::class,
+    SuperAdminDashboardController::class,
     'dashboard'
 ])->name('superadmin.dashboard');
-
-
-/*
-|--------------------------------------------------------------------------
-| SUPER ADMIN - SEMUA APLIKASI
-|--------------------------------------------------------------------------
-|
-| Route ini harus diletakkan sebelum:
-| /superadmin/applications/{application}/edit
-|
-*/
 
 Route::get('/superadmin/all-applications', [
     SuperAdminApplicationController::class,
     'allApplications'
 ])->name('superadmin.all-applications');
 
-
-/*
-|--------------------------------------------------------------------------
-| SUPER ADMIN - KELOLA APLIKASI
-|--------------------------------------------------------------------------
-*/
-
 Route::get('/superadmin/applications', [
     SuperAdminApplicationController::class,
     'index'
 ])->name('superadmin.applications.index');
-
 
 Route::get('/superadmin/applications/create', [
     SuperAdminApplicationController::class,
     'create'
 ])->name('superadmin.applications.create');
 
-
 Route::post('/superadmin/applications', [
     SuperAdminApplicationController::class,
     'store'
 ])->name('superadmin.applications.store');
-
 
 Route::get('/superadmin/applications/{application}/edit', [
     SuperAdminApplicationController::class,
     'edit'
 ])->name('superadmin.applications.edit');
 
-
 Route::put('/superadmin/applications/{application}', [
     SuperAdminApplicationController::class,
     'update'
 ])->name('superadmin.applications.update');
 
-
 Route::delete('/superadmin/applications/{application}', [
     SuperAdminApplicationController::class,
     'destroy'
 ])->name('superadmin.applications.destroy');
-
-

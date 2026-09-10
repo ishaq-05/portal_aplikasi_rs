@@ -16,40 +16,43 @@
             font-family: 'Poppins', Arial, Helvetica, sans-serif;
         }
 
+        html {
+            width: 100%;
+            min-height: 100%;
+            scrollbar-gutter: stable;
+        }
+
         html,
         body {
             width: 100%;
-            height: 100%;
+            min-height: 100%;
             background: #ffffff;
             color: #111827;
+        }
+
+        body {
+            overflow-x: hidden;
         }
 
         .app-container {
             width: 100%;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
             background: #ffffff;
         }
 
-        /* TOPBAR / HEADER */
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 50px;
             background: #5b8260;
             display: flex;
             align-items: center;
             padding: 0 20px;
-            z-index: 10;
+            z-index: 1000;
         }
 
-        /*
-        |--------------------------------------------------------------------------
-        | LOGO
-        |--------------------------------------------------------------------------
-        | Hanya bagian ini yang diperbesar.
-        | Header tetap 50px dan tidak memengaruhi layout di bawahnya.
-        */
         .logo-wrapper {
             height: 50px;
             display: flex;
@@ -66,19 +69,25 @@
             object-position: left center;
         }
 
-        /* CONTENT WRAPPER */
         .content-wrapper {
             width: 100%;
-            flex: 1;
-            display: flex;
+            min-height: 100vh;
+            padding-top: 50px;
+            display: block;
         }
 
-        /* SIDEBAR */
         .sidebar {
+            position: fixed;
+            top: 50px;
+            left: 0;
             width: 190px;
-            flex-shrink: 0;
+            height: calc(100vh - 50px);
             background: #ffffff;
             padding: 16px 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            z-index: 999;
+            border-right: 1px solid #eef1f3;
         }
 
         .sidebar-menu {
@@ -104,7 +113,7 @@
             font-size: 13px;
             font-weight: 500;
             border-radius: 8px;
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
 
         .sidebar-menu a:hover {
@@ -140,36 +149,101 @@
             stroke: #2e4e3f;
         }
 
-        /* MAIN CONTENT */
         .main-content {
-            flex: 1;
-            min-width: 0;
+            width: calc(100% - 190px);
+            min-height: calc(100vh - 50px);
+            margin-left: 190px;
             background: #f7f9fb;
             padding: 0;
         }
 
         @media (max-width: 768px) {
-            .content-wrapper {
-                flex-direction: column;
+            html {
+                scrollbar-gutter: auto;
             }
 
-            .sidebar {
-                width: 100%;
-                padding: 8px;
+            .header {
+                height: 50px;
+                padding: 0 15px;
             }
 
-            .sidebar-menu {
-                flex-direction: row;
-                overflow-x: auto;
-            }
-
-            .sidebar-menu a {
-                white-space: nowrap;
+            .logo-wrapper {
+                height: 50px;
             }
 
             .logo-wrapper img {
                 width: 155px;
                 height: 44px;
+            }
+
+            .content-wrapper {
+                padding-top: 50px;
+            }
+
+            .sidebar {
+                top: 50px;
+                left: 0;
+                width: 100%;
+                height: 58px;
+                padding: 8px;
+                overflow-x: auto;
+                overflow-y: hidden;
+                border-right: none;
+                border-bottom: 1px solid #eef1f3;
+            }
+
+            .sidebar-menu {
+                height: 42px;
+                flex-direction: row;
+                align-items: center;
+                gap: 6px;
+                width: max-content;
+            }
+
+            .sidebar-menu li {
+                width: auto;
+                flex-shrink: 0;
+            }
+
+            .sidebar-menu a {
+                width: auto;
+                min-width: max-content;
+                height: 40px;
+                padding: 0 12px;
+                white-space: nowrap;
+            }
+
+            .main-content {
+                width: 100%;
+                min-height: calc(100vh - 108px);
+                margin-left: 0;
+                padding-top: 58px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 0 12px;
+            }
+
+            .logo-wrapper img {
+                width: 145px;
+                height: 42px;
+            }
+
+            .sidebar-menu a {
+                font-size: 12px;
+                padding: 0 10px;
+            }
+
+            .menu-icon {
+                width: 16px;
+                height: 16px;
+            }
+
+            .menu-icon svg {
+                width: 15px;
+                height: 15px;
             }
         }
     </style>
@@ -181,7 +255,6 @@
 
 <div class="app-container">
 
-    <!-- TOPBAR -->
     <header class="header">
         <div class="logo-wrapper">
             <img
@@ -191,14 +264,11 @@
         </div>
     </header>
 
-    <!-- CONTENT WRAPPER -->
     <div class="content-wrapper">
 
-        <!-- SIDEBAR -->
         <aside class="sidebar">
             <ul class="sidebar-menu">
 
-                <!-- DASHBOARD -->
                 <li>
                     <a
                         href="{{ route('superadmin.dashboard') }}"
@@ -215,7 +285,6 @@
                     </a>
                 </li>
 
-                <!-- KELOLA APLIKASI -->
                 <li>
                     <a
                         href="{{ route('superadmin.applications.index') }}"
@@ -224,7 +293,7 @@
                         <span class="menu-icon">
                             <svg viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="3"></circle>
-                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-.33-1.82V9a1.65 1.65 0 0 0-1.51 1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                             </svg>
                         </span>
 
@@ -232,7 +301,6 @@
                     </a>
                 </li>
 
-                <!-- SEMUA APLIKASI -->
                 <li>
                     <a
                         href="{{ route('superadmin.all-applications') }}"
@@ -251,24 +319,23 @@
                     </a>
                 </li>
 
-                <!-- KEMBALI KE PORTAL -->
                 <li>
-                    <a href="{{ route('applications.index') }}">
-                        <span class="menu-icon">
-                            <svg viewBox="0 0 24 24">
-                                <polyline points="9 14 4 9 9 4"></polyline>
-                                <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
-                            </svg>
-                        </span>
+    <a href="{{ route('applications.index') }}">
+       <span class="menu-icon">
+        <svg viewBox="0 0 24 24">
+            <polyline points="9 14 4 9 9 4"></polyline>
+            <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
+        </svg>
+    </span>
 
-                        <span>Kembali ke portal</span>
-                    </a>
-                </li>
+    <span> Kembali Ke Aplikasi</span>
+
+    </a>
+</li>
 
             </ul>
         </aside>
 
-        <!-- MAIN CONTENT -->
         <main class="main-content">
             @yield('content')
         </main>

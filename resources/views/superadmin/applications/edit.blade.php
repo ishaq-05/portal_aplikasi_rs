@@ -7,15 +7,37 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
     .portal-container {
-        font-family: 'Poppins', Arial, Helvetica, sans-serif;
-        padding: 40px 20px 60px;
-        /* Gradasi Hijau Overlay di atas Foto Background */
-        background-image: linear-gradient(135deg, rgba(46, 78, 63, 0.75), rgba(91, 130, 96, 0.75)), url('/images/rs.jpeg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        min-height: 100vh;
-    }
+    position: relative;
+    isolation: isolate;
+
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    padding: 40px 20px 60px;
+
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+.portal-container::before {
+    content: "";
+    position: fixed;
+
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 190px;
+
+    background:
+        linear-gradient(
+            rgba(105, 140, 120, 0.75),
+            rgba(105, 140, 120, 0.75)
+        ),
+        url('{{ asset('images/rs.jpeg') }}')
+        center center / cover no-repeat;
+
+    z-index: -1;
+    pointer-events: none;
+}
 
     .portal-header {
         width: 800px;

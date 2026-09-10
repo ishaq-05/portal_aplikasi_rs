@@ -10,12 +10,35 @@
         font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    .page-wrapper {
-        min-height: 100vh;
-        width: 100%;
-        padding: 40px 30px;
-        box-sizing: border-box;
-    }
+  .page-wrapper {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    width: 100%;
+    padding: 40px 30px;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+.page-wrapper::before {
+    content: "";
+    position: fixed;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 190px;
+
+    background:
+        linear-gradient(
+            rgba(105, 140, 120, 0.75),
+            rgba(105, 140, 120, 0.75)
+        ),
+        url('{{ asset('images/rs.jpeg') }}')
+        center center / cover no-repeat;
+
+    z-index: -1;
+    pointer-events: none;
+}
 
     .page-inner {
         max-width: 980px;
@@ -95,15 +118,17 @@
     }
 
     .logo-cell {
-        width: 70px;
-    }
+    width: 90px;
+}
 
-    .application-logo {
-        width: 44px;
-        height: 44px;
-        object-fit: cover;
-        border-radius: 12px;
-    }
+.application-logo {
+    width: 70px;
+    height: 50px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 0;
+    display: block;
+}
 
     .no-logo {
         width: 44px;
@@ -495,7 +520,7 @@
 
         <p class="delete-modal-text">
             Apakah kamu yakin ingin menghapus aplikasi ini?
-            
+
         </p>
 
         <div
