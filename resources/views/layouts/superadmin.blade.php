@@ -16,7 +16,8 @@
             font-family: 'Poppins', Arial, Helvetica, sans-serif;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             height: 100%;
             background: #ffffff;
@@ -31,7 +32,7 @@
             background: #ffffff;
         }
 
-        /* TOPBAR / HEADER (Latar Belakang Hijau) */
+        /* TOPBAR / HEADER */
         .header {
             width: 100%;
             height: 50px;
@@ -42,17 +43,27 @@
             z-index: 10;
         }
 
+        /*
+        |--------------------------------------------------------------------------
+        | LOGO
+        |--------------------------------------------------------------------------
+        | Hanya bagian ini yang diperbesar.
+        | Header tetap 50px dan tidak memengaruhi layout di bawahnya.
+        */
         .logo-wrapper {
-            height: 38px;
+            height: 50px;
             display: flex;
             align-items: center;
+            justify-content: flex-start;
+            flex-shrink: 0;
         }
 
-        /* Logo menggunakan warna asli tanpa filter */
         .logo-wrapper img {
-            height: 34px;
-            width: auto;
+            display: block;
+            width: 165px;
+            height: 46px;
             object-fit: contain;
+            object-position: left center;
         }
 
         /* CONTENT WRAPPER */
@@ -155,6 +166,11 @@
             .sidebar-menu a {
                 white-space: nowrap;
             }
+
+            .logo-wrapper img {
+                width: 155px;
+                height: 44px;
+            }
         }
     </style>
 
@@ -168,7 +184,10 @@
     <!-- TOPBAR -->
     <header class="header">
         <div class="logo-wrapper">
-            <img src="{{ asset('images/logo-syifa-global-group.png') }}" alt="Syifa Global Group">
+            <img
+                src="{{ asset('images/logo-new.png') }}"
+                alt="Portal PT. Syifa Global Group"
+            >
         </div>
     </header>
 
@@ -181,33 +200,44 @@
 
                 <!-- DASHBOARD -->
                 <li>
-                    <a href="{{ route('superadmin.dashboard') }}" class="{{ request()->routeIs('superadmin.dashboard') ? 'active' : '' }}">
+                    <a
+                        href="{{ route('superadmin.dashboard') }}"
+                        class="{{ request()->routeIs('superadmin.dashboard') ? 'active' : '' }}"
+                    >
                         <span class="menu-icon">
                             <svg viewBox="0 0 24 24">
                                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
                             </svg>
                         </span>
+
                         <span>Dashboard</span>
                     </a>
                 </li>
 
                 <!-- KELOLA APLIKASI -->
                 <li>
-                    <a href="{{ route('superadmin.applications.index') }}" class="{{ request()->routeIs('superadmin.applications.*') ? 'active' : '' }}">
+                    <a
+                        href="{{ route('superadmin.applications.index') }}"
+                        class="{{ request()->routeIs('superadmin.applications.*') ? 'active' : '' }}"
+                    >
                         <span class="menu-icon">
                             <svg viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="3"></circle>
                                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                             </svg>
                         </span>
+
                         <span>Kelola Aplikasi</span>
                     </a>
                 </li>
 
                 <!-- SEMUA APLIKASI -->
                 <li>
-                    <a href="{{ route('superadmin.all-applications') }}" class="{{ request()->routeIs('superadmin.all-applications') ? 'active' : '' }}">
+                    <a
+                        href="{{ route('superadmin.all-applications') }}"
+                        class="{{ request()->routeIs('superadmin.all-applications') ? 'active' : '' }}"
+                    >
                         <span class="menu-icon">
                             <svg viewBox="0 0 24 24">
                                 <rect x="3" y="3" width="7" height="7"></rect>
@@ -216,6 +246,7 @@
                                 <rect x="3" y="14" width="7" height="7"></rect>
                             </svg>
                         </span>
+
                         <span>Semua Aplikasi</span>
                     </a>
                 </li>
@@ -229,6 +260,7 @@
                                 <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
                             </svg>
                         </span>
+
                         <span>Kembali ke portal</span>
                     </a>
                 </li>

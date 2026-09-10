@@ -8,6 +8,46 @@
     <title>Login Super Admin</title>
 
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+
+    <style>
+        .login-card .logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 10px;
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .login-card .logo img {
+            display: block;
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .login-card h1 {
+            margin-top: 0;
+        }
+
+        @media (max-width: 600px) {
+            .login-card .logo {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 8px;
+            }
+
+            .login-card .logo img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -17,14 +57,13 @@
     <div class="login-card">
 
         <div class="logo">
-            🏥
+            <img
+                src="{{ asset('images/logo-login.png') }}"
+                alt="Portal"
+            >
         </div>
 
         <h1>Super Admin</h1>
-
-        <p class="subtitle">
-            Login untuk mengelola Portal Aplikasi
-        </p>
 
         <form
             method="POST"
@@ -124,5 +163,4 @@
 </script>
 
 </body>
-
 </html>

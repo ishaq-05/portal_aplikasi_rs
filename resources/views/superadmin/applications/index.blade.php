@@ -3,7 +3,6 @@
 @section('title', 'Kelola Aplikasi - Super Admin')
 
 @push('styles')
-<!-- Import Font Plus Jakarta Sans agar tipografi 100% mirip target -->
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -11,7 +10,6 @@
         font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    /* LATAR BELAKANG CONTAINER */
     .page-wrapper {
         min-height: 100vh;
         width: 100%;
@@ -24,7 +22,6 @@
         margin: 0 auto;
     }
 
-    /* HEADER */
     .page-header {
         text-align: center;
         margin-bottom: 25px;
@@ -47,11 +44,10 @@
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
-    /* TABEL KARTU (BORDER BIRU SUDAH DIHAPUS TOTAL) */
     .table-card {
         background: #ffffff;
         border-radius: 20px;
-        border: none; /* Tanpa border biru */
+        border: none;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
         overflow: hidden;
         margin-bottom: 20px;
@@ -79,7 +75,8 @@
         border-bottom: 1.5px solid #e2e8f0;
     }
 
-    th.text-center, td.text-center {
+    th.text-center,
+    td.text-center {
         text-align: center;
     }
 
@@ -97,7 +94,6 @@
         border-bottom: none;
     }
 
-    /* LOGO KOTAK MEMBULAT */
     .logo-cell {
         width: 70px;
     }
@@ -129,7 +125,6 @@
         text-decoration: none;
     }
 
-    /* BENTUK KOTAK TOMBOL EDIT & HAPUS PERSIS TARGET */
     .action-wrapper {
         display: flex;
         align-items: center;
@@ -139,7 +134,7 @@
 
     .btn-action-edit {
         padding: 5px 14px;
-        border-radius: 8px; /* Sudut membulat sedang */
+        border-radius: 8px;
         background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
         border: 1px solid #cbd5e1;
         color: #334155;
@@ -148,11 +143,18 @@
         text-decoration: none;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
         display: inline-block;
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+    .btn-action-edit:hover {
+        background: #f8fafc;
+        transform: translateY(-1px);
     }
 
     .btn-action-delete {
         padding: 5px 14px;
-        border-radius: 8px; /* Sudut membulat sedang */
+        border-radius: 8px;
         background: #ef4444;
         border: none;
         color: #ffffff;
@@ -160,9 +162,14 @@
         font-weight: 700;
         cursor: pointer;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        transition: 0.2s ease;
     }
 
-    /* TOMBOL TAMBAH APLIKASI */
+    .btn-action-delete:hover {
+        background: #dc2626;
+        transform: translateY(-1px);
+    }
+
     .bottom-toolbar {
         display: flex;
         justify-content: flex-end;
@@ -182,6 +189,175 @@
         align-items: center;
         justify-content: center;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: 0.2s ease;
+    }
+
+    .add-button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
+    }
+
+    .delete-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(15, 23, 42, 0.55);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
+    .delete-modal.show {
+        display: flex;
+    }
+
+    .delete-modal-card {
+        width: 100%;
+        max-width: 400px;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        transform: translateY(10px) scale(0.97);
+        opacity: 0;
+        transition: all 0.2s ease;
+    }
+
+    .delete-modal.show .delete-modal-card {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    .delete-modal-icon {
+        width: 58px;
+        height: 58px;
+        margin: 0 auto 18px;
+        border-radius: 50%;
+        background: #fee2e2;
+        color: #ef4444;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .delete-modal-icon svg {
+        width: 28px;
+        height: 28px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .delete-modal-title {
+        margin: 0 0 8px;
+        color: #0f172a;
+        font-size: 21px;
+        font-weight: 700;
+    }
+
+    .delete-modal-text {
+        margin: 0 auto;
+        max-width: 320px;
+        color: #64748b;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .delete-modal-app-name {
+        margin-top: 8px;
+        color: #0f172a;
+        font-size: 14px;
+        font-weight: 700;
+        word-break: break-word;
+    }
+
+    .delete-modal-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 24px;
+    }
+
+    .delete-modal-button {
+        flex: 1;
+        height: 42px;
+        border-radius: 10px;
+        border: none;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+    .delete-modal-cancel {
+        background: #f1f5f9;
+        color: #475569;
+        border: 1px solid #e2e8f0;
+    }
+
+    .delete-modal-cancel:hover {
+        background: #e2e8f0;
+    }
+
+    .delete-modal-confirm {
+        background: #ef4444;
+        color: #ffffff;
+    }
+
+    .delete-modal-confirm:hover {
+        background: #dc2626;
+    }
+
+    @media (max-width: 768px) {
+        .page-wrapper {
+            padding: 30px 15px;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+        }
+
+        .page-header p {
+            font-size: 13px;
+        }
+
+        .table-card {
+            border-radius: 16px;
+        }
+
+        th,
+        td {
+            padding: 10px 16px;
+        }
+
+        .delete-modal-card {
+            max-width: 360px;
+            padding: 25px 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .page-wrapper {
+            padding: 25px 10px;
+        }
+
+        .page-header h1 {
+            font-size: 28px;
+        }
+
+        .delete-modal-actions {
+            flex-direction: column-reverse;
+        }
+
+        .delete-modal-button {
+            width: 100%;
+        }
     }
 </style>
 @endpush
@@ -190,14 +366,12 @@
 
 <div class="page-wrapper" style="background: linear-gradient(rgba(105, 140, 120, 0.75), rgba(105, 140, 120, 0.75)), url('{{ asset('images/rs.jpeg') }}') center/cover no-repeat;">
     <div class="page-inner">
-        
-        <!-- HEADER -->
+
         <div class="page-header">
             <h1>Kelola Aplikasi</h1>
             <p>Kelola aplikasi yang tersedia di Portal Rumah Sakit.</p>
         </div>
 
-        <!-- TABEL KARTU -->
         <div class="table-card">
             <div class="table-container">
                 <table>
@@ -210,33 +384,67 @@
                             <th class="text-center" style="width: 150px;">Aksi</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         @foreach ($applications as $application)
                             <tr>
                                 <td class="logo-cell">
                                     @if ($application->icon)
-                                        <img src="{{ asset('storage/' . $application->icon) }}" class="application-logo">
+                                        <img
+                                            src="{{ asset('storage/' . $application->icon) }}"
+                                            class="application-logo"
+                                            alt="{{ $application->name }}"
+                                        >
                                     @else
                                         <div class="no-logo"></div>
                                     @endif
                                 </td>
+
                                 <td>
-                                    <div class="application-name">{{ $application->name }}</div>
+                                    <div class="application-name">
+                                        {{ $application->name }}
+                                    </div>
                                 </td>
+
                                 <td>
-                                    <a href="{{ $application->url }}" target="_blank" class="application-url">
+                                    <a
+                                        href="{{ $application->url }}"
+                                        target="_blank"
+                                        class="application-url"
+                                    >
                                         {{ $application->url }}
                                     </a>
                                 </td>
+
                                 <td></td>
+
                                 <td>
                                     <div class="action-wrapper">
-                                        <a href="{{ route('superadmin.applications.edit', $application) }}" class="btn-action-edit">Edit</a>
-                                        <form action="{{ route('superadmin.applications.destroy', $application) }}" method="POST" onsubmit="return confirm('Hapus aplikasi ini?');">
+
+                                        <a
+                                            href="{{ route('superadmin.applications.edit', $application) }}"
+                                            class="btn-action-edit"
+                                        >
+                                            Edit
+                                        </a>
+
+                                        <form
+                                            action="{{ route('superadmin.applications.destroy', $application) }}"
+                                            method="POST"
+                                            class="delete-form"
+                                            data-application-name="{{ $application->name }}"
+                                        >
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn-action-delete">Hapus</button>
+
+                                            <button
+                                                type="submit"
+                                                class="btn-action-delete"
+                                            >
+                                                Hapus
+                                            </button>
                                         </form>
+
                                     </div>
                                 </td>
                             </tr>
@@ -246,9 +454,11 @@
             </div>
         </div>
 
-        <!-- TOMBOL TAMBAH APLIKASI -->
         <div class="bottom-toolbar">
-            <a href="{{ route('superadmin.applications.create') }}" class="add-button">
+            <a
+                href="{{ route('superadmin.applications.create') }}"
+                class="add-button"
+            >
                 + Tambah Aplikasi
             </a>
         </div>
@@ -256,4 +466,132 @@
     </div>
 </div>
 
+<div
+    class="delete-modal"
+    id="deleteModal"
+    aria-hidden="true"
+>
+    <div
+        class="delete-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="deleteModalTitle"
+    >
+
+        <div class="delete-modal-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 9v4"></path>
+                <path d="M12 17h.01"></path>
+                <path d="M10.3 3.6L2.8 17a2 2 0 0 0 1.7 3h15a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0z"></path>
+            </svg>
+        </div>
+
+        <h2
+            class="delete-modal-title"
+            id="deleteModalTitle"
+        >
+            Hapus Aplikasi?
+        </h2>
+
+        <p class="delete-modal-text">
+            Apakah kamu yakin ingin menghapus aplikasi ini?
+            
+        </p>
+
+        <div
+            class="delete-modal-app-name"
+            id="deleteModalAppName"
+        ></div>
+
+        <div class="delete-modal-actions">
+
+            <button
+                type="button"
+                class="delete-modal-button delete-modal-cancel"
+                id="deleteModalCancel"
+            >
+                Batal
+            </button>
+
+            <button
+                type="button"
+                class="delete-modal-button delete-modal-confirm"
+                id="deleteModalConfirm"
+            >
+                Hapus
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modal = document.getElementById('deleteModal');
+        const modalAppName = document.getElementById('deleteModalAppName');
+        const cancelButton = document.getElementById('deleteModalCancel');
+        const confirmButton = document.getElementById('deleteModalConfirm');
+        const deleteForms = document.querySelectorAll('.delete-form');
+
+        let selectedForm = null;
+
+        deleteForms.forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                selectedForm = form;
+
+                const applicationName = form.dataset.applicationName || 'Aplikasi ini';
+
+                modalAppName.textContent = applicationName;
+
+                modal.classList.add('show');
+                modal.setAttribute('aria-hidden', 'false');
+
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeDeleteModal() {
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+
+            document.body.style.overflow = '';
+
+            selectedForm = null;
+        }
+
+        cancelButton.addEventListener('click', function () {
+            closeDeleteModal();
+        });
+
+        confirmButton.addEventListener('click', function () {
+            if (!selectedForm) {
+                return;
+            }
+
+            const formToSubmit = selectedForm;
+
+            closeDeleteModal();
+
+            HTMLFormElement.prototype.submit.call(formToSubmit);
+        });
+
+        modal.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                closeDeleteModal();
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && modal.classList.contains('show')) {
+                closeDeleteModal();
+            }
+        });
+    });
+</script>
+@endpush
