@@ -9,28 +9,27 @@
         padding: 32px 30px 45px;
     }
 
-
     .dashboard-page {
         position: relative;
         isolation: isolate;
     }
 
     .dashboard-page::before {
-    content: "";
-    position: fixed;
-    top: 50px;
-    right: 0;
-    bottom: 0;
-    left: 190px;
-    background:
-        linear-gradient(
-            rgba(105, 140, 120, 0.75),
-            rgba(105, 140, 120, 0.75)
-        ),
-        url("{{ asset('images/rs.jpeg') }}") center center / cover no-repeat;
-    z-index: -2;
-    pointer-events: none;
-}
+        content: "";
+        position: fixed;
+        top: 50px;
+        right: 0;
+        bottom: 0;
+        left: 190px;
+        background:
+            linear-gradient(
+                rgba(105, 140, 120, 0.75),
+                rgba(105, 140, 120, 0.75)
+            ),
+            url("{{ asset('images/rs.jpeg') }}") center center / cover no-repeat;
+        z-index: -2;
+        pointer-events: none;
+    }
 
     .dashboard-page::after {
         content: "";
@@ -58,17 +57,17 @@
     }
 
     .dashboard-header h1 {
-    font-size: 34px;
-    line-height: 1.1;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 8px;
-}
+        font-size: 34px;
+        line-height: 1.1;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 8px;
+    }
 
-.dashboard-header p {
-    font-size: 15px;
-    color: #ffffff;
-}
+    .dashboard-header p {
+        font-size: 15px;
+        color: #ffffff;
+    }
 
     .stats-grid {
         width: 100%;
@@ -80,8 +79,8 @@
 
     .stat-card {
         min-height: 160px;
-        background: #087f60;
-        border: 1px solid #005f48;
+        background: #5b8266;
+        border: 1px solid #4a6d54;
         border-radius: 12px;
         padding: 21px 25px;
         color: #ffffff;
@@ -192,7 +191,7 @@
 
     .chart-line {
         fill: none;
-        stroke: #087f60;
+        stroke: #38a169;
         stroke-width: 3;
         stroke-linecap: round;
         stroke-linejoin: round;
@@ -200,13 +199,13 @@
 
     .chart-point {
         fill: #ffffff;
-        stroke: #087f60;
+        stroke: #38a169;
         stroke-width: 3;
         cursor: pointer;
     }
 
     .chart-point:hover {
-        fill: #087f60;
+        fill: #38a169;
     }
 
     .chart-y-labels {
@@ -244,9 +243,9 @@
     .analysis-card {
         flex: 1;
         min-height: 96px;
-        background: #087f60;
+        background: #5b8266;
         color: #ffffff;
-        border: 1px solid #005f48;
+        border: 1px solid #4a6d54;
         border-radius: 10px;
         padding: 11px 13px;
         display: flex;
@@ -293,17 +292,17 @@
         margin-bottom: 16px;
     }
 
-  .activity-header h2 {
-    font-size: 24px;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 4px;
-}
+    .activity-header h2 {
+        font-size: 24px;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 4px;
+    }
 
-.activity-header p {
-    font-size: 13px;
-    color: #ffffff;
-}
+    .activity-header p {
+        font-size: 13px;
+        color: #ffffff;
+    }
 
     .activity-grid {
         width: 100%;
@@ -349,8 +348,8 @@
         width: 28px;
         height: 28px;
         border-radius: 50%;
-        background: #d2e3d7;
-        color: #2e4e3f;
+        background: #c3e6d2;
+        color: #3b5a45;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -391,7 +390,7 @@
     .activity-progress span {
         display: block;
         height: 100%;
-        background: #087f60;
+        background: #5b8266;
         border-radius: 999px;
     }
 
@@ -410,8 +409,8 @@
 
     .popular-section {
         width: 100%;
-        background: #087f60;
-        border: 1px solid #005f48;
+        background: #5b8266;
+        border: 1px solid #4a6d54;
         border-radius: 12px;
         padding: 22px 25px 27px;
         color: #ffffff;
@@ -475,7 +474,7 @@
         justify-content: center;
         font-size: 30px;
         font-weight: bold;
-        color: #087f60;
+        color: #5b8266;
         background: #f3f7f9;
     }
 
@@ -490,7 +489,7 @@
 
     .popular-rank {
         font-size: 11px;
-        color: #087f60;
+        color: #5b8266;
         font-weight: bold;
         margin-bottom: 2px;
     }
@@ -532,8 +531,8 @@
     }
 
     .popular-button:hover {
-        background: #eefaf6;
-        color: #087f60;
+        background: #f0f6f2;
+        color: #5b8266;
     }
 
     .popular-empty {
@@ -581,7 +580,6 @@
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
-
 
     @media (max-width: 768px) {
         .dashboard-page::before,
