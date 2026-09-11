@@ -58,17 +58,17 @@
     }
 
     .dashboard-header h1 {
-        font-size: 34px;
-        line-height: 1.1;
-        font-weight: 800;
-        color: #172033;
-        margin-bottom: 8px;
-    }
+    font-size: 34px;
+    line-height: 1.1;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
 
-    .dashboard-header p {
-        font-size: 15px;
-        color: #5f7695;
-    }
+.dashboard-header p {
+    font-size: 15px;
+    color: #ffffff;
+}
 
     .stats-grid {
         width: 100%;
@@ -293,17 +293,17 @@
         margin-bottom: 16px;
     }
 
-    .activity-header h2 {
-        font-size: 24px;
-        font-weight: 800;
-        color: #172033;
-        margin-bottom: 4px;
-    }
+  .activity-header h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
 
-    .activity-header p {
-        font-size: 13px;
-        color: #5f7695;
-    }
+.activity-header p {
+    font-size: 13px;
+    color: #ffffff;
+}
 
     .activity-grid {
         width: 100%;

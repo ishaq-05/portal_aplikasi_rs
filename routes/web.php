@@ -9,6 +9,13 @@ use App\Http\Controllers\SuperAdminAuthController;
 use App\Http\Controllers\SuperAdminApplicationController;
 use App\Http\Controllers\SuperAdminDashboardController;
 
+
+/*
+|--------------------------------------------------------------------------
+| PUBLIC / USER
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/', [
     ApplicationController::class,
     'index'
@@ -23,6 +30,13 @@ Route::get('/applications/{application}/open', [
     ApplicationVisitController::class,
     'open'
 ])->name('applications.open');
+
+
+/*
+|--------------------------------------------------------------------------
+| SUPER ADMIN AUTH
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/superadmin', [
     SuperAdminAuthController::class,
@@ -39,15 +53,36 @@ Route::post('/superadmin/logout', [
     'logout'
 ])->name('superadmin.logout');
 
+
+/*
+|--------------------------------------------------------------------------
+| SUPER ADMIN DASHBOARD
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/superadmin/dashboard', [
     SuperAdminDashboardController::class,
     'dashboard'
 ])->name('superadmin.dashboard');
 
+
+/*
+|--------------------------------------------------------------------------
+| SEMUA APLIKASI
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/superadmin/all-applications', [
     SuperAdminApplicationController::class,
     'allApplications'
 ])->name('superadmin.all-applications');
+
+
+/*
+|--------------------------------------------------------------------------
+| KELOLA APLIKASI
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/superadmin/applications', [
     SuperAdminApplicationController::class,
@@ -64,6 +99,25 @@ Route::post('/superadmin/applications', [
     'store'
 ])->name('superadmin.applications.store');
 
+
+/*
+|--------------------------------------------------------------------------
+| TOGGLE STATUS APLIKASI
+|--------------------------------------------------------------------------
+*/
+
+Route::patch('/superadmin/applications/{application}/toggle-status', [
+    SuperAdminApplicationController::class,
+    'toggleStatus'
+])->name('superadmin.applications.toggle-status');
+
+
+/*
+|--------------------------------------------------------------------------
+| EDIT APLIKASI
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/superadmin/applications/{application}/edit', [
     SuperAdminApplicationController::class,
     'edit'
@@ -73,6 +127,13 @@ Route::put('/superadmin/applications/{application}', [
     SuperAdminApplicationController::class,
     'update'
 ])->name('superadmin.applications.update');
+
+
+/*
+|--------------------------------------------------------------------------
+| HAPUS APLIKASI
+|--------------------------------------------------------------------------
+*/
 
 Route::delete('/superadmin/applications/{application}', [
     SuperAdminApplicationController::class,

@@ -350,6 +350,31 @@ class SuperAdminApplicationController extends Controller
 
     /*
     |--------------------------------------------------------------------------
+    | TOGGLE STATUS
+    |--------------------------------------------------------------------------
+    */
+
+    public function toggleStatus(Application $application)
+    {
+        $application->update([
+            'is_active' => ! $application->is_active,
+        ]);
+
+        return redirect()
+            ->route(
+                'superadmin.applications.index'
+            )
+            ->with(
+                'success',
+                $application->is_active
+                    ? 'Aplikasi berhasil diaktifkan.'
+                    : 'Aplikasi berhasil dinonaktifkan.'
+            );
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
     | DESTROY
     |--------------------------------------------------------------------------
     */
