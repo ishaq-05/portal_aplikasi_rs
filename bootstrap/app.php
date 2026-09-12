@@ -12,12 +12,17 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-    $middleware->alias([
-        'superadmin' => \App\Http\Middleware\SuperAdmin::class,
-    ]);
-})
+        $middleware->alias([
+            'superadmin' => \App\Http\Middleware\SuperAdmin::class,
+        ]);
+
+        $middleware->redirectGuestsTo(
+            fn () => route('superadmin.login')
+        );
+    })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
         );
-    })->create();
+    })
+    ->create();
