@@ -8,6 +8,7 @@ use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\SuperAdminAuthController;
 use App\Http\Controllers\SuperAdminApplicationController;
 use App\Http\Controllers\SuperAdminDashboardController;
+use App\Http\Controllers\SuperAdminAccountController;
 
 
 /*
@@ -139,3 +140,24 @@ Route::delete('/superadmin/applications/{application}', [
     SuperAdminApplicationController::class,
     'destroy'
 ])->name('superadmin.applications.destroy');
+
+
+/*
+|--------------------------------------------------------------------------
+| AKUN SUPER ADMIN
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/superadmin/account', [
+    SuperAdminAccountController::class,
+    'index'
+])
+    ->middleware('auth')
+    ->name('superadmin.account');
+
+Route::put('/superadmin/account', [
+    SuperAdminAccountController::class,
+    'update'
+])
+    ->middleware('auth')
+    ->name('superadmin.account.update');

@@ -267,8 +267,10 @@
     <div class="content-wrapper">
 
         <aside class="sidebar">
+
             <ul class="sidebar-menu">
 
+                {{-- DASHBOARD --}}
                 <li>
                     <a
                         href="{{ route('superadmin.dashboard') }}"
@@ -285,6 +287,8 @@
                     </a>
                 </li>
 
+
+                {{-- KELOLA APLIKASI --}}
                 <li>
                     <a
                         href="{{ route('superadmin.applications.index') }}"
@@ -293,7 +297,7 @@
                         <span class="menu-icon">
                             <svg viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="3"></circle>
-                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-.33-1.82V9a1.65 1.65 0 0 0-1.51 1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-.33-1.82V9a1.65 1.65 0 0 0-1.51 1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a1.65 1.65 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                             </svg>
                         </span>
 
@@ -301,6 +305,8 @@
                     </a>
                 </li>
 
+
+                {{-- SEMUA APLIKASI --}}
                 <li>
                     <a
                         href="{{ route('superadmin.all-applications') }}"
@@ -319,25 +325,50 @@
                     </a>
                 </li>
 
+
+                {{-- AKUN --}}
                 <li>
-    <a href="{{ route('applications.index') }}">
-       <span class="menu-icon">
-        <svg viewBox="0 0 24 24">
-            <polyline points="9 14 4 9 9 4"></polyline>
-            <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
-        </svg>
-    </span>
+                    <a
+                        href="{{ route('superadmin.account') }}"
+                        class="{{ request()->routeIs('superadmin.account*') ? 'active' : '' }}"
+                    >
+                        <span class="menu-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 21a8 8 0 0 0-16 0"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </span>
 
-    <span> Kembali Ke Aplikasi</span>
+                        <span>Akun</span>
+                    </a>
+                </li>
 
-    </a>
-</li>
+
+                {{-- KEMBALI KE APLIKASI --}}
+                <li>
+                    <a href="{{ route('applications.index') }}">
+
+                        <span class="menu-icon">
+                            <svg viewBox="0 0 24 24">
+                                <polyline points="9 14 4 9 9 4"></polyline>
+                                <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
+                            </svg>
+                        </span>
+
+                        <span>Kembali Ke Aplikasi</span>
+
+                    </a>
+                </li>
 
             </ul>
+
         </aside>
 
+
         <main class="main-content">
+
             @yield('content')
+
         </main>
 
     </div>
@@ -347,4 +378,5 @@
 @stack('scripts')
 
 </body>
+
 </html>

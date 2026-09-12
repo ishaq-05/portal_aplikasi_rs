@@ -800,7 +800,7 @@
                 <div class="analysis-card">
 
                     <div class="analysis-card-title">
-                        History Aplikasi
+                        Aplikasi Yang Digunakan
                     </div>
 
                     <div class="analysis-card-number">
