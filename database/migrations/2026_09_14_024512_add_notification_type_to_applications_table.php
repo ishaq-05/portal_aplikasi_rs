@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('applications', function (Blueprint $table) {
-            $table->string('notification_type', 20)
+            $table->string('notification_type')
                 ->nullable()
                 ->after('is_active');
         });

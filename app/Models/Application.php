@@ -13,6 +13,7 @@ class Application extends Model
         'description',
         'icon',
         'is_active',
+        'notification_type',
     ];
 
     /**

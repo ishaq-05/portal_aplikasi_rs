@@ -11,29 +11,24 @@ class ApplicationController extends Controller
     {
         $search = trim($request->input('search', ''));
 
-        /*
-        |--------------------------------------------------------------------------
-        | SEMUA APLIKASI
-        |--------------------------------------------------------------------------
-        */
-
-        $applications = Application::where('is_active', true)
+        $applications = Application::query()
+            ->where('is_active', true)
             ->when($search, function ($query) use ($search) {
-                $query->where('name', 'like', '%' . $search . '%');
+                $query->where(function ($q) use ($search) {
+                    $q->where('name', 'like', '%' . $search . '%')
+                        ->orWhere('description', 'like', '%' . $search . '%');
+                });
             })
             ->orderBy('name')
             ->get();
 
-        /*
-        |--------------------------------------------------------------------------
-        | APLIKASI POPULER
-        |--------------------------------------------------------------------------
-        |
-        | Mengambil 3 aplikasi aktif dengan jumlah klik/kunjungan terbanyak.
-        |
-        */
-
-        $popularApplications = $this->getPopularApplications();
+        $popularApplications = Application::query()
+            ->where('is_active', true)
+            ->withCount('visits')
+            ->orderByDesc('visits_count')
+            ->orderBy('name')
+            ->take(3)
+            ->get();
 
         return view('applications.index', compact(
             'applications',
@@ -42,44 +37,22 @@ class ApplicationController extends Controller
         ));
     }
 
-    /**
-     * Mengambil 3 aplikasi paling populer berdasarkan jumlah klik.
-     */
-    private function getPopularApplications()
+    public function popular()
     {
-        return Application::where('is_active', true)
+        $applications = Application::query()
+            ->where('is_active', true)
             ->withCount('visits')
             ->orderByDesc('visits_count')
             ->orderBy('name')
             ->take(3)
-            ->get();
-    }
+            ->get([
+                'id',
+                'name',
+                'description',
+                'icon',
+                'notification_type',
+            ]);
 
-    /**
-     * API untuk mengambil data aplikasi populer terbaru.
-     *
-     * Digunakan JavaScript agar tampilan user
-     * dapat diperbarui otomatis tanpa refresh halaman.
-     */
-    public function popular()
-    {
-        $popularApplications = $this->getPopularApplications();
-
-        return response()->json(
-            $popularApplications->map(function ($application, $index) {
-                return [
-                    'id' => $application->id,
-                    'rank' => $index + 1,
-                    'name' => $application->name,
-                    'description' => $application->description
-                        ?: 'Aplikasi yang sering digunakan user.',
-                    'icon' => $application->icon
-                        ? asset('storage/' . $application->icon)
-                        : null,
-                    'visits_count' => $application->visits_count,
-                    'url' => route('applications.open', $application),
-                ];
-            })->values()
-        );
+        return response()->json($applications);
     }
 }

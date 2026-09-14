@@ -40,6 +40,41 @@
             object-fit: contain;
         }
 
+        /* Badge pemberitahuan pada kartu aplikasi */
+        .popular-card,
+        .app-card {
+            position: relative;
+        }
+
+        .application-notification-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 48px;
+            height: 24px;
+            padding: 0 9px;
+            border-radius: 999px;
+            background: #0d8a72;
+            color: #ffffff;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .35px;
+            box-shadow: 0 2px 7px rgba(0,0,0,.14);
+        }
+
+        .application-notification-badge.update {
+            background: #2563eb;
+        }
+
+        .popular-card .application-notification-badge {
+            top: 10px;
+            right: 10px;
+        }
+
         @media (max-width: 800px) {
             .header .logo-img {
                 width: 165px !important;
@@ -151,6 +186,12 @@
                             data-application-id="{{ $application->id }}"
                         >
 
+                            @if($application->notification_type === 'new')
+                                <span class="application-notification-badge">NEW</span>
+                            @elseif($application->notification_type === 'updated')
+                                <span class="application-notification-badge update">UPDATE</span>
+                            @endif
+
                             <div class="popular-card-top">
 
                                 @if($application->icon)
@@ -221,6 +262,12 @@
                     @forelse($applications as $application)
 
                         <div class="app-card">
+
+                            @if($application->notification_type === 'new')
+                                <span class="application-notification-badge">NEW</span>
+                            @elseif($application->notification_type === 'updated')
+                                <span class="application-notification-badge update">UPDATE</span>
+                            @endif
 
                             <div class="app-card-header">
 
@@ -484,6 +531,14 @@
                                     class="popular-card"
                                     data-application-id="${application.id}"
                                 >
+
+                                    ${
+                                        application.notification_type === 'new'
+                                            ? '<span class="application-notification-badge">NEW</span>'
+                                            : application.notification_type === 'updated'
+                                                ? '<span class="application-notification-badge update">UPDATE</span>'
+                                                : ''
+                                    }
 
                                     <div class="popular-card-top">
                                         ${logo}

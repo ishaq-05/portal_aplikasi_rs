@@ -238,6 +238,36 @@
         display: none !important;
     }
 
+
+    /* Badge pemberitahuan aplikasi */
+    .application-card {
+        position: relative;
+    }
+
+    .application-notification-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 20;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 48px;
+        height: 24px;
+        padding: 0 9px;
+        border-radius: 999px;
+        background: #0d8a72;
+        color: #ffffff;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: .35px;
+        box-shadow: 0 2px 7px rgba(0, 0, 0, .14);
+    }
+
+    .application-notification-badge.update {
+        background: #2563eb;
+    }
+
     /* Bagian Atas: Logo (Putih - 50%) */
     .application-logo {
         width: 100%;
@@ -590,6 +620,13 @@
                             data-name="{{ strtolower($application->name) }}"
                             data-description="{{ strtolower($application->description ?? '') }}"
                         >
+
+                            @if($application->notification_type === 'new')
+                                <span class="application-notification-badge">NEW</span>
+                            @elseif($application->notification_type === 'updated')
+                                <span class="application-notification-badge update">UPDATE</span>
+                            @endif
+
                             <div class="application-logo">
                                 @if($application->icon)
                                     <img

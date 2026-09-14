@@ -284,6 +284,48 @@
         color: #1f2937;
     }
 
+
+    /* Pemberitahuan aplikasi */
+    .notification-box {
+        width: 100%;
+        border: 1px solid #d1d5db;
+        border-radius: 12px;
+        background: #ffffff;
+        padding: 14px 16px;
+    }
+
+    .notification-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        font-size: 13px;
+        color: #1f2937;
+    }
+
+    .notification-option:last-child {
+        margin-bottom: 0;
+    }
+
+    .notification-option input {
+        width: 16px;
+        height: 16px;
+        accent-color: #0d8a72;
+        cursor: pointer;
+    }
+
+    .notification-option span {
+        font-weight: 600;
+    }
+
+    .notification-option small {
+        color: #9ca3af;
+        font-size: 11px;
+        font-weight: 400;
+        margin-left: 3px;
+    }
+
     /* Footer & Buttons */
     .form-footer {
         padding: 20px 45px 35px;
@@ -455,6 +497,48 @@
                     <label for="description" class="form-label">Deskripsi Aplikasi</label>
                     <textarea id="description" name="description" class="form-control">{{ old('description', $application->description) }}</textarea>
                     @error('description')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
+                </div>
+
+
+                <!-- Pemberitahuan Aplikasi -->
+                <div class="form-group">
+                    <label class="form-label">Pemberitahuan Aplikasi</label>
+
+                    <div class="notification-box">
+                        <label class="notification-option">
+                            <input
+                                type="radio"
+                                name="notification_type"
+                                value=""
+                                {{ old('notification_type', $application->notification_type) === null || old('notification_type', $application->notification_type) === '' ? 'checked' : '' }}
+                            >
+                            <span>Tidak ada pemberitahuan</span>
+                        </label>
+
+                        <label class="notification-option">
+                            <input
+                                type="radio"
+                                name="notification_type"
+                                value="new"
+                                {{ old('notification_type', $application->notification_type) === 'new' ? 'checked' : '' }}
+                            >
+                            <span>NEW <small>Aplikasi Baru</small></span>
+                        </label>
+
+                        <label class="notification-option">
+                            <input
+                                type="radio"
+                                name="notification_type"
+                                value="updated"
+                                {{ old('notification_type', $application->notification_type) === 'updated' ? 'checked' : '' }}
+                            >
+                            <span>UPDATE <small>Aplikasi Diperbarui</small></span>
+                        </label>
+                    </div>
+
+                    @error('notification_type')
                         <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
