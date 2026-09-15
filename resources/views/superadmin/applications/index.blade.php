@@ -7,9 +7,10 @@
 
 <style>
 
-    * {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-    }
+    .page-wrapper,
+.page-wrapper * {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
 
     .page-wrapper {
