@@ -9,18 +9,48 @@ class ApplicationController extends Controller
 {
     public function index(Request $request)
     {
-        $search = trim($request->input('search', ''));
+        $search = trim(
+            $request->input('search', '')
+        );
 
         $applications = Application::query()
             ->where('is_active', true)
             ->when($search, function ($query) use ($search) {
                 $query->where(function ($q) use ($search) {
-                    $q->where('name', 'like', '%' . $search . '%')
-                        ->orWhere('description', 'like', '%' . $search . '%');
+                    $q->where(
+                        'name',
+                        'like',
+                        '%' . $search . '%'
+                    )
+                    ->orWhere(
+                        'description',
+                        'like',
+                        '%' . $search . '%'
+                    );
                 });
             })
             ->orderBy('name')
             ->get();
+
+        /*
+        |--------------------------------------------------------------------------
+        | PEMBERITAHUAN AKTIF
+        |--------------------------------------------------------------------------
+        |
+        | Badge hanya boleh muncul jika:
+        |
+        | 1. notification_type ada
+        | 2. notification_expires_at belum lewat
+        |
+        */
+
+        foreach ($applications as $application) {
+            if (
+                !$application->hasActiveNotification()
+            ) {
+                $application->notification_type = null;
+            }
+        }
 
         $popularApplications = Application::query()
             ->where('is_active', true)
@@ -30,11 +60,22 @@ class ApplicationController extends Controller
             ->take(3)
             ->get();
 
-        return view('applications.index', compact(
-            'applications',
-            'popularApplications',
-            'search'
-        ));
+        foreach ($popularApplications as $application) {
+            if (
+                !$application->hasActiveNotification()
+            ) {
+                $application->notification_type = null;
+            }
+        }
+
+        return view(
+            'applications.index',
+            compact(
+                'applications',
+                'popularApplications',
+                'search'
+            )
+        );
     }
 
     public function popular()
@@ -51,8 +92,25 @@ class ApplicationController extends Controller
                 'description',
                 'icon',
                 'notification_type',
+                'notification_expires_at',
             ]);
 
-        return response()->json($applications);
+        /*
+        |--------------------------------------------------------------------------
+        | HANYA TAMPILKAN BADGE YANG MASIH BERLAKU
+        |--------------------------------------------------------------------------
+        */
+
+        foreach ($applications as $application) {
+            if (
+                !$application->hasActiveNotification()
+            ) {
+                $application->notification_type = null;
+            }
+        }
+
+        return response()->json(
+            $applications
+        );
     }
 }
