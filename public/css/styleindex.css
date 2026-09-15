@@ -1,3 +1,18 @@
+/* =========================
+   GENERAL & SMOOTH SCROLL
+========================= */
+
+html {
+    scroll-behavior: smooth; /* TAMBAHAN: Efek scroll halus */
+}
+
+/* TAMBAHAN: Jarak offset scroll agar judul tidak tertutup header */
+#beranda,
+#aplikasi-populer,
+#semua-aplikasi {
+    scroll-margin-top: 45px;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
